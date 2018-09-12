@@ -1,6 +1,6 @@
 package controller;
 
-public class Greeting {
+public class Greeting { //seda klassi pole tegelt enam vaja
 
     private final long id;
     private final String content;
