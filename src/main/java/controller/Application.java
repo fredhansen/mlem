@@ -11,3 +11,5 @@ public class Application {
 }
 
 // TESTKESKKONNAS root kaustas 'java -jar mlem/build/libs/mlem-0.0.1.jar'
+
+// TESTKESKKONNA IP http://159.65.205.181/
