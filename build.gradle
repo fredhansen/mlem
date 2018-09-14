@@ -15,9 +15,13 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'application'
+
+mainClassName = 'controller.Application'
+
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -35,6 +39,9 @@ dependencies {
 
     // MySQL Connector-J
     compile 'mysql:mysql-connector-java'
+
+	// JAXB
+	compile 'javax.xml.bind:jaxb-api:2.3.0'
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 

@@ -9,3 +9,5 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 }
+
+// TESTKESKKONNAS root kaustas 'java -jar mlem/build/libs/mlem-0.0.1.jar'
