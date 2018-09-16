@@ -1,4 +1,4 @@
-package controller;
+package application.controller;
 
 public class Greeting { //seda klassi pole tegelt enam vaja
 
