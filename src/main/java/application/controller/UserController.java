@@ -17,7 +17,7 @@ public class UserController {
 
     @GetMapping(path = "/adduser") // http://159.65.205.181:8080/users/adduser (whitelabel)
     public @ResponseBody
-    String addNewUser(@RequestParam String username, @RequestParam String password) {
+    String addNewUser(@RequestParam String username, @RequestParam String password) { // todo tuleb kontrollida, kas olemas juba selle usernameiga
         // http://159.65.205.181:8080/users/adduser?username=testuser1&password=testuser1 (saab lisada andmebaasi usereid)
 
         User newuser = new User();
@@ -27,10 +27,23 @@ public class UserController {
         return "User added";
     }
 
-    @GetMapping(path = "/all") // http://159.65.205.181:8080/users/all (näitab kõiki usereid ja passworde, ilmselgelt ei ole ohutu)
+    @GetMapping(path = "/all")
+    // http://159.65.205.181:8080/users/all (näitab kõiki usereid ja passworde, todo ilmselgelt ei ole ohutu)
     public @ResponseBody
     Iterable<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @GetMapping(path = "/byname")
+    public @ResponseBody
+    User getUser(@RequestParam String username) {
+        return userRepository.getUserByName(username);
+    }
+
+    @GetMapping(path = "/jobsby")
+    public @ResponseBody
+    Iterable<Object[]> getJobsByUser(@RequestParam String username) {
+        return userRepository.getJobsBy(username);
     }
 
 

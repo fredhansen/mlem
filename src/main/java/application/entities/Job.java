@@ -1,34 +1,36 @@
 package application.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "jobs_user")
 public class Job {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer jobId;
 
-    private String username; // TODO see võiks olla hoopis tellimust loova useri ID
+    //@Column(name = "userId")
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name = "fk_user_to_job", referencedColumnName = "userId")
+    private User user;
 
+    @Column(nullable = false)
     private String jobdescription;
 
-    public Integer getId() {
-        return id;
+    public Integer getJobId() {
+        return jobId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setJobId(Integer jobId) {
+        this.jobId = jobId;
     }
 
-    public String getUsername() {
-        return username;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getJobdescription() {
