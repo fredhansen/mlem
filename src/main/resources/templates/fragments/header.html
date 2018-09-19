@@ -5,8 +5,12 @@
 
 </head>
 <body>
-
 <div th:fragment="header">
+    <div>
+        <p>
+        <img th:src="@{/img/WeldGroup.png}" />
+        </p>
+    </div>
     <nav>
         <ul>
             <a href="" th:text="#{home_page}"></a>
@@ -14,7 +18,15 @@
             <a href=""th:text="#{services_page}">Services</a>
             <a href=""th:text="#{shop_page}">Shop</a>
             <a href=""th:text="#{contatc_page}">Contact</a>
+            <a href="/?lang=en" th:text="#{lang.en}"></a>
+            <a href="/?lang=et" th:text="#{lang.et}"></a>
+            <a href="/?lang=ru" th:text="#{lang.ru}"></a>
+            <form action="" method="get">
+                <input name="s" th:placeholder="#{search_form}" type="search">
+                <button type = "submit" th:text="#{search_button}"></button>
+            </form>
         </ul>
+
     </nav>
 </div>
 </body>
