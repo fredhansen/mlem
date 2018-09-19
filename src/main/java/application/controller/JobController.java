@@ -34,7 +34,7 @@ public class JobController {
 
     @GetMapping(path = "/all") // todo hetkel annab errori
     public @ResponseBody
-    Iterable<Job> getAllUsers() {
+    Iterable<Job> getAllJobs() {
         return jobRepository.findAll();
     }
 

@@ -42,6 +42,10 @@ dependencies {
 
 	// JAXB
 	compile 'javax.xml.bind:jaxb-api:2.3.0'
+
+	// thymeleaf
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 
