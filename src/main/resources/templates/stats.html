@@ -1,10 +1,12 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:lang="#{language-code}">
+<meta charset="UTF-8">
+
 <head>
-    <title>Contact</title>
+    <title th:text="#{page_title}"></title>
 </head>
 <body>
-
 <div th:replace="fragments/header :: header">
 </div>
 
