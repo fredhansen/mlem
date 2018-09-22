@@ -46,6 +46,9 @@ dependencies {
 	// thymeleaf
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 
+	// useragent
+    compile('com.blueconic:browscap-java')
+
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 

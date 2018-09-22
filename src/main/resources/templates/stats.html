@@ -10,7 +10,22 @@
 <div th:replace="fragments/header :: header">
 </div>
 
-Sisu
+<div>
+    <table border="1">
+        <tr>
+            <th>OS</th>
+            <th>Browser</th>
+            <th>Device type</th>
+
+        </tr>
+        <tr th:each ="stat : ${stats}">
+            <td th:utext="${stat.operatingSystem}">...</td>
+            <td th:utext="${stat.browser}">...</td>
+            <td th:utext="${stat.deviceType}">...</td>
+
+        </tr>
+    </table>
+</div>
 
 
 <div th:replace="fragments/footer :: footer">
