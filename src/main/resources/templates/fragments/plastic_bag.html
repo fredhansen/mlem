@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:display="http://www.w3.org/1999/xhtml">
+<LINK href="/css/products.css" rel="stylesheet" type="text/css">
+
+<body>
+<div th:fragment="plastic_bag">
+    <div class="plas_bag">
+        <p><img th:src="@{/img/plastic_bag/plastic_plain.png}" width="50%" height="50%" alt="" /></p>
+        <p class="caption" th:text="#{vac_plain}"></p>
+    </div>
+    <div class="plas_bag">
+        <p><img th:src="@{/img/plastic_bag/plastic_text.png}" width="50%" height="50%" alt="" /></p>
+        <p class="caption" th:text="#{vac_prited}"></p>
+    </div></div>
+</div>
+</body>
+</html>

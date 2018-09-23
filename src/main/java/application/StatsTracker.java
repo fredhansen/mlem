@@ -1,6 +1,7 @@
 package application;
 
 
+
 import application.entities.Stats;
 import application.repo.StatsRepository;
 import eu.bitwalker.useragentutils.Browser;

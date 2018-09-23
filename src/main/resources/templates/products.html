@@ -2,17 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Products</title>
+    <link href="/css/products.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" th:src="@{/js/products.js}" src="/js/products.js" ></script>
+
 </head>
 <body>
 
 <div th:replace="fragments/header :: header">
 </div>
-
-Sisu
-
-
-<div th:replace="fragments/footer :: footer">
+<div>
+    <ul>
+            <li><a id="vacID" href="#" onclick="showVacPouch()" th:text="#{vacuum_pouch}" ></a></li>
+            <li><a id="plID" href="#" th:text="#{plastic_bag}"></a></li>
+            <li><a href="#" th:text="#{packag_materials}"></a></li>
+    </ul>
 </div>
 
+<div th:replace="fragments/vacuum_pouches :: vacuum_pouches"></div>
+
+<div id="div2" th:replace="fragments/plastic_bag :: plastic_bag"></div>
+<div th:replace="fragments/footer :: footer">
+
+</div>
 </body>
 </html>
