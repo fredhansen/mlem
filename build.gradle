@@ -17,7 +17,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'application'
 
-mainClassName = 'controller.Application'
+mainClassName = 'application.Application'
 
 
 group = 'com.example'
@@ -47,7 +47,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 
 	// useragent
-    compile('com.blueconic:browscap-java')
+    compile('eu.bitwalker:UserAgentUtils:1.21')
 
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
