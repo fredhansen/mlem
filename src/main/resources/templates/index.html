@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
         th:lang="#{language-code}">
-<meta charset="UTF-8">
-
+<meta charset="utf-8"/>
 <head>
     <title th:text="#{page_title}"></title>
 </head>
@@ -10,7 +9,7 @@
 <div th:replace="fragments/header :: header">
 </div>
 
-<div th:utext="#{home_page_text}"></div>
+<p th:text="#{home_page_text}"></p>
 
 
 <div th:replace="fragments/footer :: footer">
