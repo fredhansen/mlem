@@ -2,31 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:display="http://www.w3.org/1999/xhtml">
 <LINK href="/css/products.css" rel="stylesheet" type="text/css">
 <body>
-<div th:fragment="vacuum_pouches">
-    <div class="vac_pouc">
-        <p><img th:src="@{/img/vacuum_pouch/vacuum_plain.png}" width="30%" height="30%" alt="" /></p>
-        <p class="caption" th:text="#{vac_plain}"></p>
+
+<div id="vac_pouches" th:fragment="vacuum_pouches">
+        <div class="vac_pouc">
+            <p><img th:src="@{/img/vacuum_pouch/vacuum_plain.png}" width="30%" height="30%" alt="" /></p>
+            <p class="caption" th:text="#{vac_plain}"></p>
+        </div>
+        <div class="vac_pouc">
+            <p><img th:src="@{/img/vacuum_pouch/vacuum_text.png}" width="30%" height="30%" alt="" /></p>
+            <p class="caption" th:text="#{vac_prited}"></p>
+        </div>
+        <div class="vac_pouc">
+            <p><img th:src="@{/img/vacuum_pouch/vacuum_with_a_hole.png}" width="30%" height="30%" alt="" /></p>
+            <p class="caption" th:text="#{vac_with_a_hole}"></p>
+        </div>
+        <div class="vac_pouc">
+            <p><img th:src="@{/img/vacuum_pouch/vacuum_with_a_tear.png}"  width="30%" height="30%" alt="" /></p>
+            <p class="caption" th:text="#{vac_with_a_tear}"></p>
+        </div>
+        <div class="vac_pouc">
+            <p><img th:src="@{/img/vacuum_pouch/vacuum_with_something.png}" width="30%" height="30%" alt="" /></p>
+            <p class="caption" th:text="#{vac_with_something}"></p>
+        </div>
+        <div class="vac_pouc">
+            <p><img th:src="@{/img/vacuum_pouch/vacuum_premium.png}" width="30%" height="30%" alt="" /></p>
+            <p class="caption" th:text="#{vac_premium}"></p>
+        </div>
     </div>
-    <div class="vac_pouc">
-        <p><img th:src="@{/img/vacuum_pouch/vacuum_text.png}" width="30%" height="30%" alt="" /></p>
-        <p class="caption" th:text="#{vac_prited}"></p>
-    </div>
-    <div class="vac_pouc">
-        <p><img th:src="@{/img/vacuum_pouch/vacuum_with_a_hole.png}" width="30%" height="30%" alt="" /></p>
-        <p class="caption" th:text="#{vac_with_a_hole}"></p>
-    </div>
-    <div class="vac_pouc">
-        <p><img th:src="@{/img/vacuum_pouch/vacuum_with_a_tear.png}"  width="30%" height="30%" alt="" /></p>
-        <p class="caption" th:text="#{vac_with_a_tear}"></p>
-    </div>
-    <div class="vac_pouc">
-        <p><img th:src="@{/img/vacuum_pouch/vacuum_with_something.png}" width="30%" height="30%" alt="" /></p>
-        <p class="caption" th:text="#{vac_with_something}"></p>
-    </div>
-    <div class="vac_pouc">
-        <p><img th:src="@{/img/vacuum_pouch/vacuum_premium.png}" width="30%" height="30%" alt="" /></p>
-        <p class="caption" th:text="#{vac_premium}"></p>
-    </div>
-</div>
 </body>
-</html>

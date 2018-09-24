@@ -12,15 +12,15 @@
 </div>
 <div>
     <ul>
-            <li><a id="vacID" href="#" onclick="showVacPouch()" th:text="#{vacuum_pouch}" ></a></li>
-            <li><a id="plID" href="#" th:text="#{plastic_bag}"></a></li>
-            <li><a href="#" th:text="#{packag_materials}"></a></li>
+            <li><a href="#" onclick="vacuumPouches()" th:text="#{vacuum_pouch}" ></a></li>
+            <li><a href="#" onclick="plasticBags()" th:text="#{plastic_bag}"></a></li>
+            <li><a href="#" onclick="packMaterial()" th:text="#{packag_materials}"></a></li>
     </ul>
 </div>
 
 <div th:replace="fragments/vacuum_pouches :: vacuum_pouches"></div>
-
-<div id="div2" th:replace="fragments/plastic_bag :: plastic_bag"></div>
+<div th:replace="fragments/pack_material :: pack_material"></div>
+<div th:replace="fragments/plastic_bag :: plastic_bag"></div>
 <div th:replace="fragments/footer :: footer">
 
 </div>
