@@ -5,6 +5,14 @@
 </head>
 <body>
 <div th:fragment="footer">
+    <nav>
+        <ul>
+            <a href="/?lang=en" th:text="#{lang.en}"></a>
+            <a href="/?lang=et" th:text="#{lang.et}"></a>
+            <a href="/stats" th:text="#{statistics}"></a>
+
+        </ul>
+    </nav>
 </div>
 </body>
 </html>
