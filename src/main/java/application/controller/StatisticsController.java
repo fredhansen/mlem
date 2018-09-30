@@ -15,6 +15,7 @@ public class StatisticsController {
     @RequestMapping("/stats")
     public String stats(Model model) {
         model.addAttribute("stats", statsRepository.findAll());
+        model.addAttribute("statsCount", statsRepository.findCount());
         return "stats";
     }
 
