@@ -5,12 +5,20 @@
 
 <head>
     <title th:text="#{page_title}"></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
 </head>
 <body>
 <div th:replace="fragments/header :: header">
 </div>
 
 <div th:text="#{visitor_number} + ': ' + ${statsCount}"></div>
+
+<!--<div>
+    <canvas id="osChart" width="400" height="255"></canvas>
+</div>--> <!--/*todo andmed siia*/-->
+
+
 
 <div>
     <table border="1">
@@ -25,9 +33,48 @@
             <td th:utext="${stat.browser}">...</td>
             <td th:utext="${stat.deviceType}">...</td>
 
+
         </tr>
     </table>
 </div>
+
+
+
+
+
+
+
+
+
+<!--
+<script src="/js/OSstats.js"></script>
+-->
+<script>
+    var osNames = ["Windows", "Mac OS X", "Android", "Linux", "iOS", "Other"];
+    var osSet = [
+        {
+            label: "OS",
+            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#64CD3D"],
+            data: [2478,5267,734,784,433,3333]
+        }
+    ];
+
+    var osChart = new Chart(document.getElementById("osChart"), {
+        type: 'polarArea',
+        data: {
+            labels: osNames,
+            datasets: osSet
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'OS'
+            }
+        }
+    });
+</script>
+
+
 
 
 <div th:replace="fragments/footer :: footer">
@@ -35,3 +82,4 @@
 
 </body>
 </html>
+
