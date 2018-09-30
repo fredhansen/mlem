@@ -8,23 +8,27 @@
 <div th:fragment="header">
     <div>
         <p>
-        <img th:src="@{/img/WeldGroup.png}" />
+            <img th:src="@{/img/WeldGroup.png}"/>
         </p>
     </div>
     <nav>
         <ul>
             <a href="/" th:text="#{home_page}"></a>
-            <a href="/products"th:text="#{products_page}">Products</a>
-            <a href="/services"th:text="#{services_page}">Services</a>
-            <a href=""th:text="#{shop_page}">Shop</a>
-            <a href="/contact"th:text="#{contatc_page}">Contact</a>
+            <a href="/products" th:text="#{products_page}">Products</a>
+            <a href="/services" th:text="#{services_page}">Services</a>
+            <a href="/shop" th:text="#{shop_page}">Shop</a>
+            <a href="/contact" th:text="#{contatc_page}">Contact</a>
             <form action="" method="get">
                 <input name="s" th:placeholder="#{search_form}" type="search">
-                <button type = "submit" th:text="#{search_button}"></button>
+                <button type="submit" th:text="#{search_button}"></button>
             </form>
         </ul>
 
     </nav>
+
+   <!-- <div th:replace="fragments/login :: login"></div>-->
+
+
 </div>
 </body>
 </html>

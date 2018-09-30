@@ -39,9 +39,9 @@ public class StatsTracker implements Filter {
 
         DeviceType deviceType = userAgent.getOperatingSystem().getDeviceType();
 
-        System.out.print(operatingSystem);
+        /*System.out.print(operatingSystem);
         System.out.print(browser);
-        System.out.println(deviceType);
+        System.out.println(deviceType);*/
 
         Stats stats = new Stats();
         stats.setOperatingSystem(operatingSystem);
