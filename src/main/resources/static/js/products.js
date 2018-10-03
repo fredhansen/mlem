@@ -28,7 +28,7 @@ function packMaterial(){
     hideLoop(elements2);
     hideLoop(elements3);
 }
-
+/*
 function hideLoop(elements) {
     for (var i = 0; i < elements.length; i++){
         elements[i].style.display = "none";
@@ -41,3 +41,4 @@ function showLoop(elements){
     }
 }
 
+*/

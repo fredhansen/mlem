@@ -20,7 +20,8 @@ public class Application extends WebMvcConfigurerAdapter {
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver slr = new SessionLocaleResolver();
-        slr.setDefaultLocale(Locale.ENGLISH);
+        Locale localeEstonian = new Locale("et", "ET");
+        slr.setDefaultLocale(localeEstonian);
         return slr;
     }
     @Bean
