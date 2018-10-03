@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+
 <head>
 
 </head>
 <body>
-<div th:fragment="header">
+<div   th:fragment="header">
     <div>
         <p>
             <img th:src="@{/img/WeldGroup.png}"/>
         </p>
     </div>
-    <nav>
+    <nav id="header">
         <ul>
             <a href="/" th:text="#{home_page}"></a>
             <a href="/products" th:text="#{products_page}">Products</a>
             <a href="/services" th:text="#{services_page}">Services</a>
             <a href="/shop" th:text="#{shop_page}">Shop</a>
             <a href="/contact" th:text="#{contact_page}">Contact</a>
-            <form action="" method="get">
+            <!--<form action="" method="get">
                 <input name="s" th:placeholder="#{search_form}" type="search">
                 <button type="submit" th:text="#{search_button}"></button>
             </form>
+            -->
         </ul>
 
     </nav>
-
    <!-- <div th:replace="fragments/login :: login"></div>-->
-
 
 </div>
 </body>

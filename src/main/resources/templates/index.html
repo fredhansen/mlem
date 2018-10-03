@@ -2,6 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org"
         th:lang="#{language-code}">
 <meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+
+
 <head th:replace="fragments/header :: header">
     <title th:text="#{page_title}"></title>
 </head>
@@ -11,7 +15,7 @@
 
 </div>-->
 
-<p th:text="#{home_page_text}"></p>
+<p id="content" th:text="#{home_page_text}"></p>
 
 
 <div th:replace="fragments/footer :: footer">

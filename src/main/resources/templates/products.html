@@ -4,13 +4,14 @@
     <title>Products</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/products.css}">
     <script type="text/javascript" th:src="@{/js/products.js}" src="/js/products.js" ></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
 
 </head>
 <body>
 
 <div th:replace="fragments/header :: header">
 </div>
-<div>
+<div id="sidebar">
     <ul>
             <li><a href="/products/vac" th:text="#{vacuum_pouch}" ></a></li>
             <li><a href="/products/bags" th:text="#{plastic_bag}"></a></li>
@@ -19,7 +20,7 @@
 </div>
 
 <!--<div th:replace="fragments/vacuum_pouches :: vacuum_pouches"></div> -->
-<div>
+<div id="products">
     <div class="products_view" th:each="product : ${products}">
         <div class="vac_pouc">
             <p><img th:src="${product.getPilt()}" width="30%" height="30%" alt="" /></p>
@@ -40,8 +41,8 @@
     </div>
 </div>
 <!--<div th:replace="fragments/pack_material :: pack_material"></div>
-<div th:replace="fragments/plastic_bag :: plastic_bag"></div>
-<div th:replace="fragments/footer :: footer"> -->
+<div th:replace="fragments/plastic_bag :: plastic_bag"></div> -->
+<div th:replace="fragments/footer :: footer">
 
 </body>
 </html>
