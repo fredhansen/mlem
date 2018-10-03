@@ -31,6 +31,11 @@ public class ProductsController {
         model.addAttribute("products", productRepository.findAll());
         return "products";
     }
+    @RequestMapping(path = "/products/bags", method = RequestMethod.GET)
+    public String showBags(Model model){
+        model.addAttribute("products", productRepository.findAllByKategooriaId(2L));
+        return "products";
+    }
 
 
 
