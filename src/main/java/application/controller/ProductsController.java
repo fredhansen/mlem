@@ -28,13 +28,19 @@ public class ProductsController {
 
     @RequestMapping(path = "/products/vac", method = RequestMethod.GET)
     public String showVacuum(Model model){
-        model.addAttribute("products", productRepository.findAll());
+        model.addAttribute("products", productRepository.getAllByKategooriaId(1));
         return "products";
     }
 
     @RequestMapping(path = "/products/bags", method = RequestMethod.GET)
     public String showBags(Model model){
         model.addAttribute("products", productRepository.getAllByKategooriaId(2));
+        return "products";
+    }
+
+    @RequestMapping(path = "/products/plastic", method = RequestMethod.GET)
+    public String showPlastic(Model model){
+        model.addAttribute("products", productRepository.getAllByKategooriaId(3));
         return "products";
     }
 

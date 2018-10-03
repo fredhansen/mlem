@@ -14,33 +14,30 @@
     <ul>
             <li><a href="/products/vac" th:text="#{vacuum_pouch}" ></a></li>
             <li><a href="/products/bags" th:text="#{plastic_bag}"></a></li>
-            <li><a href="/products" th:text="#{packag_materials}"></a></li>
+            <li><a href="/products/plastic" th:text="#{packag_materials}"></a></li>
     </ul>
 </div>
 
 <!--<div th:replace="fragments/vacuum_pouches :: vacuum_pouches"></div> -->
 <div>
-    <div th:each="product : ${products}">
+    <div class="products_view" th:each="product : ${products}">
         <div class="vac_pouc">
             <p><img th:src="${product.getPilt()}" width="30%" height="30%" alt="" /></p>
             <p class="caption" th:text="${product.getTag()}"></p>
         </div>
     </div>
-    <div th:each="product : ${products}">
+    <div class="products_view" th:each="product : ${products}">
         <div class="plastic_bag">
             <p><img th:src="${product.getPilt()}" width="30%" height="30%" alt="" /></p>
             <p class="caption" th:text="${product.getTag()}"></p>
         </div>
     </div>
-    <div th:each="product : ${products}">
+    <div class="products_view" th:each="product : ${products}">
         <div class="pack_material">
             <p><img th:src="${product.getPilt()}" width="30%" height="30%" alt="" /></p>
             <p class="caption" th:text="${product.getTag()}"></p>
         </div>
     </div>
-</div>
-<div>
-
 </div>
 <!--<div th:replace="fragments/pack_material :: pack_material"></div>
 <div th:replace="fragments/plastic_bag :: plastic_bag"></div>

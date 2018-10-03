@@ -1,20 +1,23 @@
 .vac_pouc {
-    width: 30%;
+    width: 25%;
     height: 10%;
-    display: inline-block;
+    display: inline-block
 }
 
 .plastic_bag {
     width: 25%;
     height: 10%;
-    display: inline-block;
+    display: inline-block
 }
 .pack_material {
     width: 25%;
     height: 10%;
-    display: inline-block;
+    display: inline-block
 }
 
+.products_view {
+    display: inline-block;
+}
 
 
 
