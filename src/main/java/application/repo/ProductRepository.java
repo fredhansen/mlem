@@ -12,5 +12,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query(value="SELECT * FROM tooted WHERE kategooriaId=?1", nativeQuery = true)
     List<Product> getAllByKategooriaId(int number);
+
 }
 
