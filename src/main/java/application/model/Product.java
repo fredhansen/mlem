@@ -14,7 +14,7 @@ public class Product {
 
     private String Nimi;
 
-    private Long KategooriaId;
+    private int kategooriaId;
 
     private String Tag;
 
@@ -34,8 +34,8 @@ public class Product {
         return Nimi;
     }
 
-    public Long getKategooriaId() {
-        return KategooriaId;
+    public int getKategooriaId() {
+        return kategooriaId;
     }
 
     public String getTag() {
@@ -63,7 +63,7 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", Nimi='" + Nimi + '\'' +
-                ", KategooriaId=" + KategooriaId +
+                ", KategooriaId=" + kategooriaId +
                 ", Tag='" + Tag + '\'' +
                 ", Kirjeldus='" + Kirjeldus + '\'' +
                 ", pilt='" + pilt + '\'' +
