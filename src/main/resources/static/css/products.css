@@ -1,21 +1,11 @@
-.vac_pouc {
-    width: 25%;
-    height: 10%;
-    display: inline-block
-}
-
-.plastic_bag {
-    width: 25%;
-    height: 10%;
-    display: inline-block
-}
-.pack_material {
-    width: 25%;
-    height: 10%;
-    display: inline-block
-}
 
 .products_view {
+    display: inline-block;
+}
+
+.product {
+    width: 70%;
+    height: 70%;
     display: inline-block;
 }
 
@@ -24,7 +14,6 @@
     height: 100%;
     background: #333;
 }
-
 
 #sidebar ul li {
     list-style:none;

@@ -22,24 +22,15 @@
 <!--<div th:replace="fragments/vacuum_pouches :: vacuum_pouches"></div> -->
 <div id="products">
     <div class="products_view" th:each="product : ${products}">
-        <div class="vac_pouc">
-            <p><img th:src="${product.getPilt()}" width="30%" height="30%" alt="" /></p>
-            <p class="caption" th:text="${product.getTag()}"></p>
-        </div>
-    </div>
-    <div class="products_view" th:each="product : ${products}">
-        <div class="plastic_bag">
-            <p><img th:src="${product.getPilt()}" width="30%" height="30%" alt="" /></p>
-            <p class="caption" th:text="${product.getTag()}"></p>
-        </div>
-    </div>
-    <div class="products_view" th:each="product : ${products}">
-        <div class="pack_material">
-            <p><img th:src="${product.getPilt()}" width="30%" height="30%" alt="" /></p>
-            <p class="caption" th:text="${product.getTag()}"></p>
-        </div>
+         <a href="#">
+            <div class="product">
+                <p><img th:src="${product.getPilt()}" width="30%" height="30%" alt="" /></p>
+                <p class="caption" th:text="${product.getTag()}"></p>
+            </div>
+         </a>
     </div>
 </div>
+
 <!--<div th:replace="fragments/pack_material :: pack_material"></div>
 <div th:replace="fragments/plastic_bag :: plastic_bag"></div> -->
 <div th:replace="fragments/footer :: footer">
