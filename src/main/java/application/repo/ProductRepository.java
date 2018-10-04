@@ -1,17 +1,16 @@
 package application.repo;
 
-import application.model.Product;
-import org.springframework.data.jpa.repository.JpaRepository;
+import application.entities.Product;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ProductRepository extends JpaRepository<Product, Long> {
-    //Select * from tooted
-    List<Product> findAll();
+public interface ProductRepository extends CrudRepository<Product, Long> {
 
-    @Query(value="SELECT * FROM tooted WHERE kategooriaId=?1", nativeQuery = true)
-    List<Product> getAllByKategooriaId(int number);
+    @Query(value="SELECT * FROM products WHERE category_Id=(:number)", nativeQuery = true)
+    List<Product> getAllByCategoryId(@Param("number") int number);
 
 }
 
