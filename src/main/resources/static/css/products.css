@@ -12,25 +12,29 @@
 #sidebar {
     width: 15%;
     height: 100%;
-    background: #333;
+    background: #333333;
 }
 
 #sidebar ul li {
-    list-style:none;
-    border-bottom: 1px solid rgba(100,100,100,0.3);
+    list-style: none;
+    border-bottom: 1vw solid rgba(100, 100, 100, 0.3);
     padding: 2%;
     margin-right: 0.5%;
 }
+
 #sidebar * {
-    font-family: "Segoe UI";
+    font-family: "Segoe UI", sans-serif;
     color: white;
 }
+
 #sidebar a {
     padding: 0.8% 0.8%;
 }
+
 #sidebar a:hover {
-    background-color: green;
+    background-color: #2064af;
 }
+
 #products {
     float: right;
     margin-left: 20.5%;
