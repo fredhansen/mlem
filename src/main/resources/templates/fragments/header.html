@@ -8,7 +8,7 @@
 </head>
 <body>
 <div   th:fragment="header">
-    <div class="logo_back">
+    <div class="logo_back" onclick="location.href='https://github.com/fredhansen/mlem';" style="cursor: pointer;">
         <p>
             <img th:src="@{/img/WeldGroup.jpg}" class="logo"/>
         </p>
@@ -26,7 +26,12 @@
             </form>
             -->
         </ul>
+        <ul class="languages">
+            <a href="/?lang=et" th:text="#{lang.et}">Eesti</a>
+            <a href="/?lang=en" th:text="#{lang.en}">English</a>
+            <!-- <a href="/?lang=en" th:text="#{lang.en}">Pусский</a> -->
 
+        </ul>
     </nav>
    <!-- <div th:replace="fragments/login :: login"></div>-->
 

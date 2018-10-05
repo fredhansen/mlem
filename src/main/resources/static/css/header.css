@@ -1,25 +1,25 @@
-
 .active {
     background-color: #022441;
 }
 
-.logo_back{
+.logo_back {
     background-color: #022441;
 }
 
-.logo{
-    /*position: fixed;
-    top: 0;*/
+.logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
 }
 
+.languages {
+    text-align: center;
+}
+
 #header ul {
     list-style-type: none;
-
-    margin:  0;
+    margin: 0;
     padding: 0.6% 0.6%;
     overflow: hidden;
     background-color: rgba(68, 111, 112, 0.74);
@@ -27,14 +27,13 @@
 
 #header a {
     padding: 0.8% 0.8%;
-
 }
 
 #header a:hover {
     background-color: #022441;
 }
 
-#header *{
+#header * {
     font-family: "Segoe UI", sans-serif;
     color: white;
 }
