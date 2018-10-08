@@ -58,6 +58,12 @@ public class ProductsController {
         return "productDetail";
     }
 
+    @GetMapping("/products/add")
+    public String addProductHTML(Product product){
+        return "productAdd";
+    }
+
+
 
 
 
