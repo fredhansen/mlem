@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @Controller
 public class ProductsController {
@@ -47,11 +49,12 @@ public class ProductsController {
         return "productDetail";
     }
 */
-    @PostMapping("/products/detail/{id}")
+    @GetMapping("/products/detail/{id}")
     public String showProductById(@PathVariable("id") String id, Model model){
         System.out.println(id);
-        Product product = productRepository.getById(id);
-        model.addAttribute("product", product);
+        List<Product> product = productRepository.getById(id);
+        System.out.println(product);
+        model.addAttribute("products", product);
         return "productDetail";
     }
 

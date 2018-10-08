@@ -13,6 +13,6 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     List<Product> getAllByCategoryId(@Param("number") int number);
 
     @Query(value="SELECT * FROM products WHERE id=(:number)", nativeQuery = true)
-    Product getById(@Param("number") String number);
+    List<Product> getById(@Param("number") String number);
 }
 

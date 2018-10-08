@@ -23,7 +23,7 @@
 <!--<div th:replace="fragments/vacuum_pouches :: vacuum_pouches"></div> -->
 <div id="products">
     <div class="products_view" th:each="product : ${products}">
-         <a th:href="@{/product/detail/(id=${product.getId()})}">
+         <a th:href="'/products/detail/' + ${product.getId()}">
             <div class="product">
                 <p><img th:src="${product.getImage()}" width="30%" height="30%" alt="" /></p>
                 <p class="caption" th:text="${product.getTag()}"></p>
