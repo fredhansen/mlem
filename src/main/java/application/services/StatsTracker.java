@@ -1,4 +1,4 @@
-package application;
+package application.services;
 
 
 
@@ -10,12 +10,14 @@ import eu.bitwalker.useragentutils.OperatingSystem;
 import eu.bitwalker.useragentutils.UserAgent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 
-@Component
+@Service
 public class StatsTracker implements Filter {
     @Autowired
     StatsRepository statsRepository;
@@ -39,15 +41,13 @@ public class StatsTracker implements Filter {
 
         DeviceType deviceType = userAgent.getOperatingSystem().getDeviceType();
 
-        /*System.out.print(operatingSystem);
-        System.out.print(browser);
-        System.out.println(deviceType);*/
 
         Stats stats = new Stats();
-        stats.setOperatingSystem(operatingSystem);
-        stats.setBrowser(browser);
-        stats.setDeviceType(deviceType);
+        stats.setOperatingSystem(operatingSystem.toString());
+        stats.setBrowser(browser.toString());
+        stats.setDeviceType(deviceType.toString());
 
+        System.out.println(stats);
 
         statsRepository.save(stats);
 

@@ -19,7 +19,7 @@ public class StatisticsController {
     public String stats(Model model) {
         model.addAttribute("stats", statsRepository.findAll());
         model.addAttribute("statsCount", statsRepository.findCount());
-        /*model.addAttribute("osCount", statsRepository.findOs());*/ // todo findos
+        model.addAttribute("osCount", statsRepository.getOSstats()); // todo findos
 
         return "stats";
     }

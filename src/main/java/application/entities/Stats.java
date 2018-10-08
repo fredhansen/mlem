@@ -13,33 +13,43 @@ public class Stats {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int statId;
 
-    private OperatingSystem operatingSystem;
+    private String operatingSystem;
 
-    private Browser browser;
+    private String browser;
 
-    private DeviceType deviceType;
+    private String deviceType;
 
-    public OperatingSystem getOperatingSystem() {
+    public String getOperatingSystem() {
         return operatingSystem;
     }
 
-    public void setOperatingSystem(OperatingSystem operatingSystem) {
+    public void setOperatingSystem(String operatingSystem) {
         this.operatingSystem = operatingSystem;
     }
 
-    public Browser getBrowser() {
+    public String getBrowser() {
         return browser;
     }
 
-    public void setBrowser(Browser browser) {
+    public void setBrowser(String browser) {
         this.browser = browser;
     }
 
-    public DeviceType getDeviceType() {
+    public String getDeviceType() {
         return deviceType;
     }
 
-    public void setDeviceType(DeviceType deviceType) {
+    public void setDeviceType(String deviceType) {
         this.deviceType = deviceType;
+    }
+
+    @Override
+    public String toString() {
+        return "Stats{" +
+                "statId=" + statId +
+                ", operatingSystem=" + operatingSystem +
+                ", browser=" + browser +
+                ", deviceType=" + deviceType +
+                '}';
     }
 }
