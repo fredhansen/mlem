@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<title>Products</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/products.css}">
+<script type="text/javascript" th:src="@{/js/products.js}" src="/js/products.js" ></script>
+<link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Pealkiri</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header">
+</div>
+<div id="sidebar">
+    <ul>
+        <li><a href="/products/vac" th:text="#{vacuum_pouch}" ></a></li>
+        <li><a href="/products/bags" th:text="#{plastic_bag}"></a></li>
+        <li><a href="/products/plastic" th:text="#{packag_materials}"></a></li>
+    </ul>
+</div>
+
+<div id="product" th:replace="${product}">
+    <p><img th:src="${product.getImage()}" width="30%" height="30%" alt="" /></p>
+    <p class="caption" th:text="${product.getName()}"></p>
+    <p class="caption" th:text="${product.getDescription()}"></p>
+</div>
+
+
+</body>
+</html>

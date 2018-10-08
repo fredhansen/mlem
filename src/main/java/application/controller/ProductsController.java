@@ -1,12 +1,12 @@
 package application.controller;
 
+import application.entities.Product;
 import application.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -41,6 +41,13 @@ public class ProductsController {
     public String showPlastic(Model model){
         model.addAttribute("products", productRepository.getAllByCategoryId(3));
         return "products";
+    }
+
+    @GetMapping("/products/{id}")
+    public String showProductId(@PathVariable("id") String id, Model model){
+        Product product = productRepository.getById(id);
+        model.addAttribute("product", product);
+        return "productDetail";
     }
 
 
