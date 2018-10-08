@@ -3,7 +3,6 @@ package application.controller;
 import application.entities.Product;
 import application.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -42,13 +41,20 @@ public class ProductsController {
         model.addAttribute("products", productRepository.getAllByCategoryId(3));
         return "products";
     }
-
-    @GetMapping("/products/{id}")
-    public String showProductId(@PathVariable("id") String id, Model model){
+/*
+    @RequestMapping(path="/products/detail", method = RequestMethod.GET)
+    public String showDetailHTML(){
+        return "productDetail";
+    }
+*/
+    @PostMapping("/products/detail/{id}")
+    public String showProductById(@PathVariable("id") String id, Model model){
+        System.out.println(id);
         Product product = productRepository.getById(id);
         model.addAttribute("product", product);
         return "productDetail";
     }
+
 
 
 
