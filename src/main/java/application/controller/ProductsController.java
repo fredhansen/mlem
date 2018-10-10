@@ -56,12 +56,12 @@ public class ProductsController {
         return "productDetail";
     }
 
-    @GetMapping("/products/add")
+    @GetMapping("/product/add")
     public String addProductHTML(Product product){
         return "productAdd";
     }
 
-    @PostMapping("/products/add")
+    @PostMapping("/product/add")
     public String addProductForm(@Valid Product product, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
