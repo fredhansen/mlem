@@ -3,6 +3,7 @@ package application.entities;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Table(name = "products")
 @Entity
@@ -11,20 +12,20 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @NotNull
     private String name;
-
+    @NotNull
     @Column(name = "categoryId")
     private int categoryId;
-
+    @NotNull
     private String tag;
 
     private String description;
 
     private String image;
-
+    @NotNull
     private double price;
-
+    @NotNull
     private int amount;
 
     public Long getId() {
