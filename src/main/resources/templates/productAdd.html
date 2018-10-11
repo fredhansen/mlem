@@ -23,7 +23,7 @@
 </div>
 
 <div>
-    <form th:action="@{/product/add}" th:object="${productDTO}" method="post">
+    <form th:action="@{/product/add}" th:object="${productDTO}" method="post" enctype="multipart/form-data">
         <table>
             <tr>
                 <td th:text="#{add.name}" > </td>
@@ -47,7 +47,10 @@
             </tr>
             <tr>
                 <td th:text="#{add.image}"></td>
-                <!--<td th:if="${#fields.hasErrors('amount')}" th:errors="*{image}"> error.image</td>-->
+
+                <td><input type="file" id="fileUpload" name="file" accept="image/*" /></td>
+
+    <!--<td th:if="${#fields.hasErrors('amount')}" th:errors="*{image}"> error.image</td>-->
             </tr>
             <tr>
                 <td th:text="#{add.price}"></td>
@@ -61,13 +64,15 @@
             </tr>
             <tr>
                 <button onclick="location.href='/product/add'" type="submit" th:text="#{add.button}"> </button>
-                <!--<td th:errors="register"> </td>-->
+                <td th:if="${confirm}">
+                    <p th:text="${confirm}"></p></td>
+                    <p th:text="${confirm}"></p></td>
             </tr>
 
         </table>
     </form>
 </div>
-<div th:replace="fragments/footer :: footer"></div>>
+<div th:replace="fragments/footer :: footer"></div>
 
 </body>
 </html>

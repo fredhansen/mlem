@@ -17,6 +17,9 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Query(value="SELECT * FROM products WHERE id=(:number)", nativeQuery = true)
     List<Product> getById(@Param("number") String number);
 
+    
+
+
     @Modifying
     @Transactional
     @Query(value="INSERT INTO products (name, category_Id, tag, description, image, price, amount) values(?,?,?,?,?,?,?)", nativeQuery = true)

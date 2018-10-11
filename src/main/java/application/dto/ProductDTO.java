@@ -1,11 +1,10 @@
-package application.controller.dto;
+package application.dto;
 
 import javax.persistence.Column;
 
 import javax.validation.constraints.NotNull;
 
 public class ProductDTO {
-
 
     @NotNull
     private String name;
