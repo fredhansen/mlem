@@ -23,7 +23,7 @@
 </div>
 
 <div>
-    <form th:action="@{/product/add}" th:object="${product}" method="post">
+    <form th:action="@{/product/add}" th:object="${productDTO}" method="post">
         <table>
             <tr>
                 <td th:text="#{add.name}" > </td>
@@ -59,7 +59,11 @@
                 <td><input th:field="*{amount}"/> </td>
                 <td th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></td>
             </tr>
-            <button type="submit" th:text="#{add.button}"> </button>
+            <tr>
+                <button onclick="location.href='/product/add'" type="submit" th:text="#{add.button}"> </button>
+                <!--<td th:errors="register"> </td>-->
+            </tr>
+
         </table>
     </form>
 </div>

@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.controller.dto.ProductDTO;
 import application.entities.Product;
 import application.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,18 +58,24 @@ public class ProductsController {
     }
 
     @GetMapping("/product/add")
-    public String addProductHTML(Product product){
+    public String addProductHTML(ProductDTO productDTO){
         return "productAdd";
     }
 
     @PostMapping("/product/add")
-    public String addProductForm(@Valid Product product, BindingResult bindingResult){
+    public String addProductForm(@Valid ProductDTO productDTO, BindingResult bindingResultDTO){
 
-        if(bindingResult.hasErrors()){
+        System.out.println(productDTO);
+        if(bindingResultDTO.hasErrors()){
             return "productAdd";
         }
-        productRepository.addProduct(product.getName(), product.getCategoryId(),product.getTag(),
-                product.getDescription(), product.getImage(), product.getPrice(), product.getAmount());
+
+
+        productRepository.addProduct(productDTO.getName(),1, productDTO.getTag(),
+                productDTO.getDescription(),"/src/mingiKaust", productDTO.getPrice(),
+                productDTO.getAmount());
+
+
 
         return "productAdd";
     }

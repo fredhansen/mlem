@@ -1,17 +1,12 @@
-package application.entities;
+package application.controller.dto;
 
+import javax.persistence.Column;
 
-
-import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Table(name = "products")
-@Entity
-public class Product {
+public class ProductDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
     @NotNull
     private String name;
     @NotNull
@@ -28,10 +23,19 @@ public class Product {
     @NotNull
     private int amount;
 
-    public Product() {
+    public ProductDTO() {
     }
 
-    public Product(@NotNull String name, @NotNull int categoryId, @NotNull String tag, String description, String image, @NotNull double price, @NotNull int amount) {
+
+    public ProductDTO(@NotNull String name, @NotNull String tag, String description, @NotNull double price, @NotNull int amount) {
+        this.name = name;
+        this.tag = tag;
+        this.description = description;
+        this.price = price;
+        this.amount = amount;
+    }
+
+    public ProductDTO(@NotNull String name, @NotNull int categoryId, @NotNull String tag, String description, String image, @NotNull double price, @NotNull int amount) {
         this.name = name;
         this.categoryId = categoryId;
         this.tag = tag;
@@ -39,18 +43,6 @@ public class Product {
         this.image = image;
         this.price = price;
         this.amount = amount;
-    }
-
-    public Product(@NotNull String name, @NotNull String tag, String description, @NotNull double price, @NotNull int amount) {
-        this.name = name;
-        this.tag = tag;
-        this.description = description;
-        this.price = price;
-        this.amount = amount;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getName() {
@@ -81,11 +73,38 @@ public class Product {
         return amount;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+        return "ProductDTO{" +
+                "name='" + name + '\'' +
                 ", categoryId=" + categoryId +
                 ", tag='" + tag + '\'' +
                 ", description='" + description + '\'' +
@@ -94,4 +113,5 @@ public class Product {
                 ", amount=" + amount +
                 '}';
     }
+
 }
