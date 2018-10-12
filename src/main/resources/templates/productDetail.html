@@ -13,14 +13,7 @@
 <body>
 <div th:replace="fragments/header :: header">
 </div>
-<div id="sidebar">
-    <ul>
-        <li><a href="/products/vac" th:text="#{vacuum_pouch}" ></a></li>
-        <li><a href="/products/bags" th:text="#{plastic_bag}"></a></li>
-        <li><a href="/products/plastic" th:text="#{packag_materials}"></a></li>
-        <li><a href="/products/add" >Add product</a></li>
-    </ul>
-</div>
+<div th:replace="fragments/sidebar :: sidebar" id="sidebar"></div>
 
 <div>
     <div th:each="product : ${products}">
