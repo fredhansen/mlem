@@ -23,53 +23,55 @@
 </div>
 
 <div>
-    <form th:action="@{/product/add}" th:object="${productDTO}" method="post" enctype="multipart/form-data">
+    <form id="productId">
         <table>
-            <tr>
-                <td th:text="#{add.name}" > </td>
-                <td> <input th:field="*{name}"/></td>
-                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> </td>
-            </tr>
-            <tr>
-                <td th:text="#{add.category}"></td>
-                <td> <select></select></td>
-                <!--<td th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}"> error.category</td>-->
-            </tr>
-            <tr>
-                <td th:text="#{add.tag}"></td>
-                <td><input th:field="*{tag}"/></td>
-                <td th:if="${#fields.hasErrors('tag')}" th:errors="*{tag}"> </td>
-            </tr>
-            <tr>
-                <td th:text="#{add.description}"></td>
-                <td><input th:field="*{description}"/></td>
-                <td th:if="${#fields.hasErrors('description')}" th:errors="*{description}"> </td>
-            </tr>
-            <tr>
-                <td th:text="#{add.image}"></td>
+            <table>
+                <tr>
+                    <td th:text="#{add.name}" > </td>
+                    <td> <input th:field="*{name}"/></td>
+                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> </td>
+                </tr>
+                <tr>
+                    <td th:text="#{add.category}"></td>
+                    <td> <select></select></td>
+                    <!--<td th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}"> error.category</td>-->
+                </tr>
+                <tr>
+                    <td th:text="#{add.tag}"></td>
+                    <td><input th:field="*{tag}"/></td>
+                    <td th:if="${#fields.hasErrors('tag')}" th:errors="*{tag}"> </td>
+                </tr>
+                <tr>
+                    <td th:text="#{add.description}"></td>
+                    <td><input th:field="*{description}"/></td>
+                    <td th:if="${#fields.hasErrors('description')}" th:errors="*{description}"> </td>
+                </tr>
+                <tr>
+                    <td th:text="#{add.image}"></td>
 
-                <td><input type="file" id="fileUpload" name="file" accept="image/*" /></td>
+                    <td><input type="file" id="fileUpload" name="file" accept="image/*" /></td>
 
-                <!--<td th:if="${#fields.hasErrors('amount')}" th:errors="*{image}"> error.image</td>-->
-            </tr>
-            <tr>
-                <td th:text="#{add.price}"></td>
-                <td><input th:field="*{price}"/></td>
-                <td th:if="${#fields.hasErrors('price')}" th:errors="*{price}"> </td>
-            </tr>
-            <tr>
-                <td th:text="#{add.quantity}"></td>
-                <td><input th:field="*{amount}"/> </td>
-                <td th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></td>
-            </tr>
-            <tr>
-                <button onclick="location.href='/product/add'" type="submit" th:text="#{add.button}"> </button>
-                <td th:if="${confirm}">
+                    <!--<td th:if="${#fields.hasErrors('amount')}" th:errors="*{image}"> error.image</td>-->
+                </tr>
+                <tr>
+                    <td th:text="#{add.price}"></td>
+                    <td><input th:field="*{price}"/></td>
+                    <td th:if="${#fields.hasErrors('price')}" th:errors="*{price}"> </td>
+                </tr>
+                <tr>
+                    <td th:text="#{add.quantity}"></td>
+                    <td><input th:field="*{amount}"/> </td>
+                    <td th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></td>
+                </tr>
+                <tr>
+                    <button onclick="location.href='/product/add'" type="submit" th:text="#{add.button}"> </button>
+                    <td th:if="${confirm}">
+                        <p th:text="${confirm}"></p></td>
                     <p th:text="${confirm}"></p></td>
-                <p th:text="${confirm}"></p></td>
-            </tr>
+                </tr>
 
-        </table>
+            </table>
+
     </form>
 </div>
 <div th:replace="fragments/footer :: footer"></div>

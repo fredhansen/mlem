@@ -10,6 +10,10 @@ public class AjaxProductResponse {
         this.object = object;
     }
 
+    public AjaxProductResponse(String message) {
+        this.message = message;
+    }
+
     public AjaxProductResponse() {
     }
 
