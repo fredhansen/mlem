@@ -71,11 +71,11 @@ public class ProductsController {
      * @param productDTO
      * @return
      */
-    @GetMapping("/product/add")
+    @GetMapping("/products/add")
     public String addProductHTML(ProductDTO productDTO){
-        return "productAdd";
+        return "productAdd2";
     }
-
+/*
     @PostMapping("/product/add")
     public String addProductForm(@Valid ProductDTO productDTO, BindingResult bindingResultDTO, RedirectAttributes redirectAttributes,
             @RequestParam("file") MultipartFile file){
@@ -103,16 +103,6 @@ public class ProductsController {
 
         return "productAdd";
     }
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 }

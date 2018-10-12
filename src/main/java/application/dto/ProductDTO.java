@@ -12,7 +12,7 @@ public class ProductDTO {
     @NotNull
     private String name;
     @NotNull
-    @Column(name = "categoryId")
+
     private int categoryId;
     @NotNull
     private String tag;
@@ -50,6 +50,8 @@ public class ProductDTO {
         this.price = price;
         this.amount = amount;
     }
+
+
 
     public FilePart getImageFile() {
         return imageFile;
