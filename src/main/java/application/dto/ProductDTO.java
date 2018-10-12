@@ -1,5 +1,8 @@
 package application.dto;
 
+import org.springframework.http.codec.multipart.FilePart;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.Column;
 
 import javax.validation.constraints.NotNull;
@@ -15,6 +18,9 @@ public class ProductDTO {
     private String tag;
 
     private String description;
+
+    private FilePart imageFile;
+
 
     private String image;
     @NotNull
@@ -34,14 +40,23 @@ public class ProductDTO {
         this.amount = amount;
     }
 
-    public ProductDTO(@NotNull String name, @NotNull int categoryId, @NotNull String tag, String description, String image, @NotNull double price, @NotNull int amount) {
+    public ProductDTO(@NotNull String name, @NotNull int categoryId, @NotNull String tag, String description, FilePart imageFile, String image, @NotNull double price, @NotNull int amount) {
         this.name = name;
         this.categoryId = categoryId;
         this.tag = tag;
         this.description = description;
+        this.imageFile = imageFile;
         this.image = image;
         this.price = price;
         this.amount = amount;
+    }
+
+    public FilePart getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(FilePart imageFile) {
+        this.imageFile = imageFile;
     }
 
     public String getName() {
@@ -107,10 +122,10 @@ public class ProductDTO {
                 ", categoryId=" + categoryId +
                 ", tag='" + tag + '\'' +
                 ", description='" + description + '\'' +
+                ", imageFile=" + imageFile +
                 ", image='" + image + '\'' +
                 ", price=" + price +
                 ", amount=" + amount +
                 '}';
     }
-
 }
