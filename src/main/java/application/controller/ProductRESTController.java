@@ -21,6 +21,7 @@ public class ProductRESTController {
      */
     private static String uploadFolder = "C:\\Github\\Veebirakendusteloomine\\mlem\\src\\main\\resources\\static\\img\\upload\\";
 
+    private static String noImage = "/img/noImage.png";
     @Autowired
     private ProductRepository productRepository;
 
@@ -29,6 +30,9 @@ public class ProductRESTController {
     @PostMapping("products/add/save")
     public ProductDTO postProduct(@RequestBody ProductDTO productDTO) {
 
+        if (productDTO.getFileUpload() == null){
+            productDTO.setImage(noImage);
+        }
         System.out.println(productDTO);
         productRepository.addProduct(productDTO.getName(),1, productDTO.getTag(),
                 productDTO.getDescription(), productDTO.getImage(), productDTO.getPrice(),

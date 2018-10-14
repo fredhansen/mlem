@@ -22,7 +22,7 @@ public class ProductDTO {
 
     private String description;
 
-    private MultipartFile imageFile;
+    private MultipartFile fileUpload;
 
 
     private String image;
@@ -35,41 +35,23 @@ public class ProductDTO {
     }
 
 
-    public ProductDTO(@NotNull String name, @NotNull String tag, String description, @NotNull double price, @NotNull int amount) {
+    public ProductDTO(@NotNull String name, @NotNull String tag, String description, MultipartFile fileUpload, @NotNull double price, @NotNull int amount) {
         this.name = name;
         this.tag = tag;
         this.description = description;
-        this.price = price;
-        this.amount = amount;
-    }
-
-    public ProductDTO(@NotNull String name, @NotNull int categoryId, @NotNull String tag, String description, MultipartFile imageFile, String image, @NotNull double price, @NotNull int amount) {
-        this.name = name;
-        this.categoryId = categoryId;
-        this.tag = tag;
-        this.description = description;
-        this.setImageFile(imageFile);
-        this.image = image;
-        this.price = price;
-        this.amount = amount;
-    }
-
-    public ProductDTO(@NotNull String name, @NotNull String tag, String description, MultipartFile imageFile, @NotNull double price, @NotNull int amount) {
-        this.name = name;
-        this.tag = tag;
-        this.description = description;
-        this.imageFile = imageFile;
+        this.fileUpload = fileUpload;
         this.price = price;
         this.amount = amount;
     }
 
 
-    public MultipartFile getImageFile() {
-        return imageFile;
+
+    public MultipartFile getFileUpload() {
+        return fileUpload;
     }
 
-    public void setImageFile(MultipartFile imageFile) {
-        this.imageFile = imageFile;
+    public void setFileUpload(MultipartFile fileUpload) {
+        this.fileUpload = fileUpload;
     }
 
     public String getName() {
