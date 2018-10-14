@@ -20,8 +20,8 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     @Modifying
     @Transactional
-    @Query(value="INSERT INTO products (name, category_Id, tag, description, image, price, amount) values(?,?,?,?,?,?,?)", nativeQuery = true)
-    void addProduct(@Param("name") String name, @Param("category_Id") Integer category_Id, @Param("tag") String tag,
+    @Query(value="INSERT INTO products (id, name, category_Id, tag, description, image, price, amount) values(?,?,?,?,?,?,?,?)", nativeQuery = true)
+    void addProduct(@Param("id") Long id, @Param("name") String name, @Param("category_Id") Integer category_Id, @Param("tag") String tag,
                     @Param("description") String description, @Param("image") String image, @Param("price") Double price, @Param("amount") Integer amount);
 
 }

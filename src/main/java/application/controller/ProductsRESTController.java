@@ -4,6 +4,9 @@ import application.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Random;
+
+
 @RestController
 public class ProductsRESTController {
 
@@ -11,6 +14,11 @@ public class ProductsRESTController {
      * Siia pange upload kausta tee
      */
     private static String uploadFolder = "C:\\Github\\Veebirakendusteloomine\\mlem\\src\\main\\resources\\static\\img\\upload\\";
+
+    private static Long randomLong(){
+
+        return new Random().nextLong();
+    }
 
     private static String noImage = "/img/noImage.png";
     @Autowired
@@ -23,7 +31,7 @@ public class ProductsRESTController {
             productDTO.setImage(noImage);
         }
         System.out.println(productDTO);
-        productRepository.addProduct(productDTO.getName(),1, productDTO.getTag(),
+        productRepository.addProduct(randomLong(),productDTO.getName(),1, productDTO.getTag(),
                 productDTO.getDescription(), productDTO.getImage(), productDTO.getPrice(),
                 productDTO.getAmount());
 

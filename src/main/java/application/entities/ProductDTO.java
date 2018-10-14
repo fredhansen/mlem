@@ -1,8 +1,10 @@
 package application.entities;
 
-import org.springframework.http.codec.multipart.FilePart;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 public class ProductDTO {
@@ -11,6 +13,9 @@ public class ProductDTO {
      * Siia pange upload kausta tee
      */
     private static String uploadFolder = "C:\\Github\\Veebirakendusteloomine\\mlem\\src\\main\\resources\\static\\img\\upload\\";
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @NotNull
     private String name;
@@ -35,6 +40,7 @@ public class ProductDTO {
     }
 
 
+
     public ProductDTO(@NotNull String name, @NotNull String tag, String description, MultipartFile fileUpload, @NotNull double price, @NotNull int amount) {
         this.name = name;
         this.tag = tag;
@@ -45,6 +51,13 @@ public class ProductDTO {
     }
 
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public MultipartFile getFileUpload() {
         return fileUpload;
