@@ -35,19 +35,19 @@
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 //addData(chart, div, JSON.parse(xhttp.responseText)); // todo see vist vale
-                var result = xhttp.responseText.replace("[","").replace("]","").replace("[","").replace("]"," ");
-                var resultAr = result.split(" ");
-                console.log(resultAr);
-                var labels = [];
-                var number = [];
+                console.log(JSON.parse(xhttp.responseText));
+
+                var array = JSON.parse(xhttp.responseText);
                 var indeks;
-                for (indeks = 0; indeks < resultAr.length ; indeks++){
-                    if (resultAr[indeks] === ""){
+                var labels =[];
+                var number = [];
+                for (indeks = 0; indeks < array.length ; indeks++){
+                    if (array[indeks] === ""){
                         continue;
                     }
-                    var osTemp = resultAr[indeks].split(",");
-                    labels.push(osTemp[0].replace("\"","").replace("\"",""));
-                    number.push(osTemp[1].replace("\"",""));
+                    var osTemp = array[indeks];
+                    labels.push(osTemp[0]);
+                    number.push(osTemp[1]);
                 }
                 console.log(labels);
                 console.log(number);
