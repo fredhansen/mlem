@@ -22,6 +22,19 @@ public class StatsApiController {
         return statsRepository.getOSstats();
     }
 
+    @GetMapping("/browser")
+    @ResponseBody
+    public List<Object> getBrowser() {
+        return statsRepository.getBrowserStats();
+    }
+
+
+    @GetMapping("/device")
+    @ResponseBody
+    public List<Object> getDevice() {
+        return statsRepository.getDeviceStats();
+    }
+
 
 
 }
