@@ -1,4 +1,4 @@
-package application.dto;
+package application.entities;
 
 import org.springframework.http.codec.multipart.FilePart;
 import org.springframework.web.multipart.MultipartFile;

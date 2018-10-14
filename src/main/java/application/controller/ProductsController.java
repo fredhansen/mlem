@@ -1,6 +1,6 @@
 package application.controller;
 
-import application.dto.ProductDTO;
+import application.entities.ProductDTO;
 import application.entities.Product;
 import application.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;

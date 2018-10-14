@@ -1,4 +1,4 @@
-package application.controller.model;
+package application.services;
 
 public class AjaxProductResponse {
 
