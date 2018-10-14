@@ -1,13 +1,13 @@
 .list_items {
     text-align: center;
-    margin-top: 2vw;
+    margin-top: 0.1vw;
     bottom: 0;
     font-family: "Segoe UI", sans-serif;
     color: white;
 }
 
 #header_footer {
-    height: 5vw;
+    height: 1vw;
     position: fixed;
     right: 0;
     bottom: 0;

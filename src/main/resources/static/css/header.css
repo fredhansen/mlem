@@ -4,13 +4,14 @@
 
 .logo_back {
     background-color: #022441;
+    width: 100%
 }
 
 .logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 100%;
 }
 
 .languages {

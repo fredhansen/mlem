@@ -9,9 +9,7 @@
 <body>
 <div   th:fragment="header">
     <div class="logo_back" onclick="location.href='https://github.com/fredhansen/mlem';" style="cursor: pointer;">
-        <p>
-            <img th:src="@{/img/WeldGroup.jpg}" class="logo"/>
-        </p>
+        <img th:src="@{/img/WeldGroup.jpg}" class="logo" th:alt="#{page_title}"/>
     </div>
     <nav id="header">
         <ul class="list_items">
