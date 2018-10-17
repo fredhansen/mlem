@@ -3,30 +3,19 @@ $(document).ready(function () {
     //Product add form
     $("#productAdd").submit(function (event) {
         // Prevent the form from submitting via the browser.
-
         event.preventDefault();
-        ajaxPost();
+        ajaxPostProduct();
+    });
+
+    $("#categoryAdd").submit(function (event2) {
+        event2.preventDefault();
+        ajaxPostCategory();
     })
 
 });
 
-function ajaxPostImage(){
 
-    $.ajax({
-        url : window.location+"/save/image",
-        type: "POST",
-        data: new FormData($("#productAdd")[4]),
-        enctype: 'multipart/form-date',
-        processData: false,
-        contentType: false,
-        cache: false,
-        success: function (result) {
-            $("#image").html(result)
-        }
-    })
-}
-
-function ajaxPost(){
+function ajaxPostProduct(){
     //Prepare form data
     var formData = {
         name: $("#name").val(),
@@ -55,16 +44,41 @@ function ajaxPost(){
             console.log("ERROR: ",e);
         }
     });
-
-    resetData();
-
+    resetDataProduct();
 }
 
-function resetData(){
+function resetDataProduct(){
      $("#name").val(""),
      $("#tag").val(""),
      $("#description").val(""),
      $("#price").val(""),
      $("#amount").val(""),
          $("#image").val("")
+}
+
+function resetDataCategory() {
+    $("#cat.name").val(""),
+    $("#cat.desc").val("")
+}
+
+function ajaxPostCategory(){
+    var formData = {
+        name : $("#cat_name").val(),
+        descritpion : $("#cat_desc").val()
+    };
+    console.log(formData);
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url : window.location + "/category/save",
+        data : JSON.stringify(formData),
+        dateType: "html",
+        success : function (data) {
+            $("#getCategoryStatus").text(data)
+            },
+            error: function (e){
+                $("#getCategoryStatus").text("Return data is null! => Error")
+        }
+    });
+    resetDataCategory()
 }

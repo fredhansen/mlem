@@ -1,5 +1,7 @@
 package application.controller;
+import application.entities.CategoryDTO;
 import application.entities.ProductDTO;
+import application.repo.CategoryRepository;
 import application.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +19,16 @@ public class ProductsRESTController {
 
     private static Long randomLong(){
 
-        return new Random().nextLong();
+        return Math.abs(new Random().nextLong());
     }
 
     private static String noImage = "/img/noImage.png";
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
 
     @PostMapping("products/add/save")
     public ProductDTO postProduct(@RequestBody ProductDTO productDTO) {
@@ -38,6 +44,19 @@ public class ProductsRESTController {
 
         return productDTO;
     }
+
+    @PostMapping("products/add/category/save")
+    public CategoryDTO postCategory(@RequestBody CategoryDTO categoryDTO){
+        System.out.println(categoryDTO);
+
+        if (categoryDTO.getName()== null){
+            return null;
+        }
+        categoryRepository.addCategory(randomLong(), categoryDTO.getName(),categoryDTO.getDescription());
+        return categoryDTO;
+    }
+
+
     /*
     @PostMapping("/save/image")
     public AjaxProductResponse postProductImage(@RequestParam("fileUpload") MultipartFile uploadFile){
