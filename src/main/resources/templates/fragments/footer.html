@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
 <head>
 </head>
 <body>
 <div id="header_footer" th:fragment="footer">
     <nav>
-        <ul>
-            <a href="/?lang=en" th:text="#{lang.en}"></a>
-            <a href="/?lang=et" th:text="#{lang.et}"></a>
+        <ul class="list_items">
             <a href="/stats" th:text="#{statistics}"></a>
             <a href="https://github.com/fredhansen/mlem" target="_blank">GitHub</a>
         </ul>

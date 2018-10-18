@@ -1,21 +1,24 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
-        th:lang="#{language-code}">
-<meta charset="UTF-8">
+      th:lang="#{language-code}">
+<meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
 
-<head>
+<title th:text="#{page_title}"></title>
+<head th:replace="fragments/header :: header">
 
-    <title th:text="#{page_title}"></title>
 </head>
 <body>
+<!--
 <div th:replace="fragments/header :: header">
-</div>
 
-Sisu
+</div>-->
+
+<p id="content" th:text="#{home_page_text}"></p>
 
 
-<div th:replace="fragments/footer :: footer">
-</div>
-
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

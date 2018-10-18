@@ -1,7 +1,39 @@
-body {
-    font-family: Palatino, 'Palatino Linotype', serif;
-    height: 100%;
-    margin: 0;
+.active {
+    background-color: #022441;
+}
+
+.logo_back {
+    background-color: #022441;
+    width: 100%
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.languages {
     text-align: center;
-    width: 100%;
+}
+
+#header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0.6% 0.6%;
+    overflow: hidden;
+    background-color: rgba(68, 111, 112, 0.74);
+}
+
+#header a {
+    padding: 0.8% 0.8%;
+}
+
+#header a:hover {
+    background-color: #022441;
+}
+
+#header * {
+    font-family: "Segoe UI", sans-serif;
+    color: white;
 }

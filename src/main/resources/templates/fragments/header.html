@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
 
 <head>
 
 </head>
 <body>
-<link rel="stylesheet" type="text/css" href="../../static/css/header.css"/>
-<div th:fragment="header">
-    <div>
-        <p>
-        <img th:src="@{/img/WeldGroup.png}" />
-        </p>
+<div   th:fragment="header">
+    <div class="logo_back" onclick="location.href='https://github.com/fredhansen/mlem';" style="cursor: pointer;">
+        <img th:src="@{/img/WeldGroup.jpg}" class="logo" th:alt="#{page_title}"/>
     </div>
-    <nav>
-        <ul>
-            <a href="" th:text="#{home_page}"></a>
-            <a href=""th:text="#{products_page}">Products</a>
-            <a href=""th:text="#{services_page}">Services</a>
-            <a href=""th:text="#{shop_page}">Shop</a>
-            <a href=""th:text="#{contatc_page}">Contact</a>
-            <a href="/?lang=en" th:text="#{lang.en}"></a>
-            <a href="/?lang=et" th:text="#{lang.et}"></a>
-            <a href="/?lang=ru" th:text="#{lang.ru}"></a>
-            <form action="" method="get">
+    <nav id="header">
+        <ul class="list_items">
+            <a href="/" th:text="#{home_page}"></a>
+            <a href="/products" th:text="#{products_page}"></a>
+            <a href="/services" th:text="#{services_page}"></a>
+            <a href="/shop" th:text="#{shop_page}">Shop</a>
+            <a href="/contact" th:text="#{contact_page}"></a>
+            <!--<form action="" method="get">
                 <input name="s" th:placeholder="#{search_form}" type="search">
-                <button type = "submit" th:text="#{search_button}"></button>
+                <button type="submit" th:text="#{search_button}"></button>
             </form>
+            -->
         </ul>
+        <ul class="languages">
+            <a href="/?lang=et" th:text="#{lang.et}"></a>
+            <a href="/?lang=en" th:text="#{lang.en}"></a>
 
+        </ul>
     </nav>
+   <!-- <div th:replace="fragments/login :: login"></div>-->
+
 </div>
 </body>
 </html>

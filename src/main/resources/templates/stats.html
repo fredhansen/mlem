@@ -3,12 +3,15 @@
 
       th:lang="#{language-code}">
 <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
 
 <meta charset="UTF-8">
 
 <head>
-    <title th:text="#{page_title}"></title>
+    <title th:text="#{visitor_number}"></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script th:src="@{/js/chart.js}"></script>
 
 </head>
 <body>
@@ -17,66 +20,17 @@
 
 <div th:text="#{visitor_number} + ': ' + ${statsCount}"></div>
 
-<!--<div>
-    <canvas id="osChart" width="400" height="255"></canvas>
-</div>--> <!--/*todo andmed siia*/-->
-
-
-
 <div>
-    <table border="1">
-        <tr>
-            <th>OS</th>
-            <th>Browser</th>
-            <th>Device type</th>
-
-        </tr>
-        <tr th:each ="stat : ${stats}">
-            <td th:utext="${stat.operatingSystem}">...</td>
-            <td th:utext="${stat.browser}">...</td>
-            <td th:utext="${stat.deviceType}">...</td>
-
-
-        </tr>
-    </table>
+    <canvas id="oschart" width="400" height="255"></canvas>
 </div>
 
+<div>
+    <canvas id="devicechart" width="400" height="255"></canvas>
+</div>
 
-
-
-
-
-
-
-
-<!--
-<script src="/js/OSstats.js"></script>
--->
-<script>
-    var osNames = ["Windows", "Mac OS X", "Android", "Linux", "iOS", "Other"];
-    var osSet = [
-        {
-            label: "OS",
-            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#64CD3D"],
-            data: [2478,5267,734,784,433,3333]
-        }
-    ];
-
-    var osChart = new Chart(document.getElementById("osChart"), {
-        type: 'polarArea',
-        data: {
-            labels: osNames,
-            datasets: osSet
-        },
-        options: {
-            title: {
-                display: true,
-                text: 'OS'
-            }
-        }
-    });
-</script>
-
+<div>
+    <canvas id="browserchart" width="400" height="255"></canvas>
+</div>
 
 
 

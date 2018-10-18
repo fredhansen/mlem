@@ -1,44 +1,84 @@
+$(document).ready(function () {
 
-function vacuumPouches() {
-    var elements1 = document.getElementsByClassName("vac_pouc"); //Elements which will be shown to user
-    var elements2 = document.getElementsByClassName("plastic_bag"); //Elements which will be hidden
-    var elements3 = document.getElementsByClassName("pack_material"); //Elements which will be hidden
+    //Product add form
+    $("#productAdd").submit(function (event) {
+        // Prevent the form from submitting via the browser.
+        event.preventDefault();
+        ajaxPostProduct();
+    });
 
-    showLoop(elements1);
-    hideLoop(elements2);
-    hideLoop(elements3);
+    $("#categoryAdd").submit(function (event2) {
+        event2.preventDefault();
+        ajaxPostCategory();
+    })
+
+});
+
+
+function ajaxPostProduct(){
+    //Prepare form data
+    var formData = {
+        name: $("#name").val(),
+        tag: $("#tag").val(),
+        description: $("#description").val(),
+        price: $("#price").val(),
+        amount: $("#amount").val(),
+        image: $("#image").val()
+    };
+
+
+    //DO POST
+    //Send String data
+    $.ajax({
+        type : "POST",
+        contentType : "application/json",
+        url : window.location + "/save",
+        data : JSON.stringify(formData),
+        dataType : 'html',
+        success : function(data){
+            $("#getAddingStatus").text(data);
+            console.log(data);
+        },
+        error : function (e) {
+            alert("Error!");
+            console.log("ERROR: ",e);
+        }
+    });
+    resetDataProduct();
 }
 
-function plasticBags(){
-    var elements1 = document.getElementsByClassName("plastic_bag"); //Elements which will be shown to user
-    var elements2 = document.getElementsByClassName("vac_pouc"); //Elements which will be hidden
-    var elements3 = document.getElementsByClassName("pack_material"); //Elements which will be hidden
-
-    showLoop(elements1);
-    hideLoop(elements2);
-    hideLoop(elements3);
+function resetDataProduct(){
+     $("#name").val(""),
+     $("#tag").val(""),
+     $("#description").val(""),
+     $("#price").val(""),
+     $("#amount").val(""),
+         $("#image").val("")
 }
 
-function packMaterial(){
-    var elements1 = document.getElementsByClassName("pack_material"); //Elements which will be shown to user
-    var elements2 = document.getElementsByClassName("plastic_bag"); //Elements which will be hidden
-    var elements3 = document.getElementsByClassName("vac_pouc"); //Elements which will be hidden
-
-    showLoop(elements1);
-    hideLoop(elements2);
-    hideLoop(elements3);
-}
-/*
-function hideLoop(elements) {
-    for (var i = 0; i < elements.length; i++){
-        elements[i].style.display = "none";
-    }
+function resetDataCategory() {
+    $("#cat.name").val(""),
+    $("#cat.desc").val("")
 }
 
-function showLoop(elements){
-    for (var i = 0; i<elements.length; i++){
-        elements[i].style.display = "inline-block";
-    }
+function ajaxPostCategory(){
+    var formData = {
+        name : $("#cat_name").val(),
+        descritpion : $("#cat_desc").val()
+    };
+    console.log(formData);
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url : window.location + "/category/save",
+        data : JSON.stringify(formData),
+        dateType: "html",
+        success : function (data) {
+            $("#getCategoryStatus").text(data)
+            },
+            error: function (e){
+                $("#getCategoryStatus").text("Return data is null! => Error")
+        }
+    });
+    resetDataCategory()
 }
-
-*/

@@ -3,9 +3,12 @@
       th:lang="#{language-code}">
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/map.css}">
 
+<title th:text="#{contact_page}"></title>
 <head>
-    <title th:text="#{page_title}"></title>
+
 
 
     <meta charset="utf-8" />
@@ -24,7 +27,7 @@
 
 
 
-<div id="mapid" style="width: 600px; height: 400px;"></div>  <!-- todo see style osa peaks css'i minema -->
+<div id="mapid"></div>
 
 <script src="/js/map.js"></script>
 
