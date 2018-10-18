@@ -1,0 +1,11 @@
+body {
+
+}
+
+.charts {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 30vw;
+    margin-bottom: 7vw;
+}

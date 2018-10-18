@@ -7,12 +7,16 @@
 }
 
 #header_footer {
-    height: 1vw;
-    position: fixed;
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 5vw;
+    margin-top: -5vw;
     right: 0;
     bottom: 0;
     left: 0;
     padding: 1vw;
+    background-color: #efefef;
     text-align: center;
-    background-color: #446f70;
+    background-color: rgba(68, 111, 112, 0.74);
 }
