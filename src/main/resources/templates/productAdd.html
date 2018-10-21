@@ -33,18 +33,12 @@
             <tr>
                 <td th:text="#{add.tag}"></td>
                 <td><input  id="tag"/></td>
-                <td > </td>
+                <td> </td>
             </tr>
             <tr>
                 <td th:text="#{add.description}"></td>
                 <td> <input id="description"/></td>
                 <td > </td>
-            </tr>
-            <tr>
-                <td th:text="#{add.image}"></td>
-                <td><input type="file" id="fileUpload" name="file" accept="image/*" /></td>
-                <td><p id="image"></p></td>
-                <!--<td th:if="${#fields.hasErrors('amount')}" th:errors="*{image}"> error.image</td>-->
             </tr>
             <tr>
                 <td th:text="#{add.price}"></td>
@@ -56,12 +50,21 @@
                 <td><input  id="amount"/> </td>
                 <td ></td>
             </tr>
+        </form>
+        <form id="uploadForm" method="POST" enctype="multipart/form-data">
             <tr>
-                <td><button  type="submit" th:text="#{add.button}"></button></td>
-                <td></td>
-                <td id="getAddingStatus"></td>
+                <td th:text="#{add.image}"></td>
+                <td><input type="file"  name="file" id="file" accept="image/*"  /></td>
+            </tr>
+            <tr>
+                <td><p id="getImageStatus"></p></td>
             </tr>
         </form>
+        <tr>
+            <td><button id="addButton"  type="submit" th:text="#{add.button}"></button></td>
+            <td></td>
+            <td id="getAddingStatus"></td>
+        </tr>
         <form id="categoryAdd" method="POST">
             <tr>
                 <td th:text="#{add.categoryName}" ></td>

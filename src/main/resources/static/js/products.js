@@ -1,9 +1,10 @@
 $(document).ready(function () {
 
     //Product add form
-    $("#productAdd").submit(function (event) {
+    $("#addButton").click(function (event) {
         // Prevent the form from submitting via the browser.
         event.preventDefault();
+        ajaxPostImage();
         ajaxPostProduct();
     });
 
@@ -13,6 +14,30 @@ $(document).ready(function () {
     })
 
 });
+function ajaxPostImage() {
+    var form = $("#uploadForm")[0];
+
+    var data = new FormData(form);
+
+
+
+    $.ajax({
+        type : "POST",
+        enctype : "multipart/form-data",
+        url: window.location + '/image/save',
+        data: data,
+        processData: false,
+        contentType: false,
+        cache: false,
+        timeout: 1000000,
+
+
+        success: function (data) {
+            $("#getImageStatus").html(data);
+        }
+    })
+
+}
 
 
 function ajaxPostProduct(){
@@ -23,9 +48,8 @@ function ajaxPostProduct(){
         description: $("#description").val(),
         price: $("#price").val(),
         amount: $("#amount").val(),
-        image: $("#image").val()
+        image: $("p").text()
     };
-
 
     //DO POST
     //Send String data

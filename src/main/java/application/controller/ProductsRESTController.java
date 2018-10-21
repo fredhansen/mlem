@@ -1,11 +1,16 @@
 package application.controller;
 import application.entities.CategoryDTO;
 import application.entities.ProductDTO;
+import application.entities.UploadForm;
 import application.repo.CategoryRepository;
 import application.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Random;
 
 
@@ -23,6 +28,7 @@ public class ProductsRESTController {
     }
 
     private static String noImage = "/img/noImage.png";
+    private static String hasImage ="/img/upload/";
     @Autowired
     private ProductRepository productRepository;
 
@@ -33,8 +39,13 @@ public class ProductsRESTController {
     @PostMapping("products/add/save")
     public ProductDTO postProduct(@RequestBody ProductDTO productDTO) {
 
-        if (productDTO.getFileUpload() == null){
+        System.out.println(productDTO.getImage());
+        if (productDTO.getImage().equals("None")){
             productDTO.setImage(noImage);
+        }
+        else{
+
+            productDTO.setImage(hasImage + productDTO.getImage());
         }
         System.out.println(productDTO);
         productRepository.addProduct(randomLong(),productDTO.getName(),1, productDTO.getTag(),
@@ -47,7 +58,7 @@ public class ProductsRESTController {
 
     @PostMapping("products/add/category/save")
     public CategoryDTO postCategory(@RequestBody CategoryDTO categoryDTO){
-        System.out.println(categoryDTO);
+        //System.out.println(categoryDTO);
 
         if (categoryDTO.getName()== null){
             return null;
@@ -56,7 +67,24 @@ public class ProductsRESTController {
         return categoryDTO;
     }
 
+    @PostMapping("products/add/image/save")
+    public String postImage(@ModelAttribute UploadForm form){
 
+        if (form == null){
+            System.out.println("none");
+            return "None";
+        }
+        //System.out.println(form.getFile().getOriginalFilename());
+
+        Path path = Paths.get(uploadFolder + form.getFile().getOriginalFilename());
+        try {
+            byte[] bytes = form.getFile().getBytes();
+            Files.write(path, bytes);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return form.getFile().getOriginalFilename();
+    }
     /*
     @PostMapping("/save/image")
     public AjaxProductResponse postProductImage(@RequestParam("fileUpload") MultipartFile uploadFile){
