@@ -28,13 +28,10 @@ public class StatsApiController {
         return statsRepository.getBrowserStats();
     }
 
-
     @GetMapping("/device")
     @ResponseBody
     public List<Object> getDevice() {
         return statsRepository.getDeviceStats();
     }
-
-
 
 }

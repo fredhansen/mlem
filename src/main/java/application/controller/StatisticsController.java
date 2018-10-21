@@ -21,7 +21,6 @@ public class StatisticsController {
         model.addAttribute("stats", statsRepository.findAll());
         model.addAttribute("statsCount", statsRepository.findCount());
         model.addAttribute("osCount", statsRepository.getOSstats()); // todo findos
-
         return "stats";
     }
 

@@ -14,9 +14,8 @@ public class Product {
     private Long id;
     @NotNull
     private String name;
-    @NotNull
-    @Column(name = "categoryId")
-    private int categoryId;
+
+    private Long categoryId;
     @NotNull
     private String tag;
 
@@ -31,7 +30,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(@NotNull String name, @NotNull int categoryId, @NotNull String tag, String description, String image, @NotNull double price, @NotNull int amount) {
+    public Product(@NotNull String name, @NotNull Long categoryId, @NotNull String tag, String description, String image, @NotNull double price, @NotNull int amount) {
         this.name = name;
         this.categoryId = categoryId;
         this.tag = tag;
@@ -57,7 +56,7 @@ public class Product {
         return name;
     }
 
-    public int getCategoryId() {
+    public @NotNull Long getCategoryId() {
         return categoryId;
     }
 
@@ -89,7 +88,7 @@ public class Product {
         this.name = name;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(@NotNull Long categoryId) {
         this.categoryId = categoryId;
     }
 

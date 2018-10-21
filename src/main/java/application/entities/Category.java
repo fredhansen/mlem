@@ -13,7 +13,7 @@ public class Category {
 
     private String name;
 
-    private String description; // praegu ei ole vaja seda kasutada
+    //private String description; // praegu ei ole vaja seda kasutada
 
     public Long getId() {
         return id;
@@ -30,12 +30,15 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
-
+/*
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+
     }
+*/
 }
+

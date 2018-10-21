@@ -1,5 +1,4 @@
 package application.controller;
-import application.entities.CategoryDTO;
 import application.entities.ProductDTO;
 import application.entities.UploadForm;
 import application.repo.CategoryRepository;
@@ -22,7 +21,7 @@ public class ProductsRESTController {
      */
     private static String uploadFolder = "C:\\Github\\Veebirakendusteloomine\\mlem\\src\\main\\resources\\static\\img\\upload\\";
 
-    private static Long randomLong(){
+    public static Long randomLong(){
 
         return Math.abs(new Random().nextLong());
     }
@@ -48,7 +47,7 @@ public class ProductsRESTController {
             productDTO.setImage(hasImage + productDTO.getImage());
         }
         System.out.println(productDTO);
-        productRepository.addProduct(randomLong(),productDTO.getName(),1, productDTO.getTag(),
+        productRepository.addProduct(randomLong(),productDTO.getName(),productDTO.getCategoryId(), productDTO.getTag(),
                 productDTO.getDescription(), productDTO.getImage(), productDTO.getPrice(),
                 productDTO.getAmount());
 
@@ -56,21 +55,11 @@ public class ProductsRESTController {
         return productDTO;
     }
 
-    @PostMapping("products/add/category/save")
-    public CategoryDTO postCategory(@RequestBody CategoryDTO categoryDTO){
-        //System.out.println(categoryDTO);
-
-        if (categoryDTO.getName()== null){
-            return null;
-        }
-        categoryRepository.addCategory(randomLong(), categoryDTO.getName(),categoryDTO.getDescription());
-        return categoryDTO;
-    }
 
     @PostMapping("products/add/image/save")
     public String postImage(@ModelAttribute UploadForm form){
 
-        if (form == null){
+        if (form.getFile().isEmpty()){
             System.out.println("none");
             return "None";
         }

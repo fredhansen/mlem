@@ -19,15 +19,13 @@ public class ProductDTO {
 
     @NotNull
     private String name;
-    @NotNull
 
-    private int categoryId;
+    private @NotNull Long categoryId;
     @NotNull
     private String tag;
 
     private String description;
 
-    private MultipartFile fileUpload;
 
 
     private String image;
@@ -41,11 +39,10 @@ public class ProductDTO {
 
 
 
-    public ProductDTO(@NotNull String name, @NotNull String tag, String description, MultipartFile fileUpload, @NotNull double price, @NotNull int amount) {
+    public ProductDTO(@NotNull String name, @NotNull String tag, String description, @NotNull double price, @NotNull int amount) {
         this.name = name;
         this.tag = tag;
         this.description = description;
-        this.fileUpload = fileUpload;
         this.price = price;
         this.amount = amount;
     }
@@ -59,19 +56,12 @@ public class ProductDTO {
         this.id = id;
     }
 
-    public MultipartFile getFileUpload() {
-        return fileUpload;
-    }
-
-    public void setFileUpload(MultipartFile fileUpload) {
-        this.fileUpload = fileUpload;
-    }
 
     public String getName() {
         return name;
     }
 
-    public int getCategoryId() {
+    public @NotNull Long getCategoryId() {
         return categoryId;
     }
 
@@ -99,7 +89,7 @@ public class ProductDTO {
         this.name = name;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(@NotNull Long categoryId) {
         this.categoryId = categoryId;
     }
 

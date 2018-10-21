@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+    $("#categorySelect").dblclick(function (event) {
+        event.preventDefault();
+        ajaxGetCategory();
+    });
     //Product add form
     $("#addButton").click(function (event) {
         // Prevent the form from submitting via the browser.
@@ -19,8 +23,6 @@ function ajaxPostImage() {
 
     var data = new FormData(form);
 
-
-
     $.ajax({
         type : "POST",
         enctype : "multipart/form-data",
@@ -30,7 +32,6 @@ function ajaxPostImage() {
         contentType: false,
         cache: false,
         timeout: 1000000,
-
 
         success: function (data) {
             $("#getImageStatus").html(data);
@@ -46,6 +47,7 @@ function ajaxPostProduct(){
         name: $("#name").val(),
         tag: $("#tag").val(),
         description: $("#description").val(),
+        categoryId: $("#categorySelect option:selected").val(),
         price: $("#price").val(),
         amount: $("#amount").val(),
         image: $("p").text()
@@ -105,4 +107,24 @@ function ajaxPostCategory(){
         }
     });
     resetDataCategory()
+}
+
+function ajaxGetCategory(){
+    $.ajax({
+        type: 'GET',
+        url: window.location +'/category/show',
+        success : function (data) {
+            $("#categorySelect").empty();
+            for( item in data){
+                $("#categorySelect").append($("<option>", {
+                    value: data[item].id,
+                    text: data[item].name
+                }));
+
+            }
+        },
+        error : function(e){
+            alert("Error "+ JSON.stringify(e))
+        }
+    })
 }

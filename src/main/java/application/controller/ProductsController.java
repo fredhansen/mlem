@@ -2,6 +2,7 @@ package application.controller;
 
 import application.entities.ProductDTO;
 import application.entities.Product;
+import application.repo.CategoryRepository;
 import application.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,10 @@ public class ProductsController {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     /**
      * Siia pange upload kausta tee
      */
@@ -25,12 +30,13 @@ public class ProductsController {
         this.productRepository = productRepository;
     }
 
+
     @RequestMapping("/products")
-    public String products() {
+    public String products(Model model) {
+        model.addAttribute("categories", categoryRepository.getAll());
         return "products";
     }
-
-
+/*
     @RequestMapping(path = "/products/vac", method = RequestMethod.GET)
     public String showVacuum(Model model){
         model.addAttribute("products", productRepository.getAllByCategoryId(1));
@@ -48,9 +54,23 @@ public class ProductsController {
         model.addAttribute("products", productRepository.getAllByCategoryId(3));
         return "products";
     }
+*/
+
+    @GetMapping("/products/{id}")
+    public String showCategory(@PathVariable("id") Long id, Model model){
+        model.addAttribute("categories", categoryRepository.getAll());
+
+        for (Product pr: productRepository.getAllByCategoryId(id)){
+            System.out.println(pr);
+        }
+        model.addAttribute("products", productRepository.getAllByCategoryId(id));
+        return "products";
+    }
 
     @GetMapping("/products/detail/{id}")
     public String showProductById(@PathVariable("id") String id, Model model){
+        model.addAttribute("categories", categoryRepository.getAll());
+
         System.out.println(id);
         List<Product> product = productRepository.getById(id);
         System.out.println(product);

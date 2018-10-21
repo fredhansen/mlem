@@ -11,8 +11,8 @@ import java.util.List;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {
 
-    @Query(value="SELECT * FROM products WHERE category_Id=(:number)", nativeQuery = true)
-    List<Product> getAllByCategoryId(@Param("number") int number);
+    @Query(value="SELECT * FROM products WHERE category_Id=(?)", nativeQuery = true)
+    List<Product> getAllByCategoryId(@Param("number") Long number);
 
     @Query(value="SELECT * FROM products WHERE id=(:number)", nativeQuery = true)
     List<Product> getById(@Param("number") String number);
@@ -21,7 +21,7 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Modifying
     @Transactional
     @Query(value="INSERT INTO products (id, name, category_Id, tag, description, image, price, amount) values(?,?,?,?,?,?,?,?)", nativeQuery = true)
-    void addProduct(@Param("id") Long id, @Param("name") String name, @Param("category_Id") Integer category_Id, @Param("tag") String tag,
+    void addProduct(@Param("id") Long id, @Param("name") String name, @Param("category_Id") Long category_Id, @Param("tag") String tag,
                     @Param("description") String description, @Param("image") String image, @Param("price") Double price, @Param("amount") Integer amount);
 
 }
