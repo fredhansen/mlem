@@ -21,7 +21,7 @@ public class ProductsRESTController {
      */
     private static String uploadFolder = "C:\\Github\\Veebirakendusteloomine\\mlem\\src\\main\\resources\\static\\img\\upload\\";
 
-    public static Long randomLong(){
+    public Long randomLong(){
 
         return Math.abs(new Random().nextLong());
     }

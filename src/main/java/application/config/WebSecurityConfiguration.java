@@ -15,10 +15,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                     .antMatchers("/index", "/contacts","/error","/services","/stats","/sitemap","/shop","/products").permitAll()
-                .antMatchers("/products/add", "/products/add/**").fullyAuthenticated()
+                .antMatchers("/products/add", "/products/add/**").authenticated()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/")
-                .permitAll();
+                .permitAll()
+                .and()
+                .csrf()
+                .disable();
     }
 }

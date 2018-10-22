@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
-import static application.controller.ProductsRESTController.randomLong;
+import java.util.Random;
 
 @RestController
 public class CategoryRESTController {
@@ -19,15 +18,25 @@ public class CategoryRESTController {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    public Long randomLong(){
+        return Math.abs(new Random().nextLong());
+    }
     @PostMapping("products/add/category/save")
     public CategoryDTO postCategory(@RequestBody CategoryDTO categoryDTO){
-        //System.out.println(categoryDTO);
+        System.out.println(categoryDTO);
 
         if (categoryDTO.getName()== null){
             return null;
         }
         //categoryRepository.addCategory(randomLong(), categoryDTO.getName(),categoryDTO.getDescription());
-        categoryRepository.addCategory(randomLong(), categoryDTO.getName());
+        Category cat = new Category();
+        cat.setId(randomLong());
+        cat.setName(categoryDTO.getName());
+        categoryRepository.save(cat);
+
+//        categoryRepository.addCategory(randomLong(), categoryDTO.getName());
+
+        categoryDTO.setId(cat.getId());
 
         return categoryDTO;
     }

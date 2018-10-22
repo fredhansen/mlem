@@ -9,15 +9,16 @@ $(document).ready(function () {
         // Prevent the form from submitting via the browser.
         event.preventDefault();
         ajaxPostImage();
-        ajaxPostProduct();
     });
 
     $("#categoryAdd").submit(function (event2) {
         event2.preventDefault();
         ajaxPostCategory();
     })
-
 });
+
+// var imageName = undefined;
+
 function ajaxPostImage() {
     var form = $("#uploadForm")[0];
 
@@ -34,14 +35,16 @@ function ajaxPostImage() {
         timeout: 1000000,
 
         success: function (data) {
-            $("#getImageStatus").html(data);
+            // imageName = data;
+            //$("#getImageStatus").html(data);
+            ajaxPostProduct(data);
         }
     })
 
 }
 
 
-function ajaxPostProduct(){
+function ajaxPostProduct(imageName){
     //Prepare form data
     var formData = {
         name: $("#name").val(),
@@ -50,7 +53,7 @@ function ajaxPostProduct(){
         categoryId: $("#categorySelect option:selected").val(),
         price: $("#price").val(),
         amount: $("#amount").val(),
-        image: $("p").text()
+        image: imageName
     };
 
     //DO POST
