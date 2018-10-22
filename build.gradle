@@ -49,6 +49,7 @@ dependencies {
 	// useragent
     compile('eu.bitwalker:UserAgentUtils:1.21')
 
+	compile('org.springframework.boot:spring-boot-starter-mail')
 
 	compile('org.springframework.boot:spring-boot-starter-jdbc')  /*:1.2.4.RELEASE*/
 	compile 'org.springframework.boot:spring-boot-starter-security'

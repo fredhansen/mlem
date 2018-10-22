@@ -2,14 +2,29 @@ package application.controller;
 
 import application.entities.ProductDTO;
 import application.entities.Product;
+import application.entities.User;
+import application.entities.UserGoogle;
 import application.repo.CategoryRepository;
 import application.repo.ProductRepository;
+import application.repo.UserGoogleRepository;
+import application.repo.UserRepository;
+import application.services.EmailSendService;
+import org.hibernate.validator.constraints.Email;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import java.io.IOException;
+import java.security.Principal;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -21,6 +36,8 @@ public class ProductsController {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private UserGoogleRepository userGoogleRepository;
     /**
      * Siia pange upload kausta tee
      */
@@ -32,7 +49,22 @@ public class ProductsController {
 
 
     @RequestMapping("/products")
-    public String products(Model model) {
+    public String products(Model model, Principal principal) throws IOException, MessagingException {
+        // Getting info if user is logged
+        if (principal != null) {
+            OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) principal;
+            Authentication authentication = oAuth2Authentication.getUserAuthentication();
+            Map<String, String> details = (Map<String, String>) authentication.getDetails();
+            Map<String, String> map = new LinkedHashMap<>();
+            map.put("email", details.get("email"));
+            System.out.println(map.get("email"));
+            List<Object> userGoogle = userGoogleRepository.getUserByEmail(map.get("email"));
+            // If user loggs for the first time we add him to DB
+            if (userGoogle.isEmpty()){
+                userGoogleRepository.addUser(1L,map.get("email"));
+                EmailSendService.sendMail(map.get("email"));
+            }
+        }
         model.addAttribute("categories", categoryRepository.getAll());
         return "products";
     }
