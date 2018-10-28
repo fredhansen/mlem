@@ -16,8 +16,8 @@
 
             <li><a href="/" th:text="#{home_page}"></a></li>
             <li><a href="/products" th:text="#{products_page}"></a></li>
-            <!--<li><a href="/services" th:text="#{services_page}"></a></li>
-            <li><a href="/shop" th:text="#{shop_page}">Shop</a></li>-->
+            <!--<li><a href="/services" th:text="#{services_page}"></a></li>-->
+            <li><a href="/shop" th:text="#{shop_page}">Shop</a></li>
             <li><a href="/contact" th:text="#{contact_page}"></a></li>
             <li><a href="/login" th:text="Google"></a></li>
             <li><a href="/logout" th:text="Logout"></a></li>
@@ -26,14 +26,15 @@
                 <button type="submit" th:text="#{search_button}"></button>
             </form>
             -->
+            <li><a class="languages" id="est" href="/?lang=et" th:text="#{lang.et}"></a></li>
+            <li><a class="languages" id="eng" href="/?lang=en" th:text="#{lang.en}"></a></li>
         </ul>
-        <ul class="languages">
-            <li><a href="/?lang=et" th:text="#{lang.et}"></a></li>
-            <li><a href="/?lang=en" th:text="#{lang.en}"></a></li>
 
-        </ul>
-    </nav>
-   <!-- <div th:replace="fragments/login :: login"></div>-->
+            <!--    <img th:src="@{/img/estonia.svg}" class='estonian' th:alt="#{lang.et}"/>
+               <img th:src="@{/img/uk.svg}" class="english" th:alt="#{lang.en}"/> -->
+
+        </nav>
+       <!-- <div th:replace="fragments/login :: login"></div>-->
 
 </div>
 </body>
