@@ -2,16 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
 <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/sitemap.css}">
 
 <head>
-    <title th:text="#{contact_page}"></title>
+    <title th:text="#{title.sitemap}"></title>
 </head>
 <body>
 
 <div th:replace="fragments/header :: header">
 </div>
 
-Sisu
+<div th:text="#{title.sitemap}"></div>
+
+
+<ul id="sitemap_li">
+
+    <li><a href="/" th:text="#{home_page}"></a></li>
+    <li><a href="/products" th:text="#{products_page}"></a></li>
+    <li><a href="/products/add" th:text="#{add.product} + #{meldmessage}"></a></li>
+
+    <li><a href="/shop" th:text="#{shop_page}">Shop</a></li>
+    <li><a href="/contact" th:text="#{contact_page}"></a></li>
+    <li><a href="/login" th:text="Google"></a></li>
+    <li><a href="/logout" th:text="Logout"></a></li>
+
+    <li><a href="/stats" th:text="#{title.stats}"></a></li>
+    <li><a href="https://github.com/fredhansen/mlem" target="_blank">GitHub</a></li>
+
+
+</ul>
 
 
 <div th:replace="fragments/footer :: footer">

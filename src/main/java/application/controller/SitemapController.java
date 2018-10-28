@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SitemapController {
 
     @RequestMapping("/sitemap")
-    public String products() {
+    public String sitemap() {
         return "sitemap";
     }
 
