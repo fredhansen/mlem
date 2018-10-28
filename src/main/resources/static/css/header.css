@@ -5,7 +5,6 @@ body {
 li a {
     display: block;
     float: left;
-
 }
 
 .active {
@@ -14,7 +13,8 @@ li a {
 
 .logo_back {
     background-color: #022441;
-    width: 100%
+    width: 100%;
+    padding: 1vw;
 }
 
 .logo {
@@ -24,16 +24,28 @@ li a {
 }
 
 .languages {
-    text-align: center;
+    float: right;
+}
+
+.estonian {
+    height: 100%;
+    margin-right: 0.5vw;
+    width: 3vw;
+}
+
+.english {
+    height: 100%;
+    width: 3vw;
 }
 
 #header ul {
     list-style-type: none;
     margin: 0;
-    padding: 0.6% 0.6%;
+    padding-right: 0.6%;
     overflow: hidden;
     background-color: rgba(68, 111, 112, 0.74);
 }
+
 
 #header a {
     padding: 0.8% 0.8%;
