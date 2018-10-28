@@ -43,7 +43,7 @@ public class ProductsController {
      */
     private static String uploadFolder = "C:\\Github\\Veebirakendusteloomine\\mlem\\src\\main\\resources\\static\\img\\upload\\";
 
-    public ProductsController(ProductRepository productRepository){
+    public ProductsController(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
@@ -60,8 +60,8 @@ public class ProductsController {
             System.out.println(map.get("email"));
             List<Object> userGoogle = userGoogleRepository.getUserByEmail(map.get("email"));
             // If user loggs for the first time we add him to DB
-            if (userGoogle.isEmpty()){
-                userGoogleRepository.addUser(1L,map.get("email"));
+            if (userGoogle.isEmpty()) {
+                userGoogleRepository.addUser(1L, map.get("email"));
                 EmailSendService.sendMail(map.get("email"));
             }
         }
@@ -89,10 +89,10 @@ public class ProductsController {
 */
 
     @GetMapping("/products/{id}")
-    public String showCategory(@PathVariable("id") Long id, Model model){
+    public String showCategory(@PathVariable("id") Long id, Model model) {
         model.addAttribute("categories", categoryRepository.getAll());
 
-        for (Product pr: productRepository.getAllByCategoryId(id)){
+        for (Product pr : productRepository.getAllByCategoryId(id)) {
             System.out.println(pr);
         }
         model.addAttribute("products", productRepository.getAllByCategoryId(id));
@@ -100,7 +100,7 @@ public class ProductsController {
     }
 
     @GetMapping("/products/detail/{id}")
-    public String showProductById(@PathVariable("id") String id, Model model){
+    public String showProductById(@PathVariable("id") String id, Model model) {
         model.addAttribute("categories", categoryRepository.getAll());
 
         System.out.println(id);
@@ -112,11 +112,12 @@ public class ProductsController {
 
     /**
      * Product adding
+     *
      * @param productDTO
      * @return
      */
     @GetMapping("/products/add")
-    public String addProductHTML(ProductDTO productDTO){
+    public String addProductHTML(ProductDTO productDTO) {
         return "productAdd";
     }
 /*

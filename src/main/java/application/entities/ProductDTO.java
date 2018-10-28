@@ -27,7 +27,6 @@ public class ProductDTO {
     private String description;
 
 
-
     private String image;
     @NotNull
     private double price;
@@ -36,7 +35,6 @@ public class ProductDTO {
 
     public ProductDTO() {
     }
-
 
 
     public ProductDTO(@NotNull String name, @NotNull String tag, String description, @NotNull double price, @NotNull int amount) {

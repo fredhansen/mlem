@@ -1,7 +1,6 @@
 package application.entities;
 
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 

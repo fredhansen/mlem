@@ -12,11 +12,11 @@ import java.util.List;
 
 public interface UserGoogleRepository extends CrudRepository<User, Long> {
 
-    @Query(value ="SELECT * FROM users_google WHERE email = (?)", nativeQuery = true)
+    @Query(value = "SELECT * FROM users_google WHERE email = (?)", nativeQuery = true)
     List<Object> getUserByEmail(@Param("email") String email);
 
     @Modifying
     @Transactional
-    @Query(value="INSERT INTO users_google (id, email) VALUES (?, ?)",nativeQuery = true)
+    @Query(value = "INSERT INTO users_google (id, email) VALUES (?, ?)", nativeQuery = true)
     void addUser(@Param("id") Long id, @Param("email") String email);
 }

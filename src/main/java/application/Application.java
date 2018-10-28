@@ -28,6 +28,7 @@ public class Application extends WebMvcConfigurerAdapter {
         slr.setDefaultLocale(localeEstonian);
         return slr;
     }
+
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();

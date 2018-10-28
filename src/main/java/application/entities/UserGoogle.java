@@ -16,10 +16,10 @@ public class UserGoogle {
         this.email = email;
     }
 
-   public UserGoogle(Long id, String email){
+    public UserGoogle(Long id, String email) {
         this.id = id;
         this.email = email;
-   }
+    }
 
 
     public Long getId() {

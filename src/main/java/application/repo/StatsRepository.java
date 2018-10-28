@@ -11,7 +11,7 @@ public interface StatsRepository extends CrudRepository<Stats, Integer> {
     @Query(value = "SELECT COUNT(*) FROM stats", nativeQuery = true)
     Integer findCount();
 
-    @Query(value = "SELECT operating_system as os, COUNT(operating_System) as osc FROM stats GROUP BY operating_System ORDER BY COUNT(operating_System) DESC", nativeQuery = true)
+    @Query(value = "SELECT operating_system AS os, COUNT(operating_System) AS osc FROM stats GROUP BY operating_System ORDER BY COUNT(operating_System) DESC", nativeQuery = true)
     List<Object> getOSstats();
 
     @Query(value = "SELECT browser, COUNT(browser) FROM stats GROUP BY browser ORDER BY COUNT(browser) DESC", nativeQuery = true)

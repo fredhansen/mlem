@@ -1,7 +1,6 @@
 package application.services;
 
 
-
 import application.entities.Stats;
 import application.repo.StatsRepository;
 import eu.bitwalker.useragentutils.Browser;
@@ -29,7 +28,7 @@ public class StatsTracker implements Filter {
     }
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         chain.doFilter(request, response);
         HttpServletRequest servletRequest = (HttpServletRequest) request;
 

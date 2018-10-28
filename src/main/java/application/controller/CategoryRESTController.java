@@ -18,14 +18,15 @@ public class CategoryRESTController {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    public Long randomLong(){
+    public Long randomLong() {
         return Math.abs(new Random().nextLong());
     }
+
     @PostMapping("products/add/category/save")
-    public CategoryDTO postCategory(@RequestBody CategoryDTO categoryDTO){
+    public CategoryDTO postCategory(@RequestBody CategoryDTO categoryDTO) {
         System.out.println(categoryDTO);
 
-        if (categoryDTO.getName()== null){
+        if (categoryDTO.getName() == null) {
             return null;
         }
         //categoryRepository.addCategory(randomLong(), categoryDTO.getName(),categoryDTO.getDescription());
@@ -42,7 +43,7 @@ public class CategoryRESTController {
     }
 
     @GetMapping("products/add/category/show")
-    public List<Category> getCategory(){
+    public List<Category> getCategory() {
         //System.out.println(categoryRepository.getAll());
         return categoryRepository.getAll();
     }

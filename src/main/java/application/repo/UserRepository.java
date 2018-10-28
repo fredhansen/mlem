@@ -12,7 +12,7 @@ public interface UserRepository extends CrudRepository<User, Integer> { // teeb 
     @Query(value = "SELECT * FROM users JOIN jobs_user ON users.Id = jobs_user.userId WHERE users.username = (:username)", nativeQuery = true)
     List<Object[]> getJobsBy(@Param("username") String username);
 
-    @Query(value = "SELECT * FROM users where users.username=(:username)", nativeQuery = true)
+    @Query(value = "SELECT * FROM users WHERE users.username=(:username)", nativeQuery = true)
     User getUserByName(@Param("username") String username);
 
 
