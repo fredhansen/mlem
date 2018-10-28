@@ -6,6 +6,7 @@ import application.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -26,8 +27,8 @@ public class ProductsRESTController {
         return Math.abs(new Random().nextLong());
     }
 
-    private static String noImage = "/img/noImage.png";
-    private static String hasImage ="/img/upload/";
+    private static String noImage = File.separator+"img"+File.separator+"noImage.png";
+    private static String hasImage = File.separator+"img"+File.separator+"upload"+File.separator;
     @Autowired
     private ProductRepository productRepository;
 
@@ -65,7 +66,7 @@ public class ProductsRESTController {
         }
         //System.out.println(form.getFile().getOriginalFilename());
 
-        Path path = Paths.get(uploadFolder + form.getFile().getOriginalFilename());
+        Path path = Paths.get(System.getProperty("user.dir")+uploadFolder + form.getFile().getOriginalFilename());
         try {
             byte[] bytes = form.getFile().getBytes();
             Files.write(path, bytes);
