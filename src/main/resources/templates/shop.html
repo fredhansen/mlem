@@ -2,19 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
 <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
-
+<link rel="stylesheet" type="text/css" th:href="@{/css/shop.css}">
 <head>
     <title th:text="#{shop_page}">Shop</title>
 </head>
 <body>
+<div id="container">
+    <div th:replace="fragments/header :: header">
+    </div>
 
-<div th:replace="fragments/header :: header">
+    <div class="content">
+
+     <!--   <img th:src="@{/img/233 copy.png}" class="img" th:alt="#{page_title}"/> -->
+
+
+    </div>
+    <div th:insert="fragments/footer" class="footer">
+    </div>
 </div>
-
-
-
-<div th:replace="fragments/footer :: footer">
-</div>
-
 </body>
 </html>

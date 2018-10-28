@@ -1,3 +1,4 @@
+
 .list_items {
     text-align: center;
     margin-top: 0.1vw;
@@ -8,10 +9,7 @@
 
 #header_footer {
     clear: both;
-    /*
-    position: relative;
-     */
-    z-index: 10;
+    position: fixed;
     height: 5vw;
     margin-top: -5vw;
     right: 0;
