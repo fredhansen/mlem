@@ -14,13 +14,13 @@
     <nav id="header">
         <ul class="list_items">
 
-            <a href="/" th:text="#{home_page}"></a>
-            <a href="/products" th:text="#{products_page}"></a>
-            <a href="/services" th:text="#{services_page}"></a>
-            <a href="/shop" th:text="#{shop_page}">Shop</a>
-            <a href="/contact" th:text="#{contact_page}"></a>
-            <a href="/login" th:text="Google"></a>
-            <a href="/logout" th:text="Logout"></a>
+            <li><a href="/" th:text="#{home_page}"></a></li>
+            <li><a href="/products" th:text="#{products_page}"></a></li>
+            <!--<li><a href="/services" th:text="#{services_page}"></a></li>
+            <li><a href="/shop" th:text="#{shop_page}">Shop</a></li>-->
+            <li><a href="/contact" th:text="#{contact_page}"></a></li>
+            <li><a href="/login" th:text="Google"></a></li>
+            <li><a href="/logout" th:text="Logout"></a></li>
             <!--<form action="" method="get">
                 <input name="s" th:placeholder="#{search_form}" type="search">
                 <button type="submit" th:text="#{search_button}"></button>
@@ -28,8 +28,8 @@
             -->
         </ul>
         <ul class="languages">
-            <a href="/?lang=et" th:text="#{lang.et}"></a>
-            <a href="/?lang=en" th:text="#{lang.en}"></a>
+            <li><a href="/?lang=et" th:text="#{lang.et}"></a></li>
+            <li><a href="/?lang=en" th:text="#{lang.en}"></a></li>
 
         </ul>
     </nav>

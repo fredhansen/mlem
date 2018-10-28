@@ -2,6 +2,12 @@ body {
     margin: 0;
 }
 
+li a {
+    display: block;
+    float: left;
+
+}
+
 .active {
     background-color: #022441;
 }
@@ -41,3 +47,4 @@ body {
     font-family: "Segoe UI", sans-serif;
     color: white;
 }
+
