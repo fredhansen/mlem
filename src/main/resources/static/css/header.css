@@ -27,7 +27,6 @@ li a {
 .logo_back {
     background-color: #022441;
     width: 100%;
-    padding: 1vw;
 }
 
 .logo {
@@ -59,13 +58,8 @@ li a {
 #header ul {
     list-style-type: none;
     margin: 0;
-    padding-right: 0.6%;
     overflow: hidden;
     background-color: rgba(6, 76, 139, 0.74);
-}
-
-#header a {
-    padding: 0.8% 0.8%;
 }
 
 #header a:hover {
