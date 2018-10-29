@@ -2,9 +2,22 @@ body {
     margin: 0;
 }
 
+a {
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
 li a {
-    display: block;
     float: left;
+    margin-left: 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+}
+
+#header_footer.a:hover, #header_footer.a:active {
+    background-color: #656469;
 }
 
 .active {
@@ -25,6 +38,7 @@ li a {
 
 .languages {
     float: right;
+    border-right: none;
 }
 
 .estonian {
@@ -38,14 +52,17 @@ li a {
     width: 3vw;
 }
 
+.googleplus {
+    background-color: #bf4735;
+}
+
 #header ul {
     list-style-type: none;
     margin: 0;
     padding-right: 0.6%;
     overflow: hidden;
-    background-color: rgba(68, 111, 112, 0.74);
+    background-color: rgba(6, 76, 139, 0.74);
 }
-
 
 #header a {
     padding: 0.8% 0.8%;
