@@ -21,15 +21,21 @@ public class ProductsRESTController {
     /**
      * Siia pange upload kausta tee
      */
-    private static String uploadFolder = "C:\\Github\\Veebirakendusteloomine\\mlem\\src\\main\\resources\\static\\img\\upload\\";
+    private static String uploadFolder = System.getProperty("user.dir") +
+            File.separator+"src"+
+            File.separator+ "main"+
+            File.separator+ "resources"+
+            File.separator+"static"+
+            File.separator+"img"+
+            File.separator+"upload"+File.separator;
 
     public Long randomLong() {
 
         return Math.abs(new Random().nextLong());
     }
 
-    private static String noImage = File.separator + "img" + File.separator + "noImage.png";
-    private static String hasImage = File.separator + "img" + File.separator + "upload" + File.separator;
+    private final static String noImage = File.separator + "img" + File.separator + "noImage.png";
+    private final static String hasImage = File.separator + "img" + File.separator + "upload" + File.separator;
     @Autowired
     private ProductRepository productRepository;
 
@@ -65,14 +71,16 @@ public class ProductsRESTController {
             return "None";
         }
         //System.out.println(form.getFile().getOriginalFilename());
-
-        Path path = Paths.get(System.getProperty("user.dir") + uploadFolder + form.getFile().getOriginalFilename());
+        System.out.println(System.getProperty("user.dir"));
+        System.out.println(System.getProperty("user.dir")  + form.getFile().getOriginalFilename());
+        Path path = Paths.get(uploadFolder + form.getFile().getOriginalFilename());
         try {
             byte[] bytes = form.getFile().getBytes();
             Files.write(path, bytes);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(form.getFile().getOriginalFilename());
         return form.getFile().getOriginalFilename();
     }
     /*

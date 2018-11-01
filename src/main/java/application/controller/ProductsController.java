@@ -68,25 +68,6 @@ public class ProductsController {
         model.addAttribute("categories", categoryRepository.getAll());
         return "products";
     }
-/*
-    @RequestMapping(path = "/products/vac", method = RequestMethod.GET)
-    public String showVacuum(Model model){
-        model.addAttribute("products", productRepository.getAllByCategoryId(1));
-        return "products";
-    }
-
-    @RequestMapping(path = "/products/bags", method = RequestMethod.GET)
-    public String showBags(Model model){
-        model.addAttribute("products", productRepository.getAllByCategoryId(2));
-        return "products";
-    }
-
-    @RequestMapping(path = "/products/plastic", method = RequestMethod.GET)
-    public String showPlastic(Model model){
-        model.addAttribute("products", productRepository.getAllByCategoryId(3));
-        return "products";
-    }
-*/
 
     @GetMapping("/products/{id}")
     public String showCategory(@PathVariable("id") Long id, Model model) {
