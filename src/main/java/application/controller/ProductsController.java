@@ -75,7 +75,9 @@ public class ProductsController {
 
         for (Product pr : productRepository.getAllByCategoryId(id)) {
             System.out.println(pr);
+            System.out.println(pr.getImage());
         }
+
         model.addAttribute("products", productRepository.getAllByCategoryId(id));
         return "products";
     }

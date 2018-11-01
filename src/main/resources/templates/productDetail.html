@@ -16,7 +16,7 @@
 
 <div>
     <div th:each="product : ${products}">
-        <p><img th:src="@{${product.getImage()}}" width="30%" height="30%" th:alt="#{product.alt}"/></p>
+        <p><img th:src="@{${product.getImage()}} " width="30%" height="30%" th:alt="#{product.alt}"/></p>
         <p class="caption" th:text="${product.getName()}"></p>
         <p class="caption" th:text="${product.getAmount()}"></p>
     </div>

@@ -34,8 +34,8 @@ public class ProductsRESTController {
         return Math.abs(new Random().nextLong());
     }
 
-    private final static String noImage = File.separator + "img" + File.separator + "noImage.png";
-    private final static String hasImage = File.separator + "img" + File.separator + "upload" + File.separator;
+    private final static String noImage = "/img/noImage.png";
+    private final static String hasImage =  "/img/upload/";
     @Autowired
     private ProductRepository productRepository;
 
