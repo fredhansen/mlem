@@ -50,7 +50,7 @@ public class ProductsRESTController {
         if (productDTO.getImage().equals("None")) {
             productDTO.setImage(noImage);
         } else {
-
+            System.out.println(productDTO.getImage());
             productDTO.setImage(hasImage + productDTO.getImage());
         }
         System.out.println(productDTO);
