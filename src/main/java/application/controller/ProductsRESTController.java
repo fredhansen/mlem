@@ -28,7 +28,12 @@ public class ProductsRESTController {
             File.separator+"static"+
             File.separator+"img"+
             File.separator+"upload"+File.separator;
-
+    {
+        if (System.getProperty("os.name").contains("Linux")
+            || System.getProperty("os.name").contains("Ubuntu")) {
+            uploadFolder = "/app/src/main/resources/static/img/upload/";
+        }
+    }
     public Long randomLong() {
 
         return Math.abs(new Random().nextLong());
@@ -51,7 +56,7 @@ public class ProductsRESTController {
             productDTO.setImage(noImage);
         } else {
             System.out.println(productDTO.getImage());
-            productDTO.setImage(hasImage + productDTO.getImage());
+            productDTO.setImage(hasImage + productDTO.getImage().toLowerCase());
         }
         System.out.println(productDTO);
         productRepository.addProduct(randomLong(), productDTO.getName(), productDTO.getCategoryId(), productDTO.getTag(),
@@ -71,9 +76,8 @@ public class ProductsRESTController {
             return "None";
         }
         //System.out.println(form.getFile().getOriginalFilename());
-        System.out.println(System.getProperty("user.dir"));
-        System.out.println(System.getProperty("user.dir")  + form.getFile().getOriginalFilename());
-        Path path = Paths.get(uploadFolder + form.getFile().getOriginalFilename());
+
+        Path path = Paths.get(uploadFolder + form.getFile().getOriginalFilename().toLowerCase());
         try {
             byte[] bytes = form.getFile().getBytes();
             Files.write(path, bytes);
@@ -81,7 +85,7 @@ public class ProductsRESTController {
             e.printStackTrace();
         }
         System.out.println(form.getFile().getOriginalFilename());
-        return form.getFile().getOriginalFilename();
+        return form.getFile().getOriginalFilename().toLowerCase();
     }
     /*
     @PostMapping("/save/image")
