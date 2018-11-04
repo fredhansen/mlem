@@ -1,18 +1,17 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"
-      th:lang="#{language-code}">
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
-<link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
-<link rel="stylesheet" type="text/css" th:href="@{/css/contact.css}">
+<html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
 
-<title th:text="#{contact_page}"></title>
 <head>
 
+    <title th:text="#{contact_page}"></title>
 
     <meta charset="utf-8"/>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/contact.css}">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -23,9 +22,10 @@
 
 
 </head>
+
 <body>
-<div th:replace="fragments/header :: header">
-</div>
+
+<div th:replace="fragments/header :: header"></div>
 
 
 <div class="row">
@@ -53,9 +53,7 @@
 
 <script src="/js/map.js"></script>
 
-<div th:replace="fragments/footer :: footer">
-</div>
-
+<div th:replace="fragments/footer :: footer"></div>
 
 </body>
 </html>
