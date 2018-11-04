@@ -1,6 +1,7 @@
 $(function() {
     $("#smartLogin").click(function(e) {
         e.preventDefault();
+        $("#main-text").text("");
         $.ajax({
             url: '/smart-id/authentication/start',
             type: 'post',

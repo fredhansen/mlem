@@ -6,6 +6,8 @@
 <script type="text/javascript" th:src="@{/js/products.js}" src="/js/products.js" ></script>
 <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
 <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/productAdd.css}">
+
 
 <head>
     <meta charset="UTF-8">
@@ -71,13 +73,13 @@
                 <td th:text="#{add.categoryName}" ></td>
                 <td><input id="cat_name"/></td>
             </tr>
-            <tr>
+            <!--<tr>
                 <td th:text="#{add.categoryDesc}"></td>
                 <td><input id="cat_desc"/></td>
             </tr>
             <tr>
+            -->
                 <td><button type="submit" th:text="#{add.categoryLabel}" ></button></td>
-                <td></td>
                 <td id="getCategoryStatus"></td>
             </tr>
         </form>

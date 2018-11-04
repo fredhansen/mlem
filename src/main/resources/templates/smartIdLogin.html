@@ -5,6 +5,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/smartId.css}">
+
     <script type="text/javascript" th:src="@{/js/smartId.js}" src="/js/smartId.js" ></script>
 
     <meta charset="UTF-8">
@@ -17,21 +19,25 @@
     <form>
         <table>
             <tr>
-                <td><p>Region</p></td>
+                <td><p th:text="#{login.region}"></p></td>
                 <td><input type="text" id="countryCode" name="countryCode" placeholder="EE" /></td>
             </tr>
             <tr>
-                <td><p>ID-code</p></td>
+                <td><p th:text="#{login.id}"></p></td>
                 <td><input  type="text" id="nationalIdentityNumber" name="nationalIdentityNumber"/></td>
             </tr>
             <tr>
+                <td></td>
                 <td><button type="submit" th:text="#{login.SubmitButton}" id="smartLogin"></button></td>
             </tr>
         </table>
     </form>
     <div><h1 id="main-text"></h1></div>
     <div id="smart-id-verification-code-container" style="display:none;">
-        <h1 id="verification-code-text">XXXX</h1>
+        <div class="checkCodeBlock" >
+            <h1 class="checkCodeBlock" th:text="#{login.code}"></h1>
+            <h1 class="checkCodeBlock" id="verification-code-text">XXXX</h1>
+        </div>
     </div>
 </div>
 <div th:replace="fragments/footer :: footer"></div>
