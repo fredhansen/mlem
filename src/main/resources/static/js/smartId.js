@@ -7,6 +7,7 @@ $(function() {
             type: 'post',
             dataType: 'json',
             contentType: 'application/json',
+            data: JSON.stringify(getFormData()),
             success: function (data) {
                 toggleContainerView(data.code);
                 console.log("Success");
@@ -18,7 +19,6 @@ $(function() {
                 console.log(data);
                 toggleContainerView("XXXX");
             },
-            data: JSON.stringify(getFormData())
         });
     })
 });
@@ -51,7 +51,14 @@ function getFormData() {
     });
     return formDataAsJSON;
 }
+function sleep(miliseconds) {
+    var currentTime = new Date().getTime();
 
+    while (currentTime + miliseconds >= new Date().getTime()){
+
+    }
+
+}
 function toggleContainerView(code) {
     $("#verification-code-text").text(code);
     $("#smart-id-verification-code-container").toggle();

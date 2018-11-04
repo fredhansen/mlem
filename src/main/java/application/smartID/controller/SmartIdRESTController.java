@@ -55,7 +55,7 @@ public class SmartIdRESTController {
         AuthenticationResponseValidator authenticationResponseValidator = new AuthenticationResponseValidator();
         SmartIdAuthenticationResult authenticationResult = authenticationResponseValidator.validate(authenticationResponse);
 
-        //if (authenticationResult.isValid()) {
+
 
         Authentication auth = new SmartIdAuthenticationToken(
                 authenticationResult.getAuthenticationIdentity(),
@@ -64,7 +64,7 @@ public class SmartIdRESTController {
         );
         SecurityContextHolder.getContext().setAuthentication(auth);
 
-        //}
+
         return authenticationResult;
     }
 
