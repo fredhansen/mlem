@@ -24,38 +24,41 @@
 
 </head>
 <body>
-<div th:replace="fragments/header :: header">
-</div>
 
-
-<div class="row">
-    <div class="column">
-        <p th:text="#{contact.address}"></p>
-        <p th:text="#{contact.number}"></p>
-        <p th:text="#{contact.fax}"></p>
-        <p th:text="#{contact.vat}"></p>
-        <p th:text="#{contact.email}"></p>
-
-
+<div class="contact_container">
+    <div th:replace="fragments/header :: header">
     </div>
-    <div class="column">
-        <p th:text="#{contact.addressinfo}"></p>
-        <p th:text="#{contact.numberinfo}"></p>
-        <p th:text="#{contact.faxinfo}"></p>
-        <p th:text="#{contact.vatinfo}"></p>
-        <p th:text="#{contact.emailinfo}"></p>
 
+
+    <div class="row">
+        <div class="column">
+            <p th:text="#{contact.address}"></p>
+            <p th:text="#{contact.number}"></p>
+            <p th:text="#{contact.fax}"></p>
+            <p th:text="#{contact.vat}"></p>
+            <p th:text="#{contact.email}"></p>
+
+
+        </div>
+        <div class="column">
+            <p th:text="#{contact.addressinfo}"></p>
+            <p th:text="#{contact.numberinfo}"></p>
+            <p th:text="#{contact.faxinfo}"></p>
+            <p th:text="#{contact.vatinfo}"></p>
+            <p th:text="#{contact.emailinfo}"></p>
+
+        </div>
+    </div>
+
+
+    <div id="mapid">
+
+        <script src="/js/map.js"></script>
+        <<
+
+        <div th:replace="fragments/footer :: footer">
+        </div>
     </div>
 </div>
-
-
-<div id="mapid"></div>
-
-<script src="/js/map.js"></script>
-
-<div th:replace="fragments/footer :: footer">
-</div>
-
-
 </body>
 </html>

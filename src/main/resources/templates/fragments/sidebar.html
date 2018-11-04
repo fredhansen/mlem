@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <meta charset="utf-8"/>
-<link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <div th:fragment="sidebar">
-    <div id="sidebar">
-        <ul>
-            <div th:each="category : ${categories}">
-                <li><a th:href="'/products/' + ${category.getId()}" th:text="${category.getName()}"></a></li>
-            </div>
-            <!--<li><a href="/products/vac" th:text="#{vacuum_pouch}" ></a></li>
-            <li><a href="/products/bags" th:text="#{plastic_bag}"></a></li>
-            <li><a href="/products/plastic" th:text="#{packag_materials}"></a></li> -->
-            <li><a href="/products/add" th:text="#{add.product}"></a></li>
-        </ul>
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <div th:each="category : ${categories}">
+            <a th:href="'/products/' + ${category.getId()}" th:text="${category.getName()}"></a>
+        </div>
+        <!--<li><a href="/products/vac" th:text="#{vacuum_pouch}" ></a></li>
+        <li><a href="/products/bags" th:text="#{plastic_bag}"></a></li>
+        <li><a href="/products/plastic" th:text="#{packag_materials}"></a></li> -->
+        <a href="/products/add" th:text="#{add.product}"></a>
+
     </div>
+
 </div>
 </body>
 </html>

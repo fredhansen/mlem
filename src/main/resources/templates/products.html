@@ -3,31 +3,103 @@
 <head>
     <title th:text="#{products_page}"></title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/products.css}">
-    <script type="text/javascript" th:src="@{/js/products.js}" src="/js/products.js" ></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <script type="text/javascript" th:src="@{/js/products.js}" src="../static/js/products.js"></script>
+    <script type="text/javascript" th:src="@{/js/products.js}" src="/static/js/sidebar.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+
 
 </head>
 <body>
 
-<div th:replace="fragments/header :: header"></div>
-<div th:replace="fragments/sidebar :: sidebar" id="sidebar"></div>
+<div class="wrapper">
+    <div th:replace="fragments/nologohead :: nologohead" id="header"></div>
 
-<!--<div th:replace="fragments/vacuum_pouches :: vacuum_pouches"></div> -->
-<div id="products">
-    <div class="products_view" th:each="product : ${products}">
-         <a th:href="'/products/detail/' + ${product.getId()}">
-            <div class="product">
-                <p><img th:src="@{${product.getImage()}}" width="30%" height="30%" th:alt="#{product.alt}" /></p>
-                <p class="caption" th:text="${product.getTag()}"></p>
-            </div>
-         </a>
+    <div th:replace="fragments/sidebar :: sidebar" id="sidebar"></div>
+
+
+    <!--<div th:replace="fragments/vacuum_pouches :: vacuum_pouches"></div> -->
+    <div id="products">
+        <div class="products_view" th:each="product : ${products}">
+            <a th:href="'/products/detail/' + ${product.getId()}">
+                <div class="product">
+                    <p><img th:src="@{${product.getImage()}}" width="30%" height="30%" th:alt="#{product.alt}"/></p>
+                    <p class="caption" th:text="${product.getTag()}"></p>
+                </div>
+            </a>
+        </div>
+
+
+        <p>
+            Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum. Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit
+            amet consectetur adipiscing elit Lorem ipsum dolor sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua Ut enim ad minim veniam Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+            Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum. Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit
+            amet consectetur adipiscing elit Lorem ipsum dolor sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua Ut enim ad minim veniam Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+            Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum. Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit
+            amet consectetur adipiscing elit Lorem ipsum dolor sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua Ut enim ad minim veniam Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+            Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum. Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit
+            amet consectetur adipiscing elit Lorem ipsum dolor sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua Ut enim ad minim veniam Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <!--<div th:replace="fragments/pack_material :: pack_material"></div>
+        <div th:replace="fragments/plastic_bag :: plastic_bag"></div> -->
+        <div th:replace="fragments/footer :: footer" id="footer"></div>
     </div>
 </div>
-
-<!--<div th:replace="fragments/pack_material :: pack_material"></div>
-<div th:replace="fragments/plastic_bag :: plastic_bag"></div> -->
-<div th:replace="fragments/footer :: footer"></div>
-
 </body>
 </html>

@@ -5,30 +5,27 @@
 
     <meta charset="utf-8"/>
 
-    <meta name="application-name" content="Welding Group" />
-    <meta name="alternateName" content="Vaakumpakend" />
+    <meta name="application-name" content="Welding Group"/>
+    <meta name="alternateName" content="Vaakumpakend"/>
 
-    <meta name="description" content="Website for Welding Group, a company that specializes in packaging solutions." />
+    <meta name="description" content="Website for Welding Group, a company that specializes in packaging solutions."/>
     <meta name="keywords" content="vacuum packaging,packaging,plastic,vacuum,bags,printing,printed,pack,film,packaging machines,
-wrapper,slitting,printing,rewinding,material,PPE,nylon" />
+wrapper,slitting,printing,rewinding,material,PPE,nylon"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta property="accessModeSufficient" content="textual" />
-    <meta property="dateModified" content="2018-11-04" />
-    <meta property="isAccessibleForFree" datatype="xsd:boolean" content="true" />
-    <meta property="isFamilyFriendly" datatype="xsd:boolean" content="true" />
+    <meta property="accessModeSufficient" content="textual"/>
+    <meta property="dateModified" content="2018-11-04"/>
+    <meta property="isAccessibleForFree" datatype="xsd:boolean" content="true"/>
+    <meta property="isFamilyFriendly" datatype="xsd:boolean" content="true"/>
 
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
 
 </head>
 <body>
-<div th:fragment="header">
-    <div class="logo_back" onclick="location.href='https://github.com/fredhansen/mlem';" style="cursor: pointer;">
-        <img th:src="@{/img/WeldGroup.jpg}" class="logo" th:alt="#{page_title}"/>
-    </div>
-    <nav id="header">
+<div th:fragment="nologohead">
+    <nav id="header" class="nologo">
         <ul class="list_items">
 
             <li><a href="/" th:text="#{home_page}"></a></li>
@@ -49,11 +46,11 @@ wrapper,slitting,printing,rewinding,material,PPE,nylon" />
             <li><a class="languages" id="eng" href="/?lang=en" th:text="#{lang.en}"></a></li>
         </ul>
 
-            <!--    <img th:src="@{/img/estonia.svg}" class='estonian' th:alt="#{lang.et}"/>
-               <img th:src="@{/img/uk.svg}" class="english" th:alt="#{lang.en}"/> -->
+        <!--    <img th:src="@{/img/estonia.svg}" class='estonian' th:alt="#{lang.et}"/>
+           <img th:src="@{/img/uk.svg}" class="english" th:alt="#{lang.en}"/> -->
 
-        </nav>
-       <!-- <div th:replace="fragments/login :: login"></div>-->
+    </nav>
+    <!-- <div th:replace="fragments/login :: login"></div>-->
 
 </div>
 </body>

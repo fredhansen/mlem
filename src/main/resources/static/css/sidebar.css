@@ -1,0 +1,69 @@
+body {
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.sidenav {
+    height: 100%;
+    width: 15vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(222, 220, 228, 0.74);
+    overflow-x: scroll;
+    border-right: #022441 dashed 0.1vw;
+    z-index: -3;
+}
+
+.sidenav a {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    padding: 1vw 2vw;
+}
+
+.sidenav a:last-child {
+    margin-bottom: 8vw;
+}
+
+.sidenav a:first-child {
+    margin-top: 8vw;
+}
+
+.sidenav a:hover {
+    background-color: #dbd9e1;
+}
+
+.main {
+    margin-bottom: 5vw;
+    padding-bottom: 7vw;
+    margin-left: 15vw; /* Same width as the sidebar + left position  */
+    /*box-shadow: 0.5vw 0vw 0vw 1vw rgba(0, 0, 0, 0.2), 0.7vw 0vw 0vw 1.5vw rgba(0, 0, 0, 0.19);*/
+    font-size: 28px;
+}
+
+/*HEADER*/
+
+/*#header {
+    margin-left: 15vw;
+}
+
+.logo {
+    justify-content: left;
+}
+
+.logo_back {
+    margin-left: 15vw;
+}*/
+
+/*FOOTER*/
+/*
+#footer {
+    margin-left: 15vw;
+}*/

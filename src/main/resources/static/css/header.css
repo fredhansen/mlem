@@ -1,4 +1,5 @@
 body {
+    padding-bottom: 7vw;
     margin: 0;
 }
 
@@ -16,7 +17,11 @@ li a {
     color: white;
 }
 
-#header_footer.a:hover, #header_footer.a:active {
+#header {
+    box-shadow: 0 0.5vw 1vw 0 rgba(0, 0, 0, 0.2), 0 0.7vw 1.5vw 0 rgba(0, 0, 0, 0.19);
+}
+
+#header a:hover, a:active {
     background-color: #656469;
 }
 
@@ -26,13 +31,16 @@ li a {
 
 .logo_back {
     background-color: #022441;
-    width: 100%;
 }
 
 .logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+#header a:hover, a:active {
+    background-color: #022441;
 }
 
 .languages {
@@ -60,10 +68,6 @@ li a {
     margin: 0;
     overflow: hidden;
     background-color: rgba(6, 76, 139, 0.74);
-}
-
-#header a:hover {
-    background-color: #022441;
 }
 
 #header * {
