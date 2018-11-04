@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<meta charset="utf-8"/>
-<link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
 
 <head>
 
+    <meta charset="utf-8"/>
+
+    <meta name="application-name" content="Welding Group" />
+    <meta name="alternateName" content="Vaakumpakend" />
+
+    <meta name="description" content="Website for Welding Group, a company that specializes in packaging solutions." />
+    <meta name="keywords" content="vacuum packaging,packaging,plastic,vacuum,bags,printing,printed,pack,film,packaging machines,
+wrapper,slitting,printing,rewinding,material,PPE,nylon" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="accessModeSufficient" content="textual" />
+    <meta property="dateModified" content="2018-11-04" />
+    <meta property="isAccessibleForFree" datatype="xsd:boolean" content="true" />
+    <meta property="isFamilyFriendly" datatype="xsd:boolean" content="true" />
+
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+
 </head>
 <body>
-<div   th:fragment="header">
+<div th:fragment="header">
     <div class="logo_back" onclick="location.href='https://github.com/fredhansen/mlem';" style="cursor: pointer;">
         <img th:src="@{/img/WeldGroup.jpg}" class="logo" th:alt="#{page_title}"/>
     </div>
