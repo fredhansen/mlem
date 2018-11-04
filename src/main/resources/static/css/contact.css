@@ -1,8 +1,9 @@
 #mapid {
     width: 45vw;
     height: 30vw;
+    position: absolute;
+    top: 12vw;
     margin: 0.5vw 0.65vw 2vw 2vw;
-    position: fixed;
     right: 0;
 }
 
@@ -10,11 +11,10 @@
     box-sizing: border-box;
 }
 
-/* Create two equal columns that floats next to each other */
+/* Create two equal columns that float next to each other */
 .column {
     float: left;
     width: 30%;
-    padding: 10px;
 }
 
 /* Clear floats after the columns */
