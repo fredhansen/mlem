@@ -19,6 +19,8 @@ body {
     overflow-x: scroll;
     border-right: #022441 dashed 0.1vw;
     z-index: -3;
+    padding-top: 8vw;
+    padding-bottom: 8vw;
 }
 
 .sidenav a {
@@ -26,14 +28,6 @@ body {
     text-decoration: none;
     color: #000000;
     padding: 1vw 2vw;
-}
-
-.sidenav a:last-child {
-    margin-bottom: 8vw;
-}
-
-.sidenav a:first-child {
-    margin-top: 8vw;
 }
 
 .sidenav a:hover {
