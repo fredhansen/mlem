@@ -49,13 +49,13 @@ public class SmartIdRESTController {
                 .withNationalIdentity((NationalIdentity) httpSession.getAttribute("nationalIdentity"))
                 .withAuthenticationHash((AuthenticationHash) httpSession.getAttribute("authenticationHash"))
                 .withCertificateLevel("QUALIFIED") // Certificate level can either be "QUALIFIED" or "ADVANCED"
-                .withDisplayText("Sisselogimine")
+                .withDisplayText("Sisselogimine mlem")
                 .authenticate();
 
         AuthenticationResponseValidator authenticationResponseValidator = new AuthenticationResponseValidator();
         SmartIdAuthenticationResult authenticationResult = authenticationResponseValidator.validate(authenticationResponse);
 
-        //if (authenticationResult.isValid()) {
+
 
         Authentication auth = new SmartIdAuthenticationToken(
                 authenticationResult.getAuthenticationIdentity(),
@@ -64,7 +64,7 @@ public class SmartIdRESTController {
         );
         SecurityContextHolder.getContext().setAuthentication(auth);
 
-        //}
+
         return authenticationResult;
     }
 

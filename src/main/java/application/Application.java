@@ -46,6 +46,8 @@ public class Application extends WebMvcConfigurerAdapter {
     public Principal user(Principal principal) {
         return principal;
     }
+
+
 }
 
 // TESTKESKKONNAS root kaustas 'java -jar mlem/build/libs/mlem-0.0.1.jar'

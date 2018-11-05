@@ -86,7 +86,7 @@ function resetDataProduct(){
 }
 
 function resetDataCategory() {
-    $("#cat.name").val(""),
+    $("#cat.name").val("");
     $("#cat.desc").val("")
 }
 
@@ -103,7 +103,7 @@ function ajaxPostCategory(){
         data : JSON.stringify(formData),
         dateType: "html",
         success : function (data) {
-            $("#getCategoryStatus").text(data)
+            $("#getCategoryStatus").text(data.toString())
             },
             error: function (e){
                 $("#getCategoryStatus").text("Return data is null! => Error")
@@ -123,7 +123,6 @@ function ajaxGetCategory(){
                     value: data[item].id,
                     text: data[item].name
                 }));
-
             }
         },
         error : function(e){
