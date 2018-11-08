@@ -88,34 +88,5 @@ public class ProductsController {
     public String addProductHTML(ProductDTO productDTO) {
         return "productAdd";
     }
-/*
-    @PostMapping("/product/add")
-    public String addProductForm(@Valid ProductDTO productDTO, BindingResult bindingResultDTO, RedirectAttributes redirectAttributes,
-            @RequestParam("file") MultipartFile file){
-
-        System.out.println(productDTO);
-        if(bindingResultDTO.hasErrors()){
-            return "productAdd";
-        }
-        Path path = Paths.get(uploadFolder + file.getOriginalFilename());
-
-        try {
-            byte[] bytes = file.getBytes();
-            Files.write(path, bytes);
-
-            redirectAttributes.addFlashAttribute("confirm", "File uploaded'" +file.getOriginalFilename()+"'");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        redirectAttributes.addFlashAttribute("confirm", "Registreering ok");
-        productRepository.addProduct(productDTO.getName(),1, productDTO.getTag(),
-                productDTO.getDescription(),path.toString(), productDTO.getPrice(),
-                productDTO.getAmount());
-
-
-
-        return "productAdd";
-    }
-*/
 
 }

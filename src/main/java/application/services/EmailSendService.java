@@ -1,10 +1,12 @@
 package application.services;
 
 
+import application.entities.UserGoogle;
 import application.repo.UserGoogleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
+import org.springframework.stereotype.Service;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -18,7 +20,12 @@ public class EmailSendService {
     @Autowired
     private UserGoogleRepository userGoogleRepository;
 
-    public static void sendMail(String email) throws MessagingException, IOException {
+    public Long randomLong() {
+
+        return Math.abs(new Random().nextLong());
+    }
+
+    private void sendMail(String email) throws MessagingException, IOException {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -42,17 +49,20 @@ public class EmailSendService {
     }
 
     public void userDetails(Principal user) throws IOException, MessagingException {
-        OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) user;
-        Authentication authentication = oAuth2Authentication.getUserAuthentication();
-        Map<String, String> details = (Map<String, String>) authentication.getDetails();
-        Map<String, String> map = new LinkedHashMap<>();
-        map.put("email", details.get("email"));
-        System.out.println(map.get("email"));
-        List<Object> userGoogle = userGoogleRepository.getUserByEmail(map.get("email"));
-        // If user loggs for the first time we add him to DB
-        if (userGoogle.isEmpty()) {
-            userGoogleRepository.addUser(1L, map.get("email"));
-            EmailSendService.sendMail(map.get("email"));
+        if (user != null){
+            OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) user;
+            Authentication authentication = oAuth2Authentication.getUserAuthentication();
+            Map<String, String> details = (Map<String, String>) authentication.getDetails();
+            Map<String, String> map = new LinkedHashMap<>();
+            map.put("email", details.get("email"));
+            System.out.println(map.get("email"));
+            try {
+                // If user loggs for the first time we add him to DB
+                Object userGoogle = userGoogleRepository.getUserByEmail(map.get("email"));
+            } catch (NullPointerException ignored){
+                //userGoogleRepository.addUser(randomLong(), map.get("email"));
+                //sendMail(map.get("email"));
+            }
         }
     }
 }

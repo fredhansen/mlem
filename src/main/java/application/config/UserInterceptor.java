@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.security.Principal;
 
 public class UserInterceptor extends HandlerInterceptorAdapter {
+
     @Autowired
     private UserService userService;
 

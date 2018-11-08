@@ -87,19 +87,5 @@ public class ProductsRESTController {
         System.out.println(form.getFile().getOriginalFilename());
         return form.getFile().getOriginalFilename().toLowerCase();
     }
-    /*
-    @PostMapping("/save/image")
-    public AjaxProductResponse postProductImage(@RequestParam("fileUpload") MultipartFile uploadFile){
-        Path path = Paths.get(uploadFolder + uploadFile.getOriginalFilename());
-        try {
-            byte[] bytes = uploadFile.getBytes();
-            Files.write(path, bytes);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        AjaxProductResponse ajaxProductResponse = new AjaxProductResponse(path.toString());
-        return ajaxProductResponse;
-    }
-*/
 }
 
