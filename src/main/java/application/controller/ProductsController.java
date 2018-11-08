@@ -49,22 +49,7 @@ public class ProductsController {
 
 
     @RequestMapping("/products")
-    public String products(Model model, Principal principal) throws IOException, MessagingException {
-        // Getting info if user is logged
-        if (principal != null) {
-            OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) principal;
-            Authentication authentication = oAuth2Authentication.getUserAuthentication();
-            Map<String, String> details = (Map<String, String>) authentication.getDetails();
-            Map<String, String> map = new LinkedHashMap<>();
-            map.put("email", details.get("email"));
-            System.out.println(map.get("email"));
-            List<Object> userGoogle = userGoogleRepository.getUserByEmail(map.get("email"));
-            // If user loggs for the first time we add him to DB
-            if (userGoogle.isEmpty()) {
-                userGoogleRepository.addUser(1L, map.get("email"));
-                EmailSendService.sendMail(map.get("email"));
-            }
-        }
+    public String products(Model model) throws IOException, MessagingException {
         model.addAttribute("categories", categoryRepository.getAll());
         return "products";
     }
