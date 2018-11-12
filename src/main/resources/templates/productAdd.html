@@ -3,7 +3,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" th:href="@{/css/products.css}">
-<script type="text/javascript" th:src="@{/js/products.js}" src="/js/products.js" ></script>
+<script type="text/javascript" th:src="@{/js/products.js}" src="/js/products.js"></script>
 <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
 <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
 <link rel="stylesheet" type="text/css" th:href="@{/css/productAdd.css}">
@@ -14,78 +14,84 @@
     <title th:text="#{title.addProduct}"></title>
 </head>
 <body>
-<div th:replace="fragments/header :: header" id="header"></div>
+<div class="wrapper">
+    <div th:replace="fragments/header :: header" id="header"></div>
 
-<div th:replace="fragments/sidebar ::sidebar"></div>
+    <div th:replace="fragments/sidebar ::sidebar"></div>
 
-<div>
-    <table>
-        <form id="productAdd" method ="POST">
+    <div>
+        <table>
+            <form id="productAdd" method="POST">
+                <tr>
+                    <td th:text="#{add.name}"></td>
+                    <td><input id="name"/></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td th:text="#{add.category}"></td>
+                    <td><select id="categorySelect" th:text="#{categorySelect}">
+                        <option></option>
+                    </select></td>
+                    <!--<td><button th:text="#{add.buttonRefresh}" id="refreshCategory"></button></td>-->
+                    <!--<td th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}"> error.category</td>-->
+                </tr>
+                <tr>
+                    <td th:text="#{add.tag}"></td>
+                    <td><input id="tag"/></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td th:text="#{add.description}"></td>
+                    <td><input id="description"/></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td th:text="#{add.price}"></td>
+                    <td><input id="price"/></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td th:text="#{add.quantity}"></td>
+                    <td><input id="amount"/></td>
+                    <td></td>
+                </tr>
+            </form>
+            <form id="uploadForm" method="POST" enctype="multipart/form-data">
+                <tr>
+                    <td th:text="#{add.image}"></td>
+                    <td><input type="file" name="file" id="file" accept="image/*"/></td>
+                </tr>
+                <tr>
+                    <td><p id="getImageStatus"></p></td>
+                </tr>
+            </form>
             <tr>
-                <td th:text="#{add.name}" > </td>
-                <td> <input id="name"/></td>
-                <td> </td>
+                <td>
+                    <button id="addButton" type="submit" th:text="#{add.button}"></button>
+                </td>
+                <td></td>
+                <td id="getAddingStatus"></td>
             </tr>
-            <tr>
-                <td th:text="#{add.category}" ></td>
-                <td> <select id="categorySelect" th:text="#{categorySelect}" >
-                    <option ></option> </select></td>
-                <!--<td><button th:text="#{add.buttonRefresh}" id="refreshCategory"></button></td>-->
-                <!--<td th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}"> error.category</td>-->
-            </tr>
-            <tr>
-                <td th:text="#{add.tag}"></td>
-                <td><input  id="tag"/></td>
-                <td> </td>
-            </tr>
-            <tr>
-                <td th:text="#{add.description}"></td>
-                <td> <input id="description"/></td>
-                <td > </td>
-            </tr>
-            <tr>
-                <td th:text="#{add.price}"></td>
-                <td><input id="price"/></td>
-                <td > </td>
-            </tr>
-            <tr>
-                <td th:text="#{add.quantity}"></td>
-                <td><input id="amount"/> </td>
-                <td ></td>
-            </tr>
-        </form>
-        <form id="uploadForm" method="POST" enctype="multipart/form-data">
-            <tr>
-                <td th:text="#{add.image}"></td>
-                <td><input type="file"  name="file" id="file" accept="image/*"  /></td>
-            </tr>
-            <tr>
-                <td><p id="getImageStatus"></p></td>
-            </tr>
-        </form>
-        <tr>
-            <td><button id="addButton"  type="submit" th:text="#{add.button}"></button></td>
-            <td></td>
-            <td id="getAddingStatus"></td>
-        </tr>
-        <form id="categoryAdd" method="POST">
-            <tr>
-                <td th:text="#{add.categoryName}" ></td>
-                <td><input id="cat_name"/></td>
-            </tr>
-            <!--<tr>
-                <td th:text="#{add.categoryDesc}"></td>
-                <td><input id="cat_desc"/></td>
-            </tr>
-            <tr>
-            -->
-                <td><button type="submit" th:text="#{add.categoryLabel}" ></button></td>
+            <form id="categoryAdd" method="POST">
+                <tr>
+                    <td th:text="#{add.categoryName}"></td>
+                    <td><input id="cat_name"/></td>
+                </tr>
+                <!--<tr>
+                    <td th:text="#{add.categoryDesc}"></td>
+                    <td><input id="cat_desc"/></td>
+                </tr>
+                <tr>
+                -->
+                <td>
+                    <button type="submit" th:text="#{add.categoryLabel}"></button>
+                </td>
                 <td id="getCategoryStatus"></td>
-            </tr>
-        </form>
-    </table>
+                </tr>
+            </form>
+        </table>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
 </div>
-<div th:replace="fragments/footer :: footer"></div>
-
 </body>
 </html>

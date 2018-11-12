@@ -1,8 +1,16 @@
+
 li a {
     display: block;
     float: left;
     padding: 0.6% 0.6%;
 
+}
+
+.wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
 }
 
 .list_items {
@@ -17,8 +25,11 @@ li a {
 
 #footer {
     clear: both;
-    position: fixed;
     height: 5vw;
+    width: 100%;
+    position: fixed;
+    /*bottom: -webkit-calc(-100% + 5vw);
+    bottom: calc(-100% + 5vw);*/
     bottom: 0;
     right: 0;
     left: 0;

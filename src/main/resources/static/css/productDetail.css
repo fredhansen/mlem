@@ -1,5 +1,9 @@
-
 * {
     font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
     font-weight: normal;
 }
+
+p {
+    margin-left: 20vw;
+}
+

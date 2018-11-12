@@ -16,24 +16,24 @@
 
 </head>
 <body>
-<div th:replace="fragments/header :: header">
+<div class="wrapper">
+    <div th:replace="fragments/header :: header">
+    </div>
+
+    <div th:text="#{visitor_number} + ': ' + ${statsCount}"></div>
+
+    <div class="charts">
+        <canvas id="oschart"></canvas>
+
+        <canvas id="devicechart"></canvas>
+
+        <canvas id="browserchart"></canvas>
+    </div>
+
+
+    <div th:replace="fragments/footer :: footer">
+    </div>
 </div>
-
-<div th:text="#{visitor_number} + ': ' + ${statsCount}"></div>
-
-<div class="charts">
-    <canvas id="oschart"></canvas>
-
-    <canvas id="devicechart"></canvas>
-
-    <canvas id="browserchart"></canvas>
-</div>
-
-
-
-<div th:replace="fragments/footer :: footer">
-</div>
-
 </body>
 </html>
 
