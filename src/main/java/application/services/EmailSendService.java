@@ -1,7 +1,6 @@
 package application.services;
 
 
-import application.entities.UserGoogle;
 import application.repo.UserGoogleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -15,6 +14,7 @@ import java.io.IOException;
 import java.security.Principal;
 import java.util.*;
 
+@Service
 public class EmailSendService {
 
     @Autowired
@@ -56,13 +56,10 @@ public class EmailSendService {
             Map<String, String> map = new LinkedHashMap<>();
             map.put("email", details.get("email"));
             System.out.println(map.get("email"));
-            try {
-                // If user loggs for the first time we add him to DB
-                Object userGoogle = userGoogleRepository.getUserByEmail(map.get("email"));
-            } catch (NullPointerException ignored){
-                //userGoogleRepository.addUser(randomLong(), map.get("email"));
-                //sendMail(map.get("email"));
-            }
+            // If user loggs for the first time we add him to DB
+            Object userGoogle = userGoogleRepository.getUserByEmail(map.get("email"));
+            userGoogleRepository.addUser(randomLong(), map.get("email"));
+            sendMail(map.get("email"));
         }
     }
 }
