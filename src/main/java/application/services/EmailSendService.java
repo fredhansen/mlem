@@ -1,16 +1,31 @@
 package application.services;
 
 
+import application.entities.UserGoogle;
+import application.repo.UserGoogleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
+import org.springframework.stereotype.Service;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.IOException;
-import java.util.Date;
-import java.util.Properties;
+import java.security.Principal;
+import java.util.*;
 
 public class EmailSendService {
 
-    public static void sendMail(String email) throws MessagingException, IOException {
+    @Autowired
+    private UserGoogleRepository userGoogleRepository;
+
+    public Long randomLong() {
+
+        return Math.abs(new Random().nextLong());
+    }
+
+    private void sendMail(String email) throws MessagingException, IOException {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -30,7 +45,24 @@ public class EmailSendService {
         msg.setSubject("Hello from Welding Group!");
         msg.setContent("Hello !", "text/html");
         msg.setSentDate(new Date());
-
         Transport.send(msg);
+    }
+
+    public void userDetails(Principal user) throws IOException, MessagingException {
+        if (user != null){
+            OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) user;
+            Authentication authentication = oAuth2Authentication.getUserAuthentication();
+            Map<String, String> details = (Map<String, String>) authentication.getDetails();
+            Map<String, String> map = new LinkedHashMap<>();
+            map.put("email", details.get("email"));
+            System.out.println(map.get("email"));
+            try {
+                // If user loggs for the first time we add him to DB
+                Object userGoogle = userGoogleRepository.getUserByEmail(map.get("email"));
+            } catch (NullPointerException ignored){
+                //userGoogleRepository.addUser(randomLong(), map.get("email"));
+                //sendMail(map.get("email"));
+            }
+        }
     }
 }

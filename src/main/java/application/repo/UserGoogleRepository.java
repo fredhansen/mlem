@@ -13,7 +13,7 @@ import java.util.List;
 public interface UserGoogleRepository extends CrudRepository<User, Long> {
 
     @Query(value = "SELECT * FROM users_google WHERE email = (?)", nativeQuery = true)
-    List<Object> getUserByEmail(@Param("email") String email);
+    Object getUserByEmail(@Param("email") String email);
 
     @Modifying
     @Transactional

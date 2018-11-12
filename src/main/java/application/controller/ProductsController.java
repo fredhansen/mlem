@@ -49,22 +49,7 @@ public class ProductsController {
 
 
     @RequestMapping("/products")
-    public String products(Model model, Principal principal) throws IOException, MessagingException {
-        // Getting info if user is logged
-        if (principal != null) {
-            OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) principal;
-            Authentication authentication = oAuth2Authentication.getUserAuthentication();
-            Map<String, String> details = (Map<String, String>) authentication.getDetails();
-            Map<String, String> map = new LinkedHashMap<>();
-            map.put("email", details.get("email"));
-            System.out.println(map.get("email"));
-            List<Object> userGoogle = userGoogleRepository.getUserByEmail(map.get("email"));
-            // If user loggs for the first time we add him to DB
-            if (userGoogle.isEmpty()) {
-                userGoogleRepository.addUser(1L, map.get("email"));
-                EmailSendService.sendMail(map.get("email"));
-            }
-        }
+    public String products(Model model) throws IOException, MessagingException {
         model.addAttribute("categories", categoryRepository.getAll());
         return "products";
     }
@@ -103,34 +88,5 @@ public class ProductsController {
     public String addProductHTML(ProductDTO productDTO) {
         return "productAdd";
     }
-/*
-    @PostMapping("/product/add")
-    public String addProductForm(@Valid ProductDTO productDTO, BindingResult bindingResultDTO, RedirectAttributes redirectAttributes,
-            @RequestParam("file") MultipartFile file){
-
-        System.out.println(productDTO);
-        if(bindingResultDTO.hasErrors()){
-            return "productAdd";
-        }
-        Path path = Paths.get(uploadFolder + file.getOriginalFilename());
-
-        try {
-            byte[] bytes = file.getBytes();
-            Files.write(path, bytes);
-
-            redirectAttributes.addFlashAttribute("confirm", "File uploaded'" +file.getOriginalFilename()+"'");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        redirectAttributes.addFlashAttribute("confirm", "Registreering ok");
-        productRepository.addProduct(productDTO.getName(),1, productDTO.getTag(),
-                productDTO.getDescription(),path.toString(), productDTO.getPrice(),
-                productDTO.getAmount());
-
-
-
-        return "productAdd";
-    }
-*/
 
 }

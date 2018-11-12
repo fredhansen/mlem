@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(path = "/users") // http://159.65.205.181:8080/users (whitelabel)
 public class UserController {
+
     @Autowired
     private UserRepository userRepository;
 

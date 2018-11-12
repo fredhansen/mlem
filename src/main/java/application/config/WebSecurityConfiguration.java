@@ -21,10 +21,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/")
                 .permitAll()
                 .and()
-                .formLogin().loginPage("/smart-Id/login")
-                .and()
+                //.formLogin().loginPage("/smart-Id/login")
+                //.and()
                 .csrf()
-                .disable()
-              ;
+                .disable();
     }
 }
