@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.*;
@@ -31,11 +33,21 @@ public class EmailSendService {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
+        try {
+            FileReader reader = new FileReader(System.getProperty("user.dir")+
+                    File.separator +"src" +
+                    File.separator + "main" +
+                    File.separator +"resources" +
+                    File.separator + "application.properties");
+            Properties properties = new Properties();
+            properties.load(reader);
+            String gmail = properties.getProperty("gmailUser");
+            String password = properties.getProperty("gmailPassword");
 
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("sergei.student1@gmail.com", "serghstudent");
+                return new PasswordAuthentication(gmail, password);
             }
         });
         Message msg = new MimeMessage(session);
@@ -46,6 +58,8 @@ public class EmailSendService {
         msg.setContent("Hello !", "text/html");
         msg.setSentDate(new Date());
         Transport.send(msg);
+        }catch (IOException ignored) {
+        }
     }
 
     public void userDetails(Principal user) throws IOException, MessagingException {
