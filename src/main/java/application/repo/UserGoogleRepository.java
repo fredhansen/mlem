@@ -11,11 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Repository
+
 public interface UserGoogleRepository extends CrudRepository<User, Long> {
 
     @Query(value = "SELECT * FROM users_google WHERE email = (?)", nativeQuery = true)
-    Object getUserByEmail(@Param("email") String email);
+    List<Object> getUserByEmail(@Param("email") String email);
 
     @Modifying
     @Transactional

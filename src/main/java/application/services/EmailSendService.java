@@ -71,9 +71,12 @@ public class EmailSendService {
             map.put("email", details.get("email"));
             System.out.println(map.get("email"));
             // If user loggs for the first time we add him to DB
-            Object userGoogle = userGoogleRepository.getUserByEmail(map.get("email"));
-            userGoogleRepository.addUser(randomLong(), map.get("email"));
-            sendMail(map.get("email"));
+            List<Object> userGoogle = userGoogleRepository.getUserByEmail(map.get("email"));
+            if (userGoogle.isEmpty()){
+                userGoogleRepository.addUser(randomLong(), map.get("email"));
+                sendMail(map.get("email"));
+            }
+
         }
     }
 }
