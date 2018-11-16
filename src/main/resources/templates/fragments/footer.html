@@ -8,7 +8,7 @@
 <div id="footer" th:fragment="footer">
     <nav>
         <ul class="list_items">
-            <li><a href="/stats" th:text="#{title.stats}"></a></li>
+            <li><a href="/stats" th:if="${user}" th:text="#{title.stats}"></a></li>
             <li><a href="https://github.com/fredhansen/mlem" target="_blank">GitHub</a></li>
             <li><a href="/sitemap" th:text="#{title.sitemap}"></a></li>
 

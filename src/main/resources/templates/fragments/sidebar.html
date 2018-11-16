@@ -10,7 +10,7 @@
 <div th:fragment="sidebar">
     <!-- Side navigation -->
     <div class="sidenav">
-        <a href="/products/add" th:text="#{add.product}"></a>
+        <a href="/products/add" th:if="${user}" th:text="#{add.product}"></a>
         <div th:each="category : ${categories}">
             <a th:href="'/products/' + ${category.getId()}" th:text="${category.getName()}"></a>
         </div>

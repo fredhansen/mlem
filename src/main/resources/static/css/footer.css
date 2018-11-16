@@ -32,13 +32,12 @@ li a {
     height: 5vw;
     width: 100%;
     position: fixed;
-    /*bottom: -webkit-calc(-100% + 5vw);
-    bottom: calc(-100% + 5vw);*/
     bottom: 0;
     right: 0;
     left: 0;
     background-color: #efefef;
     background-color: rgba(6, 76, 139, 0.74);
+    z-index: 2;
 }
 
 #footer a:hover, a:active {

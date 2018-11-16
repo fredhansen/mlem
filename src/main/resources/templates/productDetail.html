@@ -17,13 +17,14 @@
     <div th:replace="fragments/nologohead :: nologohead" id="header"></div>
     <div th:replace="fragments/sidebar :: sidebar" id="sidebar"></div>
 
-    <div>
+    <div class="product_detail">
         <div th:each="product : ${products}">
             <p><img th:src="@{${product.getImage()}} " width="30%" height="30%" th:alt="#{product.alt}"/></p>
             <p class="caption" th:text="${product.getName()}"></p>
             <p class="caption" th:text="${product.getAmount()}"></p>
         </div>
     </div>
+
     <div th:replace="fragments/footer :: footer"></div>
 
 </div>

@@ -19,15 +19,17 @@ li a {
 
 #header {
     box-shadow: 0 0.5vw 1vw 0 rgba(0, 0, 0, 0.2), 0 0.7vw 1.5vw 0 rgba(0, 0, 0, 0.19);
+    z-index: 2;
 }
 
-#header a:hover, a:active {
+#header a:active, #header a:hover {
     background-color: #656469;
 }
 
-.active {
+li a.current {
     background-color: #022441;
 }
+
 
 .logo_back {
     background-color: #022441;
@@ -39,9 +41,6 @@ li a {
     margin-right: auto;
 }
 
-#header a:hover, a:active {
-    background-color: #022441;
-}
 
 .languages {
     float: right;

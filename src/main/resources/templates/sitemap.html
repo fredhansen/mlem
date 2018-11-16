@@ -26,12 +26,10 @@
         <li><a href="/login" th:text="Google"></a></li>
         <li><a href="/logout" th:text="Logout"></a></li>
 
-        <li><a href="/stats" th:text="#{title.stats}"></a></li>
+        <li><a href="/stats" th:text="#{title.stats} + #{meldmessage}"></a></li>
         <li><a href="https://github.com/fredhansen/mlem" target="_blank">GitHub</a></li>
 
-
     </ul>
-
 
     <div th:replace="fragments/footer :: footer">
     </div>

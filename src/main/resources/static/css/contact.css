@@ -3,12 +3,17 @@
     height: 30vw;
     position: absolute;
     top: 12vw;
-    margin: 0.5vw 0.65vw 2vw 2vw;
+    margin: 0.5vw 2vw 2vw;
     right: 0;
 }
 
 * {
     box-sizing: border-box;
+}
+
+.row {
+    margin-top: 3vw;
+    margin-left: 5vw;
 }
 
 /* Create two equal columns that float next to each other */

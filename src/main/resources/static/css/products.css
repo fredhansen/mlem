@@ -1,32 +1,41 @@
 p {
     margin-left: 1vw;
     margin-right: 3vw;
-    padding-bottom: 7vw;
-    padding-top: 5vw;
 }
 
-#container {
+#products {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.products_view {
-    display: inline-block;
+.products_container {
+    margin-top: 5vw;
+    margin-left: 29vw;
+    margin-right: 5vw;
 }
 
 .product {
-    width: 70%;
-    height: 70%;
-    display: inline-block;
+    height: 300px;
+    width: 300px;
+    padding: 3vw;
+    margin-right: 3vw;
+    margin-bottom: 3vw;
+    border: black 1px dashed;
+    display: block;
+    box-sizing: border-box;
+}
+
+.product img {
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product p {
+    text-align: center;
 }
 
 
-#products {
-    float: right;
-    margin-left: 20.5%;
-}
 
-#footer {
-
-}
 
