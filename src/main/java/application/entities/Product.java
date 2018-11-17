@@ -4,8 +4,9 @@ package application.entities;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Table(name = "products")
+
 @Entity
+@Table(name = "products")
 public class Product {
 
     @Id
@@ -20,7 +21,7 @@ public class Product {
 
     private String description;
 
-    @Column(columnDefinition="TEXT")
+    @Column(columnDefinition="MEDIUMTEXT")
     private String image;
     @NotNull
     private double price;
