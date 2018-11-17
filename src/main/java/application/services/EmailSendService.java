@@ -33,23 +33,11 @@ public class EmailSendService {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
-        try {
-            FileReader reader = new FileReader(System.getProperty("user.dir")+
-                    File.separator +"src" +
-                    File.separator + "main" +
-                    File.separator +"resources" +
-                    File.separator + "application.properties");
-            Properties properties = new Properties();
-            properties.load(reader);
-            String gmail = properties.getProperty("gmailUser");
-            String password = properties.getProperty("gmailPassword");
 
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(gmail, password);
-            }
-        });
+        @Override
+        protected PasswordAuthentication getPasswordAuthentication() {
+            return new PasswordAuthentication(System.getenv("G_USERNAME"), System.getenv("G_PASSWORD")); }});
         Message msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress("sergei.student1@gmail.com", false));
 
@@ -58,8 +46,6 @@ public class EmailSendService {
         msg.setContent("Hello !", "text/html");
         msg.setSentDate(new Date());
         Transport.send(msg);
-        }catch (IOException ignored) {
-        }
     }
 
     public void userDetails(Principal user) throws IOException, MessagingException {
