@@ -3,11 +3,28 @@
     font-weight: normal;
 }
 
-p {
-    margin-left: 20vw;
+.product_detail_container {
+    margin-top: 5vw;
+    margin-left: 15vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product_detail {
+    margin: 2vw;
+    border: grey dashed 1px;
+}
+
+.product_detail p {
+    margin-left: 3vw;
+
 }
 
 .product_detail img {
-    margin-top: 5vw;
+    margin-left: 25vw;
+    margin-right: auto;
+    width: 30%;
+    height: auto;
 }
 

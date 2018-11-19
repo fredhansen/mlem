@@ -17,19 +17,23 @@ li a {
     color: white;
 }
 
+/*TODO responsive images*/
+    /*img {
+        width: 100%;
+        height: auto;
+    }*/
 #header {
     box-shadow: 0 0.5vw 1vw 0 rgba(0, 0, 0, 0.2), 0 0.7vw 1.5vw 0 rgba(0, 0, 0, 0.19);
     z-index: 2;
 }
 
 #header a:active, #header a:hover {
-    background-color: #656469;
+    background-color: #022441;
 }
 
 li a.current {
     background-color: #022441;
 }
-
 
 .logo_back {
     background-color: #022441;
@@ -41,21 +45,9 @@ li a.current {
     margin-right: auto;
 }
 
-
 .languages {
     float: right;
     border-right: none;
-}
-
-.estonian {
-    height: 100%;
-    margin-right: 0.5vw;
-    width: 3vw;
-}
-
-.english {
-    height: 100%;
-    width: 3vw;
 }
 
 .googleplus {

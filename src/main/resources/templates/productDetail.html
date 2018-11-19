@@ -17,11 +17,21 @@
     <div th:replace="fragments/nologohead :: nologohead" id="header"></div>
     <div th:replace="fragments/sidebar :: sidebar" id="sidebar"></div>
 
-    <div class="product_detail">
+    <div class="product_detail_container">
         <div th:each="product : ${products}">
-            <p><img th:src="@{${product.getImage()}} " width="30%" height="30%" th:alt="#{product.alt}"/></p>
-            <p class="caption" th:text="${product.getName()}"></p>
-            <p class="caption" th:text="${product.getAmount()}"></p>
+            <!-- TODO TAB GALLERY -->
+            <div class="product_detail">
+                <p><img th:src="@{${product.getImage()}}" th:alt="#{product.alt}"/></p>
+            </div>
+            <div class="product_detail">
+                <p class="caption" th:text="${product.getName()}"></p>
+            </div>
+            <div class="product_detail">
+                <p class="caption" th:text="${product.getAmount()}"></p>
+            </div>
+            <div class="product_detail">
+                <p th:text="${product.getDescription()}"></p>
+            </div>
         </div>
     </div>
 
