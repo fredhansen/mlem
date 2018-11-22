@@ -1,4 +1,4 @@
-package application.controller;
+package application.RESTController;
 
 import application.entities.Category;
 import application.entities.CategoryDTO;

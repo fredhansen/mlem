@@ -72,7 +72,7 @@ public class ProductsController {
         model.addAttribute("categories", categoryRepository.getAll());
 
         System.out.println(id);
-        List<Product> product = productRepository.getById(id);
+        Product product = productRepository.getById(id);
         System.out.println(product);
         model.addAttribute("products", product);
         return "productDetail";
@@ -86,6 +86,11 @@ public class ProductsController {
      */
     @GetMapping("/products/add")
     public String addProductHTML(ProductDTO productDTO) {
+        return "productAdd";
+    }
+
+    @GetMapping("/products/change/{id}")
+    public String changeProductHTML(@PathVariable("id") Long id) {
         return "productAdd";
     }
 

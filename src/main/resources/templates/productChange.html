@@ -9,8 +9,6 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/products.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
-    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}"> -->
-
 </head>
 <body>
 <div class="wrapper">
@@ -71,23 +69,6 @@
                 <td></td>
                 <td id="getAddingStatus"></td>
             </tr>
-            <form id="categoryAdd" method="POST">
-                <tr>
-                    <td th:text="#{add.categoryName}"></td>
-                    <td><input id="cat_name"/></td>
-                </tr>
-                <!--<tr>
-                    <td th:text="#{add.categoryDesc}"></td>
-                    <td><input id="cat_desc"/></td>
-                </tr>
-                <tr>
-                -->
-                <td>
-                    <button type="submit" th:text="#{add.categoryLabel}"></button>
-                </td>
-                <td id="getCategoryStatus"></td>
-                </tr>
-            </form>
         </table>
     </div>
     <div th:replace="fragments/footer :: footer"></div>
