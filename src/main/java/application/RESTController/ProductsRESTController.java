@@ -87,6 +87,7 @@ public class ProductsRESTController {
         // Getting updated fields
         String name = productDTO.getName();
         Long categoryId = productDTO.getCategoryId();
+        String tag = productDTO.getTag();
         String description = productDTO.getDescription();
         String image = productDTO.getImage();
         double price = productDTO.getPrice();
@@ -98,6 +99,9 @@ public class ProductsRESTController {
         }
         if (categoryId == null){
             categoryId = checkProduct.getCategoryId();
+        }
+        if (tag.equals("")){
+            tag = checkProduct.getTag();
         }
         if (description.equals("")){
             description = checkProduct.getDescription();
@@ -112,7 +116,7 @@ public class ProductsRESTController {
             amount = checkProduct.getAmount();
         }
         // Changing data in database using productDTO
-
+        productRepository.changeProduct(name, categoryId,tag, description,image,price,amount,id);
         return "Product changed";
     }
 

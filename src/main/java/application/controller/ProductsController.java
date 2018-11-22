@@ -91,7 +91,7 @@ public class ProductsController {
 
     @GetMapping("/products/change/{id}")
     public String changeProductHTML(@PathVariable("id") Long id) {
-        return "productAdd";
+        return "productChange";
     }
 
 }

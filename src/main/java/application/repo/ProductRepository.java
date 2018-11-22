@@ -27,8 +27,26 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO products (id, name, category_Id, tag, description, image, price, amount) VALUES(?,?,?,?,?,?,?,?)", nativeQuery = true)
-    void addProduct(@Param("id") Long id, @Param("name") String name, @Param("category_Id") Long category_Id, @Param("tag") String tag,
-                    @Param("description") String description, @Param("image") String image, @Param("price") Double price, @Param("amount") Integer amount);
+    void addProduct(@Param("id") Long id,
+                    @Param("name") String name,
+                    @Param("category_Id") Long category_Id,
+                    @Param("tag") String tag,
+                    @Param("description") String description,
+                    @Param("image") String image,
+                    @Param("price") Double price,
+                    @Param("amount") Integer amount);
+
+    @Modifying
+    @Transactional
+    @Query(value= "UPDATE products SET name=?, category_Id=?, tag=?, description=?, image=?, price=?, amount=? WHERE id=?", nativeQuery = true)
+    void changeProduct(@Param("name") String name,
+                       @Param("category_Id") Long category_Id,
+                       @Param("tag") String tag,
+                       @Param("description") String description,
+                       @Param("image") String image,
+                       @Param("price") Double price,
+                       @Param("amount") Integer amount,
+                       @Param("id") String id);
 
     @Modifying
     @Transactional

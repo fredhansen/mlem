@@ -27,7 +27,7 @@ function ajaxPostImage() {
     $.ajax({
         type : "POST",
         enctype : "multipart/form-data",
-        url: window.location + '/image/save',
+        url: "/products/add/image/save",
         data: data,
         processData: false,
         contentType: false,
@@ -61,7 +61,7 @@ function ajaxPostProduct(imageName){
     $.ajax({
         type : "POST",
         contentType : "application/json",
-        url : window.location + "/save",
+        url : "/products/add/save",
         data : JSON.stringify(formData),
         dataType : 'html',
         success : function(data){
@@ -99,7 +99,7 @@ function ajaxPostCategory(){
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url : window.location + "/category/save",
+        url : "/products/add/category/save",
         data : JSON.stringify(formData),
         dateType: "html",
         success : function (data) {
@@ -115,7 +115,7 @@ function ajaxPostCategory(){
 function ajaxGetCategory(){
     $.ajax({
         type: 'GET',
-        url: window.location +'/category/show',
+        url: "/products/add/category/show",
         success : function (data) {
             $("#categorySelect").empty();
             for( item in data){
