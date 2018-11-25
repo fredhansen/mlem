@@ -83,7 +83,7 @@ public class ProductsRESTController {
         categoryId = categoryId == null ? checkProduct.getCategoryId() : categoryId;
         tag = tag.equals("") ? checkProduct.getTag() : tag;
         description = description.equals("") ? checkProduct.getDescription() : description;
-        image = image.equals("") ? checkProduct.getImage() : image;
+        image = image.equals("None") ? checkProduct.getImage() : image;
         price = price == 0.0 ? checkProduct.getPrice() : price;
         amount = amount == 0 ? checkProduct.getAmount() : amount;
 
