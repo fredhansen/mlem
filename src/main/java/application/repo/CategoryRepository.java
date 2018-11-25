@@ -24,4 +24,18 @@ public interface CategoryRepository extends CrudRepository<Category, Long> {
 
     @Query(value = "SELECT id, name FROM category", nativeQuery = true)
     List<Category> getAll();
+
+    @Query(value = "Select * FROM category WHERE id=?", nativeQuery = true)
+    Category getById(@Param("id") String id);
+
+    @Modifying
+    @Transactional
+    @Query(value= "UPDATE category SET name=? WHERE id=?", nativeQuery = true)
+    void changeCategory(@Param("name") String name,
+                       @Param("id") String id);
+
+    @Modifying
+    @Transactional
+    @Query(value="DELETE FROM category WHERE id=? ", nativeQuery = true )
+    void deleteCategoryById(@Param("id") String id);
 }

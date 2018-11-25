@@ -11,28 +11,8 @@ $(document).ready(function () {
         ajaxPostImage();
     });
 
-    $("#delete").on("click", function (event) {
-        event.preventDefault();
-        var a_href = $(this).attr("href");
-        ajaxDeleteProduct(a_href);
-    })
+
 });
-
-function ajaxDeleteProduct(clicked){
-    $.ajax({
-        type : "POST",
-        url : clicked ,
-        success : function(data){
-            console.log(data)
-        },
-        error : function (e) {
-            alert("Error!");
-            console.log("ERROR: ",e);
-        }
-    });
-}
-
-// var imageName = undefined;
 
 function ajaxPostImage() {
     var form = $("#uploadForm")[0];

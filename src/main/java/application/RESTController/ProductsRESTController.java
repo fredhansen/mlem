@@ -19,22 +19,6 @@ import java.util.Random;
 @RestController
 public class ProductsRESTController {
 
-    /**
-     * Siia pange upload kausta tee
-     */
-    private static String uploadFolder = System.getProperty("user.dir") +
-            File.separator+"src"+
-            File.separator+ "main"+
-            File.separator+ "resources"+
-            File.separator+"static"+
-            File.separator+"img"+
-            File.separator+"upload"+File.separator;
-    {
-        if (System.getProperty("os.name").contains("Linux")
-            || System.getProperty("os.name").contains("Ubuntu")) {
-            uploadFolder = "/app/src/main/resources/static/img/upload/";
-        }
-    }
     private Long randomLong() {
         return Math.abs(new Random().nextLong());
     }
@@ -92,29 +76,17 @@ public class ProductsRESTController {
         String image = productDTO.getImage();
         double price = productDTO.getPrice();
         int amount = productDTO.getAmount();
+
         //Checking if some of them are empty.
         //If yes, we will use existing info about product in DB
-        if (name.equals("")){
-            name = checkProduct.getName();
-        }
-        if (categoryId == null){
-            categoryId = checkProduct.getCategoryId();
-        }
-        if (tag.equals("")){
-            tag = checkProduct.getTag();
-        }
-        if (description.equals("")){
-            description = checkProduct.getDescription();
-        }
-        if (image.equals("")){
-            image = checkProduct.getImage();
-        }
-        if (price == 0.0){
-            price = checkProduct.getPrice();
-        }
-        if (amount == 0){
-            amount = checkProduct.getAmount();
-        }
+        name = name.equals("") ? checkProduct.getName() : name;
+        categoryId = categoryId == null ? checkProduct.getCategoryId() : categoryId;
+        tag = tag.equals("") ? checkProduct.getTag() : tag;
+        description = description.equals("") ? checkProduct.getDescription() : description;
+        image = image.equals("") ? checkProduct.getImage() : image;
+        price = price == 0.0 ? checkProduct.getPrice() : price;
+        amount = amount == 0 ? checkProduct.getAmount() : amount;
+
         // Changing data in database using productDTO
         productRepository.changeProduct(name, categoryId,tag, description,image,price,amount,id);
         return "Product changed";

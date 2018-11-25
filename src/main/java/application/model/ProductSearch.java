@@ -4,6 +4,21 @@ public class ProductSearch {
 
     private String input;
 
+    private String whatToSearch;
+
+    public ProductSearch(String input, String whatToSearch) {
+        this.input = input;
+        this.whatToSearch = whatToSearch;
+    }
+
+    public String getWhatToSearch() {
+        return whatToSearch;
+    }
+
+    public void setWhatToSearch(String whatToSearch) {
+        this.whatToSearch = whatToSearch;
+    }
+
     public String getInput() {
         return input;
     }

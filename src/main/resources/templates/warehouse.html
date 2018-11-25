@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title th:text="#{title.addProduct}"></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
-    <script type="text/javascript" th:src="@{/js/productsChange.js}" src="/js/productsSearch.js" defer></script>
+    <script type="text/javascript" th:src="@{/js/warehouse.js}" src="/js/warehouse.js" defer></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/products.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
@@ -14,7 +14,6 @@
 <body>
 <div class="wrapper">
     <div th:replace="fragments/header :: header" id="header"></div>
-    <div th:replace="fragments/sidebar ::sidebar" id="sidebar"></div>
 
     <div id="tableForProducts">
         <form th:action="@{/products/warehouse/search}" th:object="${productSearch}" method="post">
@@ -22,34 +21,50 @@
                 <p th:text="#{product.search}"></p>
                 <input id="searchInput" th:field="*{input}"/>
                 <button id="searchButton" th:text="OK"></button>
+                <input type="radio" name="criteria" value="products" th:field="*{whatToSearch}" th:text="#{search.product}" />
+                <input type="radio" name="criteria" value="category" th:field="*{whatToSearch}" th:text="#{search.category}"/>
             </div>
         </form>
-            <table id="searchResultTable">
-                <tr>
-                    <td><p th:text="#{table.image}"></p></td>
-                    <td><p th:text="#{table.name}"></p></td>
-                    <td><p th:text="#{table.id}"></p></td>
-                    <td><p th:text="#{table.category}"></p></td>
-                    <td><p th:text="#{table.tag}"></p></td>
-                    <td><p th:text="#{table.description}"></p></td>
-                    <td><p th:text="#{table.price}"></p></td>
-                    <td><p th:text="#{table.amount}"></p></td>
-                    <td><p th:text="#{table.change}"></p></td>
-                    <td><p th:text="#{table.delete}"></p></td>
-                </tr>
-                <tr th:each="product : ${products}">
-                    <td><img th:src="@{${product.getImage()}}" width="20%" height="20%" th:alt="#{product.alt}"/></td>
-                    <td><p th:text="${product.getName()}"></p></td>
-                    <td><p th:text="${product.getId()}"></p></td>
-                    <td><p th:text="${product.getCategoryId()}"></p></td>
-                    <td><p th:text="${product.getTag()}"></p></td>
-                    <td><p th:text="${product.getDescription()}"></p></td>
-                    <td><p th:text="${product.getPrice()}"></p></td>
-                    <td><p th:text="${product.getAmount()}"></p></td>
-                    <td><a th:href="@{'/products/change/'+${product.getId()}}" th:text="#{product.change}"></a></td>
-                    <td><a th:href="@{'/products/delete/'+${product.getId()}}" th:text="#{product.delete}" id="delete"></a></td>
-                </tr>
-            </table>
+        <table id="productSearchResult" th:if="${productsTable}">
+            <tr>
+                <td><p th:text="#{table.image}"></p></td>
+                <td><p th:text="#{table.name}"></p></td>
+                <td><p th:text="#{table.id}"></p></td>
+                <td><p th:text="#{table.category}"></p></td>
+                <td><p th:text="#{table.tag}"></p></td>
+                <td><p th:text="#{table.description}"></p></td>
+                <td><p th:text="#{table.price}"></p></td>
+                <td><p th:text="#{table.amount}"></p></td>
+                <td><p th:text="#{table.change}"></p></td>
+                <td><p th:text="#{table.delete}"></p></td>
+            </tr>
+            <tr th:each="product : ${products}">
+                <td><img th:src="@{${product.getImage()}}" width="20%" height="20%" th:alt="#{product.alt}"/></td>
+                <td><p th:text="${product.getName()}"></p></td>
+                <td><p th:text="${product.getId()}"></p></td>
+                <td><p th:text="${product.getCategoryId()}"></p></td>
+                <td><p th:text="${product.getTag()}"></p></td>
+                <td><p th:text="${product.getDescription()}"></p></td>
+                <td><p th:text="${product.getPrice()}"></p></td>
+                <td><p th:text="${product.getAmount()}"></p></td>
+                <td><a th:href="@{'/products/change/'+${product.getId()}}" th:text="#{product.change}"></a></td>
+                <td><a th:href="@{'/products/delete/'+${product.getId()}}" th:text="#{product.delete}" id="deleteProduct"></a></td>
+            </tr>
+        </table>
+        <table id="categorySearchResult" th:if="${categoriesTable}">
+            <tr>
+                <td><p th:text="#{table.name}"></p></td>
+                <td><p th:text="#{table.category}"></p></td>
+                <td><p th:text="#{table.change}"></p></td>
+                <td><p th:text="#{table.delete}"></p></td>
+            </tr>
+            <tr th:each="category : ${categories}">
+                <td><p th:text="${category.getName()}"></p></td>
+                <td><p th:text="${category.getId()}"></p></td>
+                <td><a th:href="@{'/category/change/'+${category.getId()}}" th:text="#{product.change}"></a></td>
+                <td><a th:href="@{'/category/delete/'+${category.getId()}}" th:text="#{product.delete}" id="deleteCategory"></a></td>
+            </tr>
+        </table>
     </div>
     <div th:replace="fragments/footer :: footer"></div>
 </div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{title.addProduct}"></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+    <script type="text/javascript" th:src="@{/js/categoryChange.js}" src="/js/categoryChange.js" defer></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/products.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+</head>
+<body>
+<form id="categoryChange" method="POST">
+    <div th:replace="fragments/header :: header" id="header"></div>
+    <tr>
+        <td><p th:text="${oldName}"></p></td>
+        <td><input id="cat_name"/></td>
+    </tr>
+    <td>
+        <button type="submit" th:text="#{add.categoryLabel}"></button>
+    </td>
+    <td><p id="getCategotyStatus"></p></td>
+    </tr>
+</form>
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

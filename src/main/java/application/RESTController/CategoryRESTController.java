@@ -4,11 +4,9 @@ import application.entities.Category;
 import application.entities.CategoryDTO;
 import application.repo.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.PostRemove;
 import java.util.List;
 import java.util.Random;
 
@@ -23,7 +21,7 @@ public class CategoryRESTController {
     }
 
     @PostMapping("products/add/category/save")
-    public CategoryDTO postCategory(@RequestBody CategoryDTO categoryDTO) {
+    public CategoryDTO postAddCategory(@RequestBody CategoryDTO categoryDTO) {
         System.out.println(categoryDTO);
 
         if (categoryDTO.getName() == null) {
@@ -34,8 +32,6 @@ public class CategoryRESTController {
         cat.setId(randomLong());
         cat.setName(categoryDTO.getName());
         categoryRepository.save(cat);
-
-//        categoryRepository.addCategory(randomLong(), categoryDTO.getName());
 
         categoryDTO.setId(cat.getId());
 
@@ -49,4 +45,27 @@ public class CategoryRESTController {
     }
 
 
+    @PostMapping("category/change/{id}/update")
+    public String postChangeCategory(@PathVariable("id") String id,
+                                          @RequestBody CategoryDTO categoryDTO){
+        if (categoryDTO.getName().equals("")){
+            return "None";
+        }
+        categoryRepository.changeCategory(categoryDTO.getName(),id);
+        return "Done";
+    }
+
+    @PostMapping("category/delete/{id}")
+    public String deleteCategory(@PathVariable("id") String id){
+        Category checkProduct = categoryRepository.getById(id);
+        if (checkProduct == null){
+            return "None";
+        }
+        categoryRepository.deleteCategoryById(id);
+        checkProduct = categoryRepository.getById(id);
+        if (checkProduct == null){
+            return "Success";
+        }
+        return "None";
+    }
 }
