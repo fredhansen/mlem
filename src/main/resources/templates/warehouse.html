@@ -48,7 +48,7 @@
                 <td><p th:text="${product.getPrice()}"></p></td>
                 <td><p th:text="${product.getAmount()}"></p></td>
                 <td><a th:href="@{'/products/change/'+${product.getId()}}" th:text="#{product.change}"></a></td>
-                <td><a th:href="@{'/products/delete/'+${product.getId()}}" th:text="#{product.delete}" id="deleteProduct"></a></td>
+                <td><a class="deleteHREF" th:href="@{'/products/delete/'+${product.getId()}}" th:text="#{product.delete}" th:id="${product.getId()}"></a></td>
             </tr>
         </table>
         <table id="categorySearchResult" th:if="${categoriesTable}">
@@ -62,7 +62,7 @@
                 <td><p th:text="${category.getName()}"></p></td>
                 <td><p th:text="${category.getId()}"></p></td>
                 <td><a th:href="@{'/category/change/'+${category.getId()}}" th:text="#{product.change}"></a></td>
-                <td><a th:href="@{'/category/delete/'+${category.getId()}}" th:text="#{product.delete}" id="deleteCategory"></a></td>
+                <td><a class="deleteHREF" th:href="@{'/category/delete/'+${category.getId()}}" th:text="#{product.delete}" th:id="${category.getId()}"></a></td>
             </tr>
         </table>
     </div>

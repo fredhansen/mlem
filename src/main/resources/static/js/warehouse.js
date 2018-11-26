@@ -1,12 +1,6 @@
 $(document).ready(function () {
 
-    $("#deleteProduct").on("click", function (event) {
-        event.preventDefault();
-        var a_href = $(this).attr("href");
-        ajaxDelete(a_href);
-    });
-
-    $("#deleteCategory").on("click", function (event) {
+    $("a.deleteHREF").on("click", function (event) {
         event.preventDefault();
         var a_href = $(this).attr("href");
         ajaxDelete(a_href);
