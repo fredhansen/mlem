@@ -1,6 +1,8 @@
 package application.entities;
 
 
+import com.google.gson.Gson;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -111,6 +113,10 @@ public class Product {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public String toJson(){
+        return new Gson().toJson(this);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package application.entities;
 
 
+import com.google.gson.Gson;
+
 import javax.persistence.*;
 
 @Table(name = "category")
@@ -29,6 +31,10 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String toJson(){
+        return new Gson().toJson(this);
     }
 /*
     public String getDescription() {

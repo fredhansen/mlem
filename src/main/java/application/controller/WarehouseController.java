@@ -35,12 +35,12 @@ public class WarehouseController {
         if (productSearch.getWhatToSearch() == null){
             return "warehouse";
         }
+        String search = productSearch.getInput().toLowerCase();
         if (productSearch.getWhatToSearch().equals("products")){
             List<Product> allProducts = productRepository.getAll();
             List<Product> result = new ArrayList<>();
-
             for (Product pr : allProducts){
-                if (pr.toString().toLowerCase().contains(productSearch.getInput())){
+                if ( pr.toJson().toLowerCase().contains(search)){
                     result.add(pr);
                 }
             }
@@ -53,9 +53,8 @@ public class WarehouseController {
         } else if (productSearch.getWhatToSearch().equals("category")) {
             List<Category> allCategories = categoryRepository.getAll();
             List<Category> result = new ArrayList<>();
-
             for (Category c : allCategories){
-                if (c.toString().toLowerCase().contains(productSearch.getInput())){
+                if (c.toJson().toLowerCase().contains(search)){
                     result.add(c);
                 }
             }

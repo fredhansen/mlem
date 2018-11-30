@@ -22,14 +22,14 @@ wrapper,slitting,printing,rewinding,material,PPE,nylon"/>
     <nav id="header">
         <ul class="list_items">
 
-            <li><a href="/" th:text="#{home_page}"></a></li>
-            <li><a href="/products" th:text="#{products_page}"></a></li>
+            <li><a href="/" th:text="#{home_page}" id="homePage"></a></li>
+            <li><a href="/products" th:text="#{products_page}" id="productsPage"></a></li>
             <!--<li><a href="/services" th:text="#{services_page}"></a></li>
             <li><a href="/shop" th:text="#{shop_page}">Shop</a></li>-->
-            <li><a href="/contact" th:text="#{contact_page}"></a></li>
-            <li><a href="/login" class="googleplus"> Google+</a></li>
-            <li><a href="/smart-Id/login" th:text="#{smartId}"></a></li>
-            <li><a href="/logout" th:if="${user}" th:text="#{logout}"></a></li>
+            <li><a href="/contact" th:text="#{contact_page}" id="contactPage"></a></li>
+            <li><a href="/login" class="googleplus" id="loginPageGoogle"> Google+</a></li>
+            <li><a href="/smart-Id/login" th:text="#{smartId}" id="loginPageSmartId"></a></li>
+            <li><a href="/logout" th:if="${user}" th:text="#{logout}" id="logout"></a></li>
             <!-- <li><a href="/logout" th:text="#{logout}"></a></li> -->
 
             <!--<form action="" method="get">
