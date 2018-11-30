@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
 <head>
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
@@ -7,14 +7,12 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/smartId.css}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
     <script type="text/javascript" th:src="@{/js/smartId.js}" src="/js/smartId.js" defer></script>
-
     <meta charset="UTF-8">
     <title th:text="#{login.title}"></title>
 </head>
 <body>
 <div class="wrapper">
 <div th:replace="fragments/header :: header"></div>
-
 <div>
     <form>
         <table>

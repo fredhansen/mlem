@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
 <head>
     <meta charset="UTF-8">
     <title th:text="#{title.addProduct}"></title>
@@ -13,7 +12,6 @@
 <body>
 <div class="wrapper">
     <div th:replace="fragments/header :: header" id="header"></div>
-
     <div>
         <table>
             <form id="productAdd" method="POST">

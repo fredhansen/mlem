@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
 <head>
     <meta charset="utf-8"/>
     <meta name="application-name" content="Welding Group"/>
@@ -8,9 +7,7 @@
     <meta name="description" content="Website for Welding Group, a company that specializes in packaging solutions."/>
     <meta name="keywords" content="vacuum packaging,packaging,plastic,vacuum,bags,printing,printed,pack,film,packaging machines,
 wrapper,slitting,printing,rewinding,material,PPE,nylon"/>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta property="accessModeSufficient" content="textual"/>
     <meta property="dateModified" content="2018-11-04"/>
     <meta property="isAccessibleForFree" datatype="xsd:boolean" content="true"/>
@@ -20,7 +17,6 @@ wrapper,slitting,printing,rewinding,material,PPE,nylon"/>
 <div th:fragment="nologohead">
     <nav id="header" class="nologo">
         <ul class="list_items">
-
             <li><a href="/" th:text="#{home_page}"></a></li>
             <li><a href="/products" th:text="#{products_page}"></a></li>
             <!--<li><a href="/services" th:text="#{services_page}"></a></li>
@@ -34,17 +30,13 @@ wrapper,slitting,printing,rewinding,material,PPE,nylon"/>
                 <button type="submit" th:text="#{search_button}"></button>
             </form>
             -->
-
             <li><a class="languages" id="est" href="/?lang=et" th:text="#{lang.et}"></a></li>
             <li><a class="languages" id="eng" href="/?lang=en" th:text="#{lang.en}"></a></li>
         </ul>
-
         <!--    <img th:src="@{/img/estonia.svg}" class='estonian' th:alt="#{lang.et}"/>
            <img th:src="@{/img/uk.svg}" class="english" th:alt="#{lang.en}"/> -->
-
     </nav>
     <!-- <div th:replace="fragments/login :: login"></div>-->
-
 </div>
 </body>
 </html>

@@ -1,26 +1,17 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
 <head>
     <title th:text="#{products_page}"></title>
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
     <link rel="stylesheet" type="text/css" th:href="@{/css/products.css}">
-    <!--<script type="text/javascript" th:src="@{/js/products.js}" src="../static/js/products.js"></script>-->
-    <!--<script type="text/javascript" th:src="@{/js/products.js}" src="/static/js/sidebar.js"></script>
-    <script type="text/javascript" th:src="@{/js/products.js}" src="/static/js/header.js"></script> -->
     <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
-
 </head>
 <body>
-
 <div class="products_container">
     <div th:replace="fragments/nologohead :: nologohead" id="header"></div>
-
     <div th:replace="fragments/sidebar :: sidebar" id="sidebar"></div>
-
-
-    <!--<div th:replace="fragments/vacuum_pouches :: vacuum_pouches"></div> -->
     <div id="products">
         <div class="products_view" th:each="product : ${products}">
             <a th:href="'/products/detail/' + ${product.getId()}">
@@ -30,8 +21,6 @@
                 </div>
             </a>
         </div>
-
-
         <!--<p>
             Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
             ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -97,8 +86,6 @@
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
             cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>-->
-        <!--<div th:replace="fragments/pack_material :: pack_material"></div>
-        <div th:replace="fragments/plastic_bag :: plastic_bag"></div> -->
         <div th:replace="fragments/footer :: footer" id="footer"></div>
     </div>
 </div>

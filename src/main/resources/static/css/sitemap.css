@@ -1,16 +1,1 @@
-h2 {
-    padding: 3vw 3vw 1vw;
-    font-family: 'Arial', Arial, Helvetica, sans-serif;
-    font-weight: bold;
-}
-
-#sitemap_li {
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-}
-
-#sitemap_li a {
-    color: black;
-}
-
+h2{padding:3vw 3vw 1vw;font-family:'Arial',Arial,Helvetica,sans-serif;font-weight:700}#sitemap_li{display:flex;flex-direction:column;list-style-type:none}#sitemap_li a{color:black}

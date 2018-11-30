@@ -1,8 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
-
 <meta charset="UTF-8">
-
 <head>
     <title th:text="#{title.stats}"></title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js" defer></script>
@@ -15,18 +13,12 @@
 <div class="wrapper">
     <div th:replace="fragments/header :: header">
     </div>
-
     <div th:text="#{visitor_number} + ': ' + ${statsCount}"></div>
-
     <div class="charts">
         <canvas id="oschart"></canvas>
-
         <canvas id="devicechart"></canvas>
-
         <canvas id="browserchart"></canvas>
     </div>
-
-
     <div th:replace="fragments/footer :: footer">
     </div>
 </div>

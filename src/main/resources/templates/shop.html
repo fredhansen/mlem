@@ -1,7 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-
-
+<html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
 <head>
     <title th:text="#{shop_page}">Shop</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
@@ -12,12 +10,7 @@
 <div class="wrapper">
     <div th:replace="fragments/header :: header">
     </div>
-
-
-
         <!--  <img th:src="@{/img/233 copy.png}" class="img" th:alt="#{page_title}"/> -->
-
-
     </div>
     <div th:insert="fragments/footer" class="footer">
     </div>

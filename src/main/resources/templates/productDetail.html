@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-<!--<script type="text/javascript" th:src="@{/js/products.js}" src="/js/products.js"></script>-->
-
+<html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
 <head>
     <meta charset="UTF-8">
     <title th:text="#{title.productDetail}"></title>
@@ -10,12 +7,10 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/productDetail.css}">
-
 </head>
 <body>
 <div class="content">
     <div th:replace="fragments/nologohead :: nologohead" id="header"></div>
-
     <div class="product_detail_container">
         <div th:each="product : ${products}">
             <!-- TODO TAB GALLERY -->
@@ -33,9 +28,7 @@
             </div>
         </div>
     </div>
-
     <div th:replace="fragments/footer :: footer"></div>
-
 </div>
 </body>
 </html>

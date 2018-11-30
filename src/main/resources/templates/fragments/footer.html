@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
 <head>
     <meta charset="utf-8"/>
 </head>
@@ -11,7 +10,6 @@
             <li><a href="/stats" th:if="${user}" th:text="#{title.stats}"></a></li>
             <li><a href="https://github.com/fredhansen/mlem" target="_blank">GitHub</a></li>
             <li><a href="/sitemap" th:text="#{title.sitemap}"></a></li>
-
             <!--  <li>
                   <form class="search_button">
                       <input type="search" placeholder="ProductSearch">

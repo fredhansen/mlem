@@ -1,8 +1,5 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
-
-
-
 <head>
     <title th:text="#{contact_page}"></title>
     <meta charset="utf-8"/>
@@ -19,12 +16,9 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/contact.css}">
 </head>
 <body>
-
 <div class="wrapper">
     <div th:replace="fragments/header :: header">
     </div>
-
-
     <div class="row">
         <div class="column">
             <p th:text="#{contact.address}"></p>
@@ -32,8 +26,6 @@
             <p th:text="#{contact.fax}"></p>
             <p th:text="#{contact.vat}"></p>
             <p th:text="#{contact.email}"></p>
-
-
         </div>
         <div class="column">
             <p th:text="#{contact.addressinfo}"></p>
@@ -41,18 +33,12 @@
             <p th:text="#{contact.faxinfo}"></p>
             <p th:text="#{contact.vatinfo}"></p>
             <p th:text="#{contact.emailinfo}"></p>
-
         </div>
     </div>
-
-
     <div id="mapid">
-
         <script src="/js/map.js"></script>
     </div>
-
     <div th:replace="fragments/footer :: footer">
-
     </div>
 </div>
 </body>
