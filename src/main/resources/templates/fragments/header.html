@@ -24,11 +24,13 @@ wrapper,slitting,printing,rewinding,material,PPE,nylon"/>
             <li><a href="/products" th:text="#{products_page}" id="productsPage"></a></li>
             <!--<li><a href="/services" th:text="#{services_page}"></a></li>
             <li><a href="/shop" th:text="#{shop_page}">Shop</a></li>-->
-            <li><a href="/contact" th:text="#{contact_page}" id="contactPage"></a></li>
-            <li><a href="/login" class="googleplus" id="loginPageGoogle"> Google+</a></li>
-            <li><a href="/smart-Id/login" th:text="#{smartId}" id="loginPageSmartId"></a></li>
-            <li><a href="/logout" th:if="${user}" th:text="#{logout}" id="logout"></a></li>
+            <li><a href="/contact" th:text="#{contact_page}"></a></li>
+            <li><a href="/cart" th:text="#{cart_page}"></a></li>
+            <li><a href="/login" class="googleplus"> Google+</a></li>
+            <li><a href="/smart-Id/login" th:text="#{smartId}"></a></li>
+            <li><a href="/logout" th:if="${user}" th:text="#{logout}"></a></li>
             <!-- <li><a href="/logout" th:text="#{logout}"></a></li> -->
+
             <!--<form action="" method="get">
                 <input name="s" th:placeholder="#{search_form}" type="search">
                 <button type="submit" th:text="#{search_button}"></button>
@@ -37,10 +39,13 @@ wrapper,slitting,printing,rewinding,material,PPE,nylon"/>
             <li><a class="languages" id="est" href="/?lang=et" th:text="#{lang.et}"></a></li>
             <li><a class="languages" id="eng" href="/?lang=en" th:text="#{lang.en}"></a></li>
         </ul>
+
         <!--    <li><a href="/?lang=et"><img th:src="@{/img/estonia.svg}" class='estonian' th:alt="#{lang.et}"/></a></li>
             <li><a href="/?lang=et"><img th:src="@{/img/uk.svg}" class="english" th:alt="#{lang.en}"/></a></li> -->
+
     </nav>
     <!-- <div th:replace="fragments/login :: login"></div>-->
+
 </div>
 </body>
 </html>
