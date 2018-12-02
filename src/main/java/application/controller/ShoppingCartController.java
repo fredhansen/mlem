@@ -42,14 +42,14 @@ public class ShoppingCartController {
 
             for (int i = 0; i < cart.size(); i++) {
                 if(cart.get(i).getId() == Long.parseLong(id)) {
-                    return "cart";
+                    return "redirect:/products/detail/" + id;
                 }
             }
 
             cart.add(productRepository.getById(id));
             session.setAttribute("cart", cart);
         }
-        return "redirect:/cart";
+        return "redirect:/products/detail/" + id;
     }
 
 
@@ -63,7 +63,7 @@ public class ShoppingCartController {
         }
 
         session.setAttribute("cart", cart);
-        return "redirect:/shoppingcart";
+        return "redirect:/cart";
     }
 
 }
