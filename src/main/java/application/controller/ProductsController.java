@@ -51,6 +51,7 @@ public class ProductsController {
     @RequestMapping("/products")
     public String products(Model model) throws IOException, MessagingException {
         model.addAttribute("categories", categoryRepository.getAll());
+        model.addAttribute("allProducts", productRepository.getAllProducts());
         return "products";
     }
 

@@ -25,6 +25,9 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Query(value="UPDATE product SET id=?, name=?, category_Id=?, ")
     */
 
+    @Query(value = "SELECT * FROM products", nativeQuery = true)
+    List<Product> getAllProducts();
+
 
     @Modifying
     @Transactional

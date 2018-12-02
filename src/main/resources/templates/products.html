@@ -21,6 +21,14 @@
                 </div>
             </a>
         </div>
+        <div class="products_view" th:each="product : ${allProducts}">
+            <a th:href="'/products/detail/' + ${product.getId()}">
+                <div class="product">
+                    <p><img th:src="@{${product.getImage()}}" width="30%" height="30%" th:alt="#{product.alt}"/></p>
+                    <p class="caption" th:text="${product.getTag()}"></p>
+                </div>
+            </a>
+        </div>
         <!--<p>
             Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
             ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -86,8 +94,8 @@
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
             cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>-->
-        <div th:replace="fragments/footer :: footer" id="footer"></div>
     </div>
+    <div th:replace="fragments/footer :: footer" id="footer"></div>
 </div>
 </body>
 </html>
