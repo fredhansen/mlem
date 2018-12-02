@@ -1,9 +1,16 @@
+.container {
+    margin-right: 3vw;
+    margin-left: 2vw;
+    margin-bottom: 5vw;
+    margin-top: 2vw;
+}
+
 .table {
+    margin-top: 2vw;
     width: 100%;
-    padding: 5vw;
-    overflow-x: hidden ;
+    overflow-x: hidden;
     font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
-    font-size: 0.65em;
+    font-size: 1em;
     font-weight: 300;
 }
 
