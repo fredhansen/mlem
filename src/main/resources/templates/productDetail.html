@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/productDetail.css}">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script th:src="@{/js/productDetail.js}"></script>
 </head>
 <body>
 <div class="content">
@@ -20,22 +22,24 @@
                 <p><img th:src="@{${product.getImage()}}" th:alt="#{product.alt}"/></p>
             </div>
             <div class="product_detail">
+
+                <div class="right">
+                    <a class="btn" th:text="#{cart.additem}"></a>
+                </div>
                 <p class="caption" th:text="${product.getName()}"></p>
-            </div>
-            <div class="product_detail">
-                <p th:text="${product.getPrice()} + ' €'"></p>
-            </div>
-            <div class="product_detail">
-                <p class="caption" th:text="${product.getAmount()}"></p>
+
+                <p th:text="#{price} + ${product.getPrice()} + ' €'"></p>
+
+                <p class="caption" th:text="#{quantity} + ${product.getAmount()}"></p>
             </div>
             <div class="product_detail">
                 <p th:text="${product.getDescription()}"></p>
             </div>
+
         </div>
+
+        <div th:replace="fragments/footer :: footer"></div>
+
     </div>
-
-    <div th:replace="fragments/footer :: footer"></div>
-
-</div>
 </body>
 </html>
