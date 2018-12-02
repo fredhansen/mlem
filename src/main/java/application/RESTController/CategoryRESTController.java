@@ -34,7 +34,7 @@ public class CategoryRESTController {
         categoryRepository.save(cat);
 
         categoryDTO.setId(cat.getId());
-
+        System.out.println(categoryDTO.getId());
         return categoryDTO;
     }
 

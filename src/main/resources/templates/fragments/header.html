@@ -26,9 +26,9 @@ wrapper,slitting,printing,rewinding,material,PPE,nylon"/>
             <li><a href="/shop" th:text="#{shop_page}">Shop</a></li>-->
             <li><a href="/contact" th:text="#{contact_page}"></a></li>
             <li><a href="/cart" th:text="#{cart_page}"></a></li>
-            <li><a href="/login" class="googleplus"> Google+</a></li>
+            <li><a href="/login" class="googleplus" id="loginPageGoogle"> Google+</a></li>
             <li><a href="/smart-Id/login" th:text="#{smartId}"></a></li>
-            <li><a href="/logout" th:if="${user}" th:text="#{logout}"></a></li>
+            <li><a href="/logout" th:if="${user}" th:text="#{logout}" id="logout"></a></li>
             <!-- <li><a href="/logout" th:text="#{logout}"></a></li> -->
 
             <!--<form action="" method="get">

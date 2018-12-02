@@ -20,7 +20,7 @@ public class CategoryAddingCheck {
 
     private ChromeDriver driver;
 
-    private String url = "http://localhost:8080/";
+    private final static String url = "http://localhost:8080/";
 
     @Before
     public void setUp(){
@@ -46,12 +46,12 @@ public class CategoryAddingCheck {
 
         NavigationTest.login_With_Google(this.driver);
         goToPage("products/add");
-        WebElement categoryInput = driver.findElementById("cat_name");
-        categoryInput.sendKeys(category.getName());
-        driver.findElementById("submitCategory").click();
+        //Adding category
+        add_Category_To_Warehouse(category.getName());
 
         //go to Warehouse page
         search_Category_In_Warehouse(category.getName());
+
         Assert.assertTrue(driver.findElement(By.name(category.getName())).isDisplayed());
         driver.findElement(By.name(category.getName())).click();
         quitDriver();
@@ -64,12 +64,13 @@ public class CategoryAddingCheck {
         driver.findElementById("searchButton").click();
     }
 
-
-
+    private void add_Category_To_Warehouse(String categoryName){
+        WebElement categoryInput = driver.findElementById("cat_name");
+        categoryInput.sendKeys(categoryName);
+        driver.findElementById("submitCategory").click();
+    }
 
     private void goToPage(String page){
         driver.get(url +page);
     }
-
-
 }
