@@ -1,6 +1,8 @@
 package tests;
 
 import application.entities.Category;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,7 +18,7 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringRunner.class)
-public class CategoryAddingCheck {
+public class CategoryCheck {
 
     private ChromeDriver driver;
 
@@ -41,19 +43,19 @@ public class CategoryAddingCheck {
     }
 
     @Test
-    public void Add_Category_Check(){
+    public void Add_Category_Check() throws JSONException, InterruptedException {
         Category category = new CategoryCreator().create();
 
         NavigationTest.login_With_Google(this.driver);
         goToPage("products/add");
         //Adding category
         add_Category_To_Warehouse(category.getName());
-
         //go to Warehouse page
         search_Category_In_Warehouse(category.getName());
 
-        Assert.assertTrue(driver.findElement(By.name(category.getName())).isDisplayed());
-        driver.findElement(By.name(category.getName())).click();
+        WebElement categoryIdElement = driver.findElementByName(category.getName());
+        Assert.assertTrue(driver.findElementByName(category.getName()).isDisplayed());
+        driver.findElementById(categoryIdElement.getText()).click();
         quitDriver();
     }
 
@@ -69,7 +71,19 @@ public class CategoryAddingCheck {
         categoryInput.sendKeys(categoryName);
         driver.findElementById("submitCategory").click();
     }
+    private JSONObject get_Category_Response_In_JsonObject() throws JSONException, InterruptedException {
+        pause(1000);
+        WebElement categoryAjaxResponse = driver.findElementById("getCategoryStatus");
+        return new JSONObject(categoryAjaxResponse.getText());
+    }
 
+    public void pause(Integer milliseconds){
+        try {
+            TimeUnit.MILLISECONDS.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     private void goToPage(String page){
         driver.get(url +page);
     }
