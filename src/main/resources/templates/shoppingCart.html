@@ -21,7 +21,7 @@
 <div class="cart-container">
 
     <section id="cart">
-        <div class="product" th:each="product : ${products}">
+        <div class="product" th:each="product : ${session.cart}">
             <header>
                 <a class="remove">
                     <img th:src="@{${product.getImage()}}" th:alt="#{product.alt}">
@@ -61,7 +61,7 @@
         </div>
 
         <div class="right">
-            <h1 class="total" th:text="#{cart.total}"><span>total</span>€</h1>
+            <h1 class="total"> <a th:text="#{cart.total}"></a> <span> </span>€</h1>
             <a class="btn" th:text="#{cart.checkout}"></a>
         </div>
 
