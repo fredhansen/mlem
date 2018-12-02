@@ -11,14 +11,19 @@
 <body>
 <div class="content">
     <div th:replace="fragments/nologohead :: nologohead" id="header"></div>
+    <div th:replace="fragments/sidebar :: sidebar" id="sidebar"></div>
+
     <div class="product_detail_container">
         <div th:each="product : ${products}">
             <!-- TODO TAB GALLERY -->
-            <div class="product_detail">
+            <div class="product_detail_images">
                 <p><img th:src="@{${product.getImage()}}" th:alt="#{product.alt}"/></p>
             </div>
             <div class="product_detail">
                 <p class="caption" th:text="${product.getName()}"></p>
+            </div>
+            <div class="product_detail">
+                <p th:text="${product.getPrice()} + ' €'"></p>
             </div>
             <div class="product_detail">
                 <p class="caption" th:text="${product.getAmount()}"></p>
@@ -28,7 +33,9 @@
             </div>
         </div>
     </div>
+
     <div th:replace="fragments/footer :: footer"></div>
+
 </div>
 </body>
 </html>
