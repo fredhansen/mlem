@@ -94,11 +94,13 @@ public class ProductCheck {
     }
 
     private JSONObject get_Category_Response_In_JsonObject() throws JSONException, InterruptedException {
+        pause(1000);
         WebElement categoryAjaxResponse = driver.findElementById("getCategoryStatus");
         return new JSONObject(categoryAjaxResponse.getText());
     }
 
     private JSONObject get_Product_Response_In_JsonObject() throws JSONException, InterruptedException {
+        pause(1000);
         WebElement productAjaxResponse = driver.findElementById("getAddingStatus");
         return new JSONObject(productAjaxResponse.getText());
     }
@@ -139,6 +141,14 @@ public class ProductCheck {
         driver.findElementById("productsRadio").click();
         driver.findElementById("searchInput").sendKeys(productId);
         driver.findElementById("searchButton").click();
+    }
+
+    public void pause(Integer milliseconds){
+        try {
+            TimeUnit.MILLISECONDS.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     private void goToPage(String page) {

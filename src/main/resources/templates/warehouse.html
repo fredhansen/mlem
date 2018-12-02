@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/products.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/warehouse.css}">
     <!--<link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}"> -->
 </head>
 <body>
@@ -24,7 +25,7 @@
                 <input type="radio" name="criteria" value="category" th:field="*{whatToSearch}" th:text="#{search.category}" id ="categoryRadio"/>
             </div>
         </form>
-        <table id="productSearchResult" th:if="${productsTable}">
+        <table class="table" id="productSearchResult" th:if="${productsTable}">
             <tr>
                 <td><p th:text="#{table.image}"></p></td>
                 <td><p th:text="#{table.name}"></p></td>
@@ -50,7 +51,7 @@
                 <td><a class="deleteHREF" th:href="@{'/products/delete/'+${product.getId()}}"  th:text="#{product.delete}" th:id="${product.getId()}"></a></td>
             </tr>
         </table>
-        <table id="categorySearchResult" th:if="${categoriesTable}">
+        <table class="table" id="categorySearchResult" th:if="${categoriesTable}">
             <tr>
                 <td><p th:text="#{table.name}"></p></td>
                 <td><p th:text="#{table.category}"></p></td>
