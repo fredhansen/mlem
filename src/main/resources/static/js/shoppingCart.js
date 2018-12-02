@@ -2,7 +2,7 @@ var check = false;
 
 function changeVal(el) {
     var qt = parseFloat(el.parent().children(".qt").html());
-    var price = parseFloat(el.parent().children(".price").html());
+    var price = parseFloat(el.parent().children(".unit-price").html());
     var eq = Math.round(price * qt * 100) / 100;
 
     el.parent().children(".full-price").html(eq + "€");

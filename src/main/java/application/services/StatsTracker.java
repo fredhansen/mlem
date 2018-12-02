@@ -46,7 +46,7 @@ public class StatsTracker implements Filter {
         stats.setBrowser(browser.toString());
         stats.setDeviceType(deviceType.toString());
 
-        System.out.println(stats);
+        //System.out.println(stats);
 
         statsRepository.save(stats);
 

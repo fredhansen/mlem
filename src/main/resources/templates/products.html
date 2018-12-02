@@ -21,6 +21,8 @@
                 </div>
             </a>
         </div>
+
+
         <div class="products_view" th:each="product : ${allProducts}">
             <a th:href="'/products/detail/' + ${product.getId()}">
                 <div class="product">
