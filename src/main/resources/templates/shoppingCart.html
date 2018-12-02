@@ -23,10 +23,10 @@
     <section id="cart">
         <div class="product" th:each="product : ${session.cart}">
             <header>
-                <a class="remove">
-                    <img th:src="@{${product.getImage()}}" th:alt="#{product.alt}">
+                <a class="remove" th:href="'/cart/remove/' + ${product.getId()}">
+                    <img th:src="@{${product.getImage()}}" th:alt="#{product.alt}" >
 
-                    <h3 th:text="#{cart.removeitem}"></h3>
+                    <h3 th:text="#{cart.removeitem}" ></h3>
                 </a>
             </header>
 

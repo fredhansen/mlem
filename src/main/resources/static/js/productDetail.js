@@ -1,6 +1,12 @@
-var check = false;
+$(document).ready(function() {
+    $("#submitToCart").submit(function(event) {
+        event.preventDefault();
+        ajaxPostToCart()
+    });
 
-$(".btn").click(function () {
-    check = true;
-    //do sth
 });
+
+function ajaxPostToCart() {
+
+/*"/cart/add/{id}"*/
+}
