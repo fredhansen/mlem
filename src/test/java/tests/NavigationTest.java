@@ -12,13 +12,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+import static org.springframework.test.util.AssertionErrors.assertTrue;
+
 
 @RunWith(SpringRunner.class)
 public class NavigationTest {
 
     private ChromeDriver driver;
 
-    private static String url = "http://localhost:8080/";
+    private final static String url = "http://localhost:8080/";
 
 
     @Before
@@ -33,6 +35,7 @@ public class NavigationTest {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
+
     @After
     public void quitDriver(){
         driver.quit();
@@ -65,7 +68,6 @@ public class NavigationTest {
         goToPage("smart-Id/login");
         Assert.assertFalse(driver.getCurrentUrl().contains("error"));
         quitDriver();
-
     }
 
     @Test
@@ -73,15 +75,32 @@ public class NavigationTest {
         goToPage("sitemap");
         Assert.assertFalse(driver.getCurrentUrl().contains("error"));
         quitDriver();
-
     }
 
     @Test
-    public void Login_With_Google(){
+    public void Cart_Page_Check(){
+        goToPage("cart");
+        Assert.assertFalse(driver.getCurrentUrl().contains("error"));
+        quitDriver();
+    }
+
+    @Test
+    public void Switch_To_English_And_Back_To_Estonian_Check(){
+        goToPage("");
+        driver.findElementById("eng").click();
+        WebElement homePageText= driver.findElementById("homePageText");
+        Assert.assertTrue(homePageText.getText().contains("Welding Group Ltd’s main products are vacuum packing pouches and packaging"));
+        driver.findElementById("est").click();
+        homePageText = driver.findElementById("homePageText");
+        Assert.assertTrue(homePageText.getText().contains("Welding Group OÜ põhitoodanguks on vaakumpakkekotid ja pakkekiled pakkeautomaatidele. Tarnime trük"));
+        quitDriver();
+    }
+
+    @Test
+    public void Login_With_Google_Check_Logout_Button(){
         login_With_Google(this.driver);
         Assert.assertTrue(driver.findElementById("logout").isDisplayed());
         quitDriver();
-
     }
 
     @Test
@@ -91,7 +110,6 @@ public class NavigationTest {
         goToPage("products/add");
         Assert.assertTrue(driver.findElementById("name").isDisplayed());
         quitDriver();
-
     }
 
     @Test
@@ -103,6 +121,14 @@ public class NavigationTest {
         quitDriver();
     }
 
+    @Test
+    public void Show_Statistics_Page_With_Login(){
+        login_With_Google(this.driver);
+        goToPage("stats");
+        Assert.assertTrue(driver.findElementById("oschart").isDisplayed());
+        Assert.assertTrue(driver.findElementById("devicechart").isDisplayed());
+        Assert.assertTrue(driver.findElementById("browserchart").isDisplayed());
+    }
 
 
     public static void login_With_Google(ChromeDriver driver){

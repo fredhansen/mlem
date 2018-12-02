@@ -58,7 +58,6 @@ public class WarehouseController {
                     result.add(c);
                 }
             }
-
             System.out.println(productSearch.getInput());
             System.out.println(result);
             model.addAttribute("categories",result);

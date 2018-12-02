@@ -40,7 +40,8 @@ public class ProductsRESTController {
             productDTO.setImage(productDTO.getImage());
         }
         System.out.println(productDTO);
-        productRepository.addProduct(randomLong(), productDTO.getName(), productDTO.getCategoryId(), productDTO.getTag(),
+        productDTO.setId(randomLong());
+        productRepository.addProduct(productDTO.getId(), productDTO.getName(), productDTO.getCategoryId(), productDTO.getTag(),
                 productDTO.getDescription(), productDTO.getImage(), productDTO.getPrice(),
                 productDTO.getAmount());
 

@@ -21,7 +21,7 @@ public interface CategoryRepository extends CrudRepository<Category, Long> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO category (id, name) VALUES(?,?)", nativeQuery = true)
-    Category addCategory(@Param("id") Long id, @Param("name") String name);
+    void addCategory(@Param("id") Long id, @Param("name") String name);
 
     @Query(value = "SELECT id, name FROM category", nativeQuery = true)
     List<Category> getAll();

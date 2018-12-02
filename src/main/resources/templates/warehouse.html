@@ -58,10 +58,10 @@
                 <td><p th:text="#{table.delete}"></p></td>
             </tr>
             <tr th:each="category : ${categories}">
-                <td><p th:text="${category.getName()}"></p></td>
-                <td><p th:text="${category.getId()}"></p></td>
+                <td><p th:text="${category.getName()}" ></p></td>
+                <td><p th:text="${category.getId()}" th:name="${category.getName()}" ></p></td>
                 <td><a th:href="@{'/category/change/'+${category.getId()}}" th:text="#{product.change}"></a></td>
-                <td><a class="deleteHREF" th:href="@{'/category/delete/'+${category.getId()}}" th:name="${category.getName()}" th:text="#{product.delete}" th:id="${category.getId()}"></a></td>
+                <td><a class="deleteHREF" th:href="@{'/category/delete/'+${category.getId()}}" th:text="#{product.delete}" th:id="${category.getId()}"></a></td>
             </tr>
         </table>
     </div>
