@@ -53,6 +53,7 @@ public class NavigationTest {
     public void Products_Page_Check(){
         goToPage("products");
         Assert.assertFalse(driver.getCurrentUrl().contains("error"));
+        Assert.assertTrue(driver.findElementById("products").isDisplayed());
         quitDriver();
     }
 
@@ -60,6 +61,8 @@ public class NavigationTest {
     public void Contact_Page_Check(){
         goToPage("contact");
         Assert.assertFalse(driver.getCurrentUrl().contains("error"));
+        Assert.assertTrue(driver.findElementByClassName("wrapper").isDisplayed());
+        Assert.assertTrue(driver.findElementById("mapid").isDisplayed());
         quitDriver();
     }
 
@@ -67,6 +70,7 @@ public class NavigationTest {
     public void Smart_Id_Page_Check(){
         goToPage("smart-Id/login");
         Assert.assertFalse(driver.getCurrentUrl().contains("error"));
+        Assert.assertTrue(driver.findElementById("countryCode").isDisplayed());
         quitDriver();
     }
 
@@ -74,6 +78,7 @@ public class NavigationTest {
     public void Sitemap_Page_Check(){
         goToPage("sitemap");
         Assert.assertFalse(driver.getCurrentUrl().contains("error"));
+        Assert.assertTrue(driver.findElementById("sitemap_li").isDisplayed());
         quitDriver();
     }
 
@@ -81,6 +86,7 @@ public class NavigationTest {
     public void Cart_Page_Check(){
         goToPage("cart");
         Assert.assertFalse(driver.getCurrentUrl().contains("error"));
+        Assert.assertTrue(driver.findElementById("cart").isDisplayed());
         quitDriver();
     }
 
