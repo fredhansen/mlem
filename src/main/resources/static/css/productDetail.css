@@ -70,3 +70,52 @@
     height: auto;
 }
 
+/* QUANTITY BUTTONS */
+
+.qt, .qt-plus, .qt-minus {
+    display: block;
+    float: left;
+}
+
+.qt {
+    font-size: 19px;
+    line-height: 4.5vw;
+    width: 3vw;
+    text-align: center;
+}
+
+.qt-plus, .qt-minus {
+    background: #fcfcfc;
+    border: none;
+    font-size: 30px;
+    font-weight: 300;
+    height: 100%;
+    padding: 0 0.5vw;
+    -webkit-transition: background .2s linear;
+    -moz-transition: background .2s linear;
+    -ms-transition: background .2s linear;
+    -o-transition: background .2s linear;
+    transition: background .2s linear;
+}
+
+.qt-plus:hover, .qt-minus:hover {
+    border: #cccccc 1px solid;
+    cursor: pointer;
+}
+
+.qt-plus {
+    line-height: 5vw;
+    margin-right: 0.5vw;
+}
+
+.qt-minus {
+    line-height: 5vw;
+    width: 2vw;
+    text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

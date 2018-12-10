@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <script th:src="@{/js/productDetail.js}"></script>
 </head>
 <body>
 <div class="products_container">
@@ -22,7 +23,7 @@
                     <p class="price" th:text="${product.getPrice()} + '€'"></p>
                     <p class="caption" th:text="${product.getTag()}"></p>
                     <p>
-                        <button>Add to cart</button>
+                        <button th:text="#{cart.additem}"></button>
                     </p>
                 </div>
             </a>
@@ -44,7 +45,7 @@
             </a>
         </div>
     </div>
-    <div th:replace="fragments/footer :: footer" id="footer"></div>
+    <footer th:replace="fragments/footer :: footer"></footer>
 </div>
 </body>
 </html>

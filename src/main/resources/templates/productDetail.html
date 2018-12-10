@@ -24,9 +24,11 @@
             <div class="product_detail">
 
                 <div class="right">
-                    <a class="btn" th:text="#{cart.additem}" th:href="'/cart/add/' + ${product.getId()}"></a>
-                    <!--<button type="submit" th:text="#{cart.additem}" id="submitToCart"></button>-->
-
+                    <span class="qt-minus" onclick="decreaseValue()">-</span>
+                    <input class="qt" type="number" id="number" value="1"/>
+                    <span class="qt-plus" onclick="increaseValue()">+</span>
+                    <span class="btn" id="submitToCart" th:text="#{cart.additem}"
+                          th:href="'/cart/add/' + ${product.getId()}"></span>
                 </div>
                 <p class="caption" th:text="${product.getName()}"></p>
 
@@ -42,8 +44,9 @@
 
         </div>
 
-        <div th:replace="fragments/footer :: footer"></div>
+        <footer th:replace="fragments/footer :: footer"></footer>
 
     </div>
+</div>
 </body>
 </html>
