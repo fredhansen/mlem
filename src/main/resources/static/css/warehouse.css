@@ -1,8 +1,5 @@
 .container {
-    margin-right: 3vw;
-    margin-left: 2vw;
-    margin-bottom: 5vw;
-    margin-top: 2vw;
+    margin: 2vw 3vw 5vw 2vw;
 }
 
 .table {

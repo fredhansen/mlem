@@ -16,8 +16,14 @@
         <div class="products_view" th:each="product : ${products}">
             <a th:href="'/products/detail/' + ${product.getId()}">
                 <div class="product">
-                    <p><img th:src="@{${product.getImage()}}" width="30%" height="30%" th:alt="#{product.alt}"/></p>
+                    <div class="img-resize">
+                        <p><img th:src="@{${product.getImage()}}" width="30%" height="30%" th:alt="#{product.alt}"/></p>
+                    </div>
+                    <p class="price" th:text="${product.getPrice()} + '€'"></p>
                     <p class="caption" th:text="${product.getTag()}"></p>
+                    <p>
+                        <button>Add to cart</button>
+                    </p>
                 </div>
             </a>
         </div>
@@ -26,8 +32,14 @@
         <div class="products_view" th:each="product : ${allProducts}">
             <a th:href="'/products/detail/' + ${product.getId()}">
                 <div class="product">
-                    <p><img th:src="@{${product.getImage()}}" width="30%" height="30%" th:alt="#{product.alt}"/></p>
+                    <div class="img-resize">
+                        <p><img th:src="@{${product.getImage()}}" width="30%" height="30%" th:alt="#{product.alt}"/></p>
+                    </div>
+                    <p class="price" th:text="${product.getPrice()} + '€'"></p>
                     <p class="caption" th:text="${product.getTag()}"></p>
+                    <p>
+                        <button th:text="#{cart.additem}"></button>
+                    </p>
                 </div>
             </a>
         </div>
