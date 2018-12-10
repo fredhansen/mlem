@@ -32,7 +32,7 @@
 
 .btn:hover {
     color: #fff;
-    background: #064c8b;
+    background: #295e8b;
 }
 
 .product_detail_container {
@@ -99,7 +99,7 @@
 }
 
 .qt-plus:hover, .qt-minus:hover {
-    border: #cccccc 1px solid;
+    padding-bottom: 1vw;
     cursor: pointer;
 }
 

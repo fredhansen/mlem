@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/productDetail.css}">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script th:src="@{/js/productDetail.js}"></script>
 </head>
@@ -27,19 +28,16 @@
                     <span class="qt-minus" onclick="decreaseValue()">-</span>
                     <input class="qt" type="number" id="number" value="1"/>
                     <span class="qt-plus" onclick="increaseValue()">+</span>
-                    <span class="btn" id="submitToCart" th:text="#{cart.additem}"
-                          th:href="'/cart/add/' + ${product.getId()}"></span>
+                    <span class="btn" onclick="ajaxPostToCart()" th:text="#{cart.additem}"></span>
                 </div>
-                <p class="caption" th:text="${product.getName()}"></p>
+                <p class="caption" id="name" th:text="${product.getName()}"></p>
 
                 <p th:text="#{price} + ${product.getPrice()} + ' €'"></p>
 
                 <p class="caption" th:text="#{quantity} + ${product.getAmount()}"></p>
             </div>
             <div class="product_detail">
-
                 <p th:text="${product.getDescription()}"></p>
-
             </div>
 
         </div>

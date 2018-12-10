@@ -10,9 +10,11 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/shoppingCart.css}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script th:src="@{/js/shoppingCart.js}"></script>
+    <script th:src="@{/js/productDetail.js}"></script>
+
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
@@ -24,9 +26,9 @@
         <div class="product" th:each="product : ${session.cart}">
             <header>
                 <a class="remove" th:href="'/cart/remove/' + ${product.getId()}">
-                    <img th:src="@{${product.getImage()}}" th:alt="#{product.alt}" >
+                    <img th:src="@{${product.getImage()}}" th:alt="#{product.alt}">
 
-                    <h3 th:text="#{cart.removeitem}" ></h3>
+                    <h3 th:text="#{cart.removeitem}"></h3>
                 </a>
             </header>
 
@@ -40,7 +42,7 @@
 
             <footer class="cart-item">
                 <span class="qt-minus">-</span>
-                <span class="qt">1</span>
+                <span class="qt" id="cart-qt">0</span>
                 <span class="qt-plus">+</span>
 
                 <h2 class="full-price" th:text="${product.getPrice()}"> <!--todo if more in cart display full price-->

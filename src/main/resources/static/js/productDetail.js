@@ -1,17 +1,36 @@
-var check = false;
-
 $(document).ready(function () {
-    $(".btn").click(function () {
-        check = true;
-        event.preventDefault();
-        ajaxPostToCart();
+    $("button").click(function () {
+
     });
 });
 
 function ajaxPostToCart() {
+    var amount = parseInt(document.getElementById('number').value, 10);
+    //get the ID from URL
+    var id = window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1, window.location.pathname.length);
+    console.log(amount);
+    console.log(window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1, window.location.pathname.length));
 
-   // "/cart/add/{id}"
+    $.ajax({
+        type: "GET",
+        url: "/cart/add/" + id,
+
+        success: function () {
+            console.log("success")
+            //$("#getCategoryStatus").text(data.toString())
+        }
+        ,
+        error: function (e) {
+            console.log("error")
+
+            //$("#getCategoryStatus").text("Return data is null! => Error")
+        }
+
+    })
+    ;
+
 }
+
 
 //BUTTONS
 
@@ -28,5 +47,4 @@ function decreaseValue() {
     value < 1 ? value = 1 : '';
     value--;
     document.getElementById('number').value = value;
-}
-
+};

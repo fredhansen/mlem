@@ -1,37 +1,37 @@
 var check = false;
+$(document).ready(function () {
 
-function changeVal(el) {
-    var qt = parseFloat(el.parent().children(".qt").html());
-    var price = parseFloat(el.parent().children(".unit-price").html());
-    var eq = Math.round(price * qt * 100) / 100;
+    function changeVal(el) {
+        var qt = parseFloat(el.parent().children(".qt").html());
+        var price = parseFloat(el.parent().children(".unit-price").html());
+        var eq = Math.round(price * qt * 100) / 100;
 
-    el.parent().children(".full-price").html(eq + "€");
+        el.parent().children(".full-price").html(eq + "€");
 
-    changeTotal();
-}
-
-function changeTotal() {
-
-    var price = 0;
-
-    $(".full-price").each(function (index) {
-        price += parseFloat($(".full-price").eq(index).html());
-    });
-
-    price = Math.round(price * 100) / 100;
-    var tax = Math.round(price * 0.05 * 100) / 100
-    var shipping = parseFloat($(".shipping span").html());
-    var fullPrice = Math.round((price + tax + shipping) * 100) / 100;
-
-    if (price === 0) {
-        fullPrice = 0;
+        changeTotal();
     }
 
-    $(".subtotal span").html(price);
-    $(".total span").html(fullPrice);
-}
+    function changeTotal() {
 
-$(document).ready(function () {
+        var price = 0;
+
+        $(".full-price").each(function (index) {
+            price += parseFloat($(".full-price").eq(index).html());
+        });
+
+        price = Math.round(price * 100) / 100;
+        var tax = Math.round(price * 0.05 * 100) / 100
+        var shipping = parseFloat($(".shipping span").html());
+        var fullPrice = Math.round((price + tax + shipping) * 100) / 100;
+
+        if (price === 0) {
+            fullPrice = 0;
+        }
+
+        $(".subtotal span").html(price);
+        $(".total span").html(fullPrice);
+    }
+
 
     $(".remove").click(function () {
         var el = $(this);
@@ -80,10 +80,10 @@ $(document).ready(function () {
             changeVal(el);
         }, 150);
     });
+});
+$(".btn").click(function () {
+    check = true;
+    //$(".remove").click();
+    $(this).hide();
 
-    $(".btn").click(function () {
-        check = true;
-        //$(".remove").click();
-        $(this).hide();
-    });
 });
