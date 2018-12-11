@@ -23,10 +23,10 @@
 <div class="cart-container">
 
     <section id="cart">
-        <div class="product" th:each="product : ${session.cart}">
+        <div class="product" th:each="productInstance : ${session.cart}">
             <header>
-                <a class="remove" th:href="'/cart/remove/' + ${product.getId()}">
-                    <img th:src="@{${product.getImage()}}" th:alt="#{product.alt}">
+                <a class="remove" th:href="'/cart/remove/' + ${productInstance.getKey().getId()}">
+                    <img th:src="@{${productInstance.getKey().getImage()}}" th:alt="#{product.alt}">
 
                     <h3 th:text="#{cart.removeitem}"></h3>
                 </a>
@@ -34,21 +34,21 @@
 
             <div class="cart-item">
 
-                <h1 th:text="${product.getName()}"></h1>
+                <h1 th:text="${productInstance.getKey().getName()}"></h1>
 
-                <p th:text="${product.getDescription()}"></p>
+                <p th:text="${productInstance.getKey().getDescription()}"></p>
 
             </div>
 
             <footer class="cart-item">
                 <span class="qt-minus">-</span>
-                <span class="qt" id="cart-qt">0</span>
+                <span class="qt" id="cart-qt" th:text="${productInstance.getValue()}"></span>
                 <span class="qt-plus">+</span>
 
-                <h2 class="full-price" th:text="${product.getPrice()}"> <!--todo if more in cart display full price-->
+                <h2 class="full-price" th:text="${productInstance.getKey().getPrice()}">€
                 </h2>
 
-                <h2 class="unit-price" th:text="${product.getPrice()}">
+                <h2 class="unit-price" th:text="${productInstance.getKey().getPrice()}">€
                 </h2>
             </footer>
         </div>
@@ -63,7 +63,7 @@
         </div>
 
         <div class="right">
-            <h1 class="total"><a th:text="#{cart.total}"></a> <span></span>€</h1>
+            <!--<h1 class="total"><a th:text="#{cart.total}"></a><span></span>€</h1>-->
             <a class="btn" th:text="#{cart.checkout}"></a>
         </div>
 

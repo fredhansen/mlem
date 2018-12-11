@@ -1,3 +1,20 @@
+#searchInputBox {
+    display: inline-block;
+    margin-left: 7vw;
+    margin-top: 3vw;
+}
+
+#searchButton {
+    background-color: #295e8b;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 0.75em;
+    padding: 0.25vw;
+    width: 3vw;
+    cursor: pointer;
+}
+
 .container {
     margin: 2vw 3vw 5vw 2vw;
 }

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @Controller
@@ -30,23 +30,20 @@ public class ShoppingCartController {
     }
 
 
-
-    @GetMapping(value = "/cart/add/{id}")
-    public String add(@PathVariable("id") String id, HttpSession session) {
+    @GetMapping(value = "/cart/add/{id}/{qt}")
+    public String add(@PathVariable("id") String id, @PathVariable Integer qt, HttpSession session) {
         if (session.getAttribute("cart") == null) {
-            List<Product> cart = new ArrayList<>();
-            cart.add(productRepository.getById(id));
+            Map<Product, Integer> cart = new HashMap<>();
+
+            cart.put(productRepository.getById(id), qt);
             session.setAttribute("cart", cart);
+
         } else {
-            List<Product> cart = (List<Product>) session.getAttribute("cart");
+            Map<Product, Integer> cart = (HashMap<Product, Integer>) session.getAttribute("cart");
 
-            for (int i = 0; i < cart.size(); i++) {
-                if(cart.get(i).getId() == Long.parseLong(id)) {
-                    return "redirect:/products/detail/" + id;
-                }
-            }
+            if (!cart.containsKey(productRepository.getById(id)))
+                cart.put(productRepository.getById(id), qt);
 
-            cart.add(productRepository.getById(id));
             session.setAttribute("cart", cart);
         }
         return "redirect:/products/detail/" + id;
@@ -55,12 +52,9 @@ public class ShoppingCartController {
 
     @GetMapping(value = "/cart/remove/{id}")
     public String remove(@PathVariable("id") String id, HttpSession session) {
-        List<Product> cart = (List<Product>) session.getAttribute("cart");
-        for (int i = 0; i < cart.size(); i++) {
-            if (cart.get(i).getId() == Long.parseLong(id)) {
-                cart.remove(i);
-            }
-        }
+        Map<Product, Integer> cart = (HashMap<Product, Integer>) session.getAttribute("cart");
+
+        cart.remove(productRepository.getById(id));
 
         session.setAttribute("cart", cart);
         return "redirect:/cart";

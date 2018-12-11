@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 
 @Entity
@@ -23,7 +24,7 @@ public class Product {
 
     private String description;
 
-    @Column(columnDefinition="MEDIUMTEXT")
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String image;
     @NotNull
     private double price;
@@ -115,8 +116,22 @@ public class Product {
         this.amount = amount;
     }
 
-    public String toJson(){
+    public String toJson() {
         return new Gson().toJson(this);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (obj == this) return true;
+        if (!(obj instanceof Product)) return false;
+
+        return Objects.equals(this.id, ((Product) obj).getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 
     @Override

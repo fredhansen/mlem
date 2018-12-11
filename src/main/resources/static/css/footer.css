@@ -1,1 +1,127 @@
-*{box-sizing:border-box}li a{display:block;float:left;padding:.6% .6%}.wrapper{min-height:100%;display:grid;grid-template-rows:auto 1fr auto;grid-template-columns:100%}.list_items{text-align:center;margin-top:.1vw;bottom:0;font-family:"Segoe UI",sans-serif;color:white;list-style-type:none}#footer{clear:both;height:5vw;width:100%;position:fixed;bottom:0;right:0;left:0;background-color:#efefef;background-color:rgba(6,76,139,.74);z-index:2}#footer a:hover,a:active{text-decoration:underline}.search_button{float:right}.list_items:last-child{margin-right:3vw}input{outline:none}input[type=search]{-webkit-appearance:textfield;-webkit-box-sizing:content-box;font-family:'DejaVu Sans',Arial,Helvetica,sans-serif;color:#656469;font-size:100%}input::-webkit-search-decoration,input::-webkit-search-cancel-button{display:none}input[type=search]{background:#ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;border:solid 1px #ccc;padding:9px 10px 9px 32px;width:3vw;-webkit-border-radius:10em;-moz-border-radius:10em;border-radius:10em;-webkit-transition:all .5s;-moz-transition:all .5s;transition:all .5s}input[type=search]:focus{width:130px;background-color:#fff;border-color:#66CC75;-webkit-box-shadow:0 0 5px rgba(109,207,246,.5);-moz-box-shadow:0 0 5px rgba(109,207,246,.5);box-shadow:0 0 5px rgba(109,207,246,.5)}input:-moz-placeholder{color:#999}input::-webkit-input-placeholder{color:#999}.search_button input[type=search]{width:15px;padding-left:10px;color:transparent;cursor:pointer}.search_button input[type=search]:hover{background-color:#fff}.search_button input[type=search]:focus{width:130px;padding-left:32px;color:#000;background-color:#fff;cursor:auto}.search_button input:-moz-placeholder{color:transparent}.search_button input::-webkit-input-placeholder{color:transparent}
+body {
+    background: whitesmoke;
+}
+
+* {
+    box-sizing: border-box
+}
+
+li a {
+    display: block;
+    float: left;
+    padding: .6% .6%
+}
+
+.wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%
+}
+
+.list_items {
+    text-align: center;
+    margin-top: .1vw;
+    bottom: 0;
+    font-family: "Segoe UI", sans-serif;
+    color: white;
+    list-style-type: none
+}
+
+#footer {
+    clear: both;
+    height: 5vw;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #efefef;
+    background-color: rgba(6, 76, 139, .74);
+    z-index: 2
+}
+
+#footer a:hover, a:active {
+    text-decoration: underline
+}
+
+.search_button {
+    float: right
+}
+
+.list_items:last-child {
+    margin-right: 3vw
+}
+
+input {
+    outline: none
+}
+
+input[type=search] {
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    color: #656469;
+    font-size: 100%
+}
+
+input::-webkit-search-decoration, input::-webkit-search-cancel-button {
+    display: none
+}
+
+input[type=search] {
+    background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    border: solid 1px #ccc;
+    padding: 9px 10px 9px 32px;
+    width: 3vw;
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    border-radius: 10em;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s
+}
+
+input[type=search]:focus {
+    width: 130px;
+    background-color: #fff;
+    border-color: #66CC75;
+    -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    box-shadow: 0 0 5px rgba(109, 207, 246, .5)
+}
+
+input:-moz-placeholder {
+    color: #999
+}
+
+input::-webkit-input-placeholder {
+    color: #999
+}
+
+.search_button input[type=search] {
+    width: 15px;
+    padding-left: 10px;
+    color: transparent;
+    cursor: pointer
+}
+
+.search_button input[type=search]:hover {
+    background-color: #fff
+}
+
+.search_button input[type=search]:focus {
+    width: 130px;
+    padding-left: 32px;
+    color: #000;
+    background-color: #fff;
+    cursor: auto
+}
+
+.search_button input:-moz-placeholder {
+    color: transparent
+}
+
+.search_button input::-webkit-input-placeholder {
+    color: transparent
+}

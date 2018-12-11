@@ -16,6 +16,7 @@
 }
 
 .product {
+    background: white;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     max-width: 300px;

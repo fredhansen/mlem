@@ -7,17 +7,12 @@ body {
     margin: 0
 }
 
-a {
-    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
-    font-weight: 400
-}
-
 li a {
     float: left;
     margin-left: 0;
     text-align: center;
     display: inline-block;
-    color: white
+    color: white;
 }
 
 #header {
@@ -60,7 +55,8 @@ li a.current {
 }
 
 #header * {
-    font-family: "Segoe UI", sans-serif;
-    color: white
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: white;
 }
 

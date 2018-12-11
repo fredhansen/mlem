@@ -38,6 +38,30 @@
         <span class="dot" onclick="currentSlide(3)"></span>
     </div> -->
     <p th:text="#{home_page_text}" id="homePageText"></p>
+
+    <h3 th:text="#{title.newproducts}"></h3>
+
+    <div class="new-products-container">
+
+        <div class="new-product left">
+            <img th:src="@{/img/img2.jpg}" alt="img2"/>
+            <p>Ea primis explicari efficiantur mea.
+                Te mei iisque nostrud disputationi.
+                Et partem impetus qui, qui ei eius efficiantur. Soluta doming assueverit id has.
+                An erat nostrum accusata vis. Malis recteque sed id, eu eum oratio aliquando.</p>
+        </div>
+
+        <div class="new-product right">
+            <img th:src="@{/img/img3.jpg}" alt="img3"/>
+            <p>Lorem ipsum dolor sit amet, duo laudem delicatissimi ex,
+                ea has bonorum interesset adversarium, accusam splendide usu et.
+                Sint cetero omittam id ius, ut solum ludus delectus vel.
+                Eu sonet putent option mel, stet simul tritani usu in. Ad est invenire hendrerit.</p>
+        </div>
+
+
+    </div>
+
     <footer th:replace="fragments/footer :: footer"></footer>
 </div>
 </body>

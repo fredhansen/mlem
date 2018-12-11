@@ -13,7 +13,7 @@ function ajaxPostToCart() {
 
     $.ajax({
         type: "GET",
-        url: "/cart/add/" + id,
+        url: "/cart/add/" + id + "/" + amount,
 
         success: function () {
             console.log("success")

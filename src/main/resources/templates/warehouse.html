@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/warehouse.css}">
-    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}"> -->
 </head>
 <body>
 <div class="wrapper">
@@ -19,9 +18,8 @@
         <div id="tableForProducts">
             <form th:action="@{/products/warehouse/search}" th:object="${productSearch}" method="post">
                 <div id="searchInputBox">
-                    <p th:text="#{product.search}"></p>
                     <input id="searchInput" th:field="*{input}"/>
-                    <button id="searchButton" th:text="OK"></button>
+                    <button id="searchButton" th:text="#{product.search}"></button>
                     <input type="radio" name="criteria" value="products" th:field="*{whatToSearch}"
                            th:text="#{search.product}" id="productsRadio"/>
                     <input type="radio" name="criteria" value="category" th:field="*{whatToSearch}"
@@ -72,7 +70,7 @@
             </table>
         </div>
     </div>
-    <div th:replace="fragments/footer :: footer"></div>
+    <footer th:replace="fragments/footer :: footer"></footer>
 </div>
 </body>
 </html>
