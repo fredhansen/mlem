@@ -1,13 +1,13 @@
-$(document).ready(function() {
-    $("#categorySelect").dblclick(function(event) {
+$(document).ready(function () {
+    $("#categorySelect").dblclick(function (event) {
         event.preventDefault();
         ajaxGetCategory()
     });
-    $("#addButton").click(function(event) {
+    $("#addButton").click(function (event) {
         event.preventDefault();
         ajaxPostImage()
     });
-    $("#categoryAdd").submit(function(event2) {
+    $("#categoryAdd").submit(function (event2) {
         event2.preventDefault();
         ajaxPostCategory()
     })
@@ -25,7 +25,7 @@ function ajaxPostImage() {
         contentType: !1,
         cache: !1,
         timeout: 1000000,
-        success: function(data) {
+        success: function (data) {
             ajaxPostProduct(data)
         }
     })
@@ -47,11 +47,11 @@ function ajaxPostProduct(imageName) {
         url: "/products/add/save",
         data: JSON.stringify(formData),
         dataType: 'html',
-        success: function(data) {
+        success: function (data) {
             $("#getAddingStatus").text(data.trim());
             console.log(data)
         },
-        error: function(e) {
+        error: function (e) {
             alert("Error!");
             console.log("ERROR: ", e)
         }
@@ -80,13 +80,12 @@ function ajaxPostCategory() {
         url: "/products/add/category/save",
         data: JSON.stringify(formData),
         dateType: 'html',
-        success: function(data) {
+        success: function (data) {
             console.log(data);
             $("#getCategoryStatus").text(JSON.stringify(data))
         },
-        error: function(e) {
-            $("#getCategoryStatus").
-            text("Return data is null! => Error")
+        error: function (e) {
+            $("#getCategoryStatus").text("Return data is null! => Error")
         }
     });
     resetDataCategory()
@@ -96,7 +95,7 @@ function ajaxGetCategory() {
     $.ajax({
         type: 'GET',
         url: "/products/add/category/show",
-        success: function(data) {
+        success: function (data) {
             $("#categorySelect").empty();
             for (item in data) {
                 $("#categorySelect").append($("<option>", {
@@ -105,8 +104,16 @@ function ajaxGetCategory() {
                 }))
             }
         },
-        error: function(e) {
+        error: function (e) {
             alert("Error " + JSON.stringify(e))
         }
     })
+}
+
+function clearField() {
+    //do it
+}
+
+function alertCategorySubmitted() {
+    alert("Ok!");
 }

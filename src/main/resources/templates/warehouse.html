@@ -65,7 +65,8 @@
                     <td><p th:text="${category.getId()}" th:name="${category.getName()}"></p></td>
                     <td><a th:href="@{'/category/change/'+${category.getId()}}" th:text="#{product.change}"></a></td>
                     <td><a class="deleteHREF" th:href="@{'/category/delete/'+${category.getId()}}"
-                           th:text="#{product.delete}" th:id="${category.getId()}"></a></td>
+                           th:text="#{product.delete}" th:id="${category.getId()}"
+                           onclick="alert('WOOOOOOoooooooooOOO!!!!11!')"></a></td>
                 </tr>
             </table>
         </div>

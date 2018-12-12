@@ -5,81 +5,86 @@
     <title th:text="#{title.addProduct}"></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
     <script type="text/javascript" th:src="@{/js/products.js}" src="/js/products.js" defer></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/products.css}">
+    <!-- <script type="text/javascript" th:src="@{/js/categoryChange.js}" src="/js/categoryChange.js" defer></script>
+     <script type="text/javascript" th:src="@{/js/productsChange.js}" src="/js/productsChange.js" defer></script>-->
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/productAdd.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
-    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}"> -->
 </head>
 <body>
-<div class="wrapper">
-    <div th:replace="fragments/header :: header" id="header"></div>
-    <div>
-        <table>
-            <form id="productAdd" method="POST">
-                <tr>
-                    <td th:text="#{add.name}"></td>
-                    <td><input id="name"/></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td th:text="#{add.category}"></td>
-                    <td><select id="categorySelect" th:text="#{categorySelect}">
-                        <option></option>
-                    </select></td>
-                    <!--<td><button th:text="#{add.buttonRefresh}" id="refreshCategory"></button></td>-->
-                    <!--<td th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}"> error.category</td>-->
-                </tr>
-                <tr>
-                    <td th:text="#{add.tag}"></td>
-                    <td><input id="tag"/></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td th:text="#{add.description}"></td>
-                    <td><input id="description"/></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td th:text="#{add.price}"></td>
-                    <td><input id="price"/></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td th:text="#{add.quantity}"></td>
-                    <td><input id="amount"/></td>
-                    <td></td>
-                </tr>
-            </form>
-            <form id="uploadForm" method="POST" enctype="multipart/form-data">
-                <tr>
-                    <td th:text="#{add.image}"></td>
-                    <td><input type="file" name="file" id="file" accept="image/*"/></td>
-                </tr>
-                <tr>
-                    <td><p id="getImageStatus"></p></td>
-                </tr>
-            </form>
+<div th:replace="fragments/nologohead :: nologohead" id="header"></div>
+<div th:replace="fragments/sidebar :: sidebar" id="sidebar"></div>
+<div class="add-table">
+    <table>
+        <form id="uploadForm" method="POST" enctype="multipart/form-data">
             <tr>
-                <td>
-                    <button id="addButton" type="submit" th:text="#{add.button}"></button>
-                </td>
-                <td></td>
-                <td id="getAddingStatus"></td>
+                <td th:text="#{add.image}"></td>
+                <td><input type="file" name="file" id="file" accept="image/*"/></td>
             </tr>
-            <form id="categoryAdd" method="POST">
+            <tr>
+                <td><p id="getImageStatus"></p></td>
+            </tr>
+        </form>
+        <form id="productAdd" method="POST">
+            <tr>
+                <td th:text="#{add.name}"></td>
+                <td><input id="name"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td th:text="#{add.category}"></td>
+                <td><select id="categorySelect" th:text="#{categorySelect}">
+                    <option></option>
+                </select></td>
+                <!--<td><button th:text="#{add.buttonRefresh}" id="refreshCategory"></button></td>-->
+                <!--<td th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}"> error.category</td>-->
+            </tr>
+            <tr>
+                <td th:text="#{add.description}"></td>
+                <td><input id="description"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td th:text="#{add.price}"></td>
+                <td><input id="price"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td th:text="#{add.quantity}"></td>
+                <td><input id="amount"/></td>
+                <td></td>
+            </tr>
+        </form>
+        <tr>
+            <td>
+                <button id="addButton" type="submit" th:text="#{add.button}"></button>
+            </td>
+            <td></td>
+            <td id="getAddingStatus"></td>
+        </tr>
+    </table>
+</div>
+</div>
+<div class="category-table-fix">
+    <div class="category-table-wrap">
+        <form id="categoryAdd" method="POST">
+            <div class="category-table">
                 <tr>
-                    <td th:text="#{add.categoryName}"></td>
                     <td><input id="cat_name"/></td>
                 </tr>
                 <td>
-                    <button type="submit" th:text="#{add.categoryLabel}" id="submitCategory"></button>
+                    <button type="submit" th:text="#{add.categoryLabel}" onclick="alertCategorySubmitted()"
+                            onsubmit="clearField()"
+                            id="submitCategory"></button>
                 </td>
                 <td id="getCategoryStatus"></td>
                 </tr>
-            </form>
+            </div>
+        </form>
         </table>
     </div>
-    <footer th:replace="fragments/footer :: footer"></footer>
 </div>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

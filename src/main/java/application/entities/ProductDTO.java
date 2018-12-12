@@ -26,7 +26,6 @@ public class ProductDTO {
 
     private String description;
 
-
     private String image;
     @NotNull
     private double price;
@@ -37,9 +36,9 @@ public class ProductDTO {
     }
 
 
-    public ProductDTO(@NotNull String name, @NotNull String tag, String description, @NotNull double price, @NotNull int amount) {
+    public ProductDTO(@NotNull String name, String description, @NotNull double price, @NotNull int amount) {
         this.name = name;
-        this.tag = tag;
+        this.tag = name;
         this.description = description;
         this.price = price;
         this.amount = amount;
@@ -64,7 +63,7 @@ public class ProductDTO {
     }
 
     public String getTag() {
-        return tag;
+        return name;
     }
 
     public String getDescription() {
@@ -116,7 +115,7 @@ public class ProductDTO {
         return "ProductDTO{" +
                 "name='" + name + '\'' +
                 ", categoryId=" + categoryId +
-                ", tag='" + tag + '\'' +
+                ", tag='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", image='" + image + '\'' +
                 ", price=" + price +
