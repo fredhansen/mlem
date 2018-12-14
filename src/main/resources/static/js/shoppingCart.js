@@ -55,7 +55,7 @@ $(document).ready(function () {
     $(".qt-plus").click(function () {
         $(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) + 1);
 
-        var id = document.getElementById("pr-id").innerText;
+        var id = $(this).parent().children("#pr-id").html();
         var amount = parseInt($(this).parent().children(".qt").html());
         //console.log(amount);
         console.log(id);
@@ -79,7 +79,7 @@ $(document).ready(function () {
             child.html(parseInt(child.html()) - 1);
         }
 
-        var id = document.getElementById("pr-id").innerText;
+        var id = $(this).parent().children("#pr-id").html();
         var amount = parseInt($(this).parent().children(".qt").html());
         //console.log(amount);
         console.log(id);
