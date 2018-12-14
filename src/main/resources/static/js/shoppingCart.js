@@ -79,6 +79,13 @@ $(document).ready(function () {
             child.html(parseInt(child.html()) - 1);
         }
 
+        var id = document.getElementById("pr-id").innerText;
+        var amount = parseInt($(this).parent().children(".qt").html());
+        //console.log(amount);
+        console.log(id);
+
+        ajaxUpdateCart(id, amount);
+
         $(this).parent().children(".full-price").addClass("minused");
 
         var el = $(this);
