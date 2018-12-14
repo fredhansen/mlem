@@ -1,9 +1,3 @@
-$(document).ready(function () {
-    $("button").click(function () {
-
-    });
-});
-
 function ajaxPostToCart() {
     var amount = parseInt(document.getElementById('number').value, 10);
     //get the ID from URL
@@ -17,13 +11,11 @@ function ajaxPostToCart() {
 
         success: function () {
             console.log("success")
-            //$("#getCategoryStatus").text(data.toString())
         }
         ,
         error: function (e) {
             console.log("error")
 
-            //$("#getCategoryStatus").text("Return data is null! => Error")
         }
 
     })

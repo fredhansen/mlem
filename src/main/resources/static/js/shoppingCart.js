@@ -55,6 +55,13 @@ $(document).ready(function () {
     $(".qt-plus").click(function () {
         $(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) + 1);
 
+        var id = document.getElementById("pr-id").innerText;
+        var amount = parseInt($(this).parent().children(".qt").html());
+        //console.log(amount);
+        console.log(id);
+
+        ajaxUpdateCart(id, amount);
+
         $(this).parent().children(".full-price").addClass("added");
 
         var el = $(this);
@@ -80,7 +87,36 @@ $(document).ready(function () {
             changeVal(el);
         }, 150);
     });
+
+    $(".full-price").each(function () {
+        var el = $(this);
+        console.log(el);
+        changeVal(el)
+    });
+
+    function ajaxUpdateCart(id, amount) {
+        $.ajax({
+            type: "GET",
+            url: "/cart/add/" + id + "/" + amount,
+
+            success: function () {
+                console.log("success")
+            }
+            ,
+            error: function (e) {
+                console.log("error")
+
+            }
+
+        })
+        ;
+    }
+
+    console.log("loaded");
+
 });
+
+
 $(".btn").click(function () {
     check = true;
     //$(".remove").click();

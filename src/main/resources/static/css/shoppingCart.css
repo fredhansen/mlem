@@ -220,6 +220,10 @@ a:hover {
     line-height: 47px;
 }
 
+#pr-id {
+    display: none;
+}
+
 #cart-footer {
     margin: 30px 0 0 0;
 }

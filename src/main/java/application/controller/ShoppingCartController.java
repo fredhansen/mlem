@@ -41,8 +41,12 @@ public class ShoppingCartController {
         } else {
             Map<Product, Integer> cart = (HashMap<Product, Integer>) session.getAttribute("cart");
 
-            if (!cart.containsKey(productRepository.getById(id)))
+            if (!cart.containsKey(productRepository.getById(id))) {
                 cart.put(productRepository.getById(id), qt);
+            } else {
+                cart.replace(productRepository.getById(id), qt);
+            }
+
 
             session.setAttribute("cart", cart);
         }
