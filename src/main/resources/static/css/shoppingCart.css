@@ -306,3 +306,10 @@ a:hover {
     height: 40px;
     right: -40px;
 }
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    color: #a20010;
+    cursor: pointer;
+}

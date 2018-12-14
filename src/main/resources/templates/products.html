@@ -5,9 +5,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/products.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/scrollbar.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
-    <script th:src="@{/js/productDetail.js}"></script>
+    <script th:src="@{js/products.js}" src="/js/products.js" defer></script>
 </head>
 <body>
 <div class="products_container">
@@ -15,34 +16,38 @@
     <div th:replace="fragments/sidebar :: sidebar" id="sidebar"></div>
     <div id="products">
         <div class="products_view" th:each="product : ${products}">
-            <a th:href="'/products/detail/' + ${product.getId()}">
-                <div class="product">
+            <div class="product">
+                <a th:href="'/products/detail/' + ${product.getId()}">
+
                     <div class="img-resize">
                         <p><img th:src="@{${product.getImage()}}" width="30%" height="30%" th:alt="#{product.alt}"/></p>
                     </div>
                     <p class="price" th:text="${product.getPrice()} + '€'"></p>
                     <p class="caption" th:text="${product.getTag()}"></p>
-                    <p>
-                        <button th:text="#{cart.additem}"></button>
-                    </p>
+                </a>
+                <div>
+                    <p class="product-id" th:text="${product.getId()}"></p>
+                    <button th:text="#{cart.additem}" onclick="alert('Unista edasi!')"></button>
                 </div>
-            </a>
+            </div>
         </div>
 
 
         <div class="products_view" th:each="product : ${allProducts}">
-            <a th:href="'/products/detail/' + ${product.getId()}">
-                <div class="product">
+            <div class="product">
+                <a th:href="'/products/detail/' + ${product.getId()}">
+
                     <div class="img-resize">
                         <p><img th:src="@{${product.getImage()}}" width="30%" height="30%" th:alt="#{product.alt}"/></p>
                     </div>
                     <p class="price" th:text="${product.getPrice()} + '€'"></p>
                     <p class="caption" th:text="${product.getTag()}"></p>
-                    <p>
-                        <button th:text="#{cart.additem}"></button>
-                    </p>
+                </a>
+                <div>
+                    <p class="product-id" th:text="${product.getId()}"></p>
+                    <button th:text="#{cart.additem}" onclick="alert('Unista edasi!')"></button>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <footer th:replace="fragments/footer :: footer"></footer>

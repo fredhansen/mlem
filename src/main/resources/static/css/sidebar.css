@@ -1,1 +1,42 @@
-body{font-family:'DejaVu Sans',Arial,Helvetica,sans-serif}#header{position:fixed;top:0;right:0;left:0}.sidenav{height:100%;width:15vw;position:fixed;top:0;left:0;background-color:rgba(222,220,228,.74);overflow-x:scroll;border-right:#022441 dashed .1vw;padding-top:8vw;padding-bottom:8vw;z-index:1}.sidenav a{display:block;text-decoration:none;color:#000;padding:1vw 2vw}.sidenav a:hover{background-color:#dbd9e1}.main{margin-bottom:5vw;padding-bottom:7vw;margin-left:15vw;font-size:28px}
+body {
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0
+}
+
+.sidenav {
+    height: 100%;
+    width: 15vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(222, 220, 228, .74);
+    overflow-x: scroll;
+    border-right: powderblue solid .1vw;
+    padding-top: 8vw;
+    padding-bottom: 8vw;
+    z-index: 1
+}
+
+.sidenav a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    padding: 1vw 2vw
+}
+
+.sidenav a:hover {
+    background-color: #dbd9e1
+}
+
+.main {
+    margin-bottom: 5vw;
+    padding-bottom: 7vw;
+    margin-left: 15vw;
+    font-size: 28px
+}

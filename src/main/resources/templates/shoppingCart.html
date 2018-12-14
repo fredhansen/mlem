@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/shoppingCart.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/scrollbar.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script th:src="@{/js/shoppingCart.js}"></script>
@@ -26,12 +28,14 @@
             <header>
                 <a class="remove" th:href="'/cart/remove/' + ${productInstance.getKey().getId()}">
                     <img th:src="@{${productInstance.getKey().getImage()}}" th:alt="#{product.alt}">
-
                     <h3 th:text="#{cart.removeitem}"></h3>
                 </a>
             </header>
 
             <div class="cart-item">
+
+                <i class="fa fa-close top-right remove"
+                   th:href="'/cart/remove/' + ${productInstance.getKey().getId()}"></i>
 
                 <h1 th:text="${productInstance.getKey().getName()}"></h1>
 
