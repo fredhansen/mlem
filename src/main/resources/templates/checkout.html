@@ -53,7 +53,10 @@
                             <!--   <label>
                                    <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
                                </label>-->
-                            <button th:text="#{submit}"><input type="submit" class="btn"></button>
+
+<!--
+                            <button th:text="#{submit}"></button> todo make functional
+-->
                         </div>
 
                     </div>
@@ -66,14 +69,16 @@
                         class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
 
                 <div th:each="productInstance : ${session.cart}">
-                    <a th:href="'/products/detail/' + ${productInstance.getKey().getId()}"><p
-                            th:text="${productInstance.getKey().getName()}">
-                        <span class=" price" th:text="${productInstance.getKey().getPrice()}"> €</span>
-                    </p></a>
+                    <p>
+                        <a th:text="${productInstance.getKey().getName()}" th:href="'/products/detail/' + ${productInstance.getKey().getId()}"></a>
+                        <span class="price" th:text="${productInstance.getValue()} + ' x ' +
+                        ${productInstance.getKey().getPrice()} + ' €'"></span>
+                    </p>
                     <hr>
                 </div>
 
-                <p th:text="#{cart.total}"><span class="price"><b>??€</b></span></p>
+                <p th:text="#{cart.total} + ' ' + ${total} + ' €'">
+                </p>
             </div>
         </div>
     </div>
