@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script th:src="@{/js/shoppingCart.js}"></script>
+    <script type="text/javascript" th:src="@{/js/shoppingCart.js}"></script>
 
 </head>
 <body>
@@ -68,7 +68,7 @@
         </div>
 
         <div class="right">
-            <h1 class="total"><a th:text="#{cart.total}"></a><span></span>€</h1>
+            <h1 class="total"><a th:text="#{cart.total}"></a> <span></span>€</h1>
             <a class="btn" th:text="#{cart.checkout}" href="/cart/checkout/"></a><!---->
         </div>
 
