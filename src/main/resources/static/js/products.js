@@ -10,7 +10,36 @@ $(document).ready(function () {
     $("#categoryAdd").submit(function (event2) {
         event2.preventDefault();
         ajaxPostCategory()
-    })
+    });
+    $(".addToCartButton").click(function (event2) {
+        event2.preventDefault();
+        var id = $(this).parent().children(".product-id").html();
+
+        console.log("product id: " + id);
+
+        ajaxUpdateCart(id, 1)
+
+    });
+
+    function ajaxUpdateCart(id, amount) {
+        $.ajax({
+            type: "GET",
+            url: "/cart/add/" + id + "/" + amount,
+
+            success: function () {
+                console.log("success");
+                alertAddedToCart()
+            }
+            ,
+            error: function (e) {
+                console.log("error")
+
+            }
+
+        })
+        ;
+    }
+
 });
 
 function ajaxPostImage() {
@@ -117,3 +146,8 @@ function clearField() {
 function alertCategorySubmitted() {
     alert("Ok!");
 }
+
+function alertAddedToCart() {
+    alert("Product added.");
+}
+

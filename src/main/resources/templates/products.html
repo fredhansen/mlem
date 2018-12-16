@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/scrollbar.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
-    <script th:src="@{js/products.js}" src="/js/products.js" defer></script>
+    <script th:src="@{/js/products.js}" src="/js/products.js" defer></script>
 </head>
 <body>
 <div class="products_container">
@@ -27,7 +27,7 @@
                 </a>
                 <div>
                     <p class="product-id" th:text="${product.getId()}"></p>
-                    <button th:text="#{cart.additem}" onclick="alert('Unista edasi!')"></button>
+                    <button class="addToCartButton" th:text="#{cart.additem}"></button>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
                 </a>
                 <div>
                     <p class="product-id" th:text="${product.getId()}"></p>
-                    <button th:text="#{cart.additem}" onclick="alert('Unista edasi!')"></button>
+                    <button class="addToCartButton" th:text="#{cart.additem}"></button>
                 </div>
             </div>
         </div>

@@ -35,17 +35,19 @@ $(document).ready(function () {
 
     $(".remove").click(function () {
         var el = $(this);
+
+        var id = el.parent().parent().children(".forID").children("#pr-id").html();
+        console.log(id);
+
+        ajaxRemoveFromCart(id);
+
         el.parent().parent().addClass("removed");
         window.setTimeout(
             function () {
                 el.parent().parent().slideUp('fast', function () {
                     el.parent().parent().remove();
                     if ($(".product").length === 0) {
-                        if (check) {
-                            $("#cart").html("<h1>---</h1>");
-                        } else {
                             $("#cart").html("<h1>Empty</h1>");
-                        }
                     }
                     changeTotal();
                 });
@@ -95,12 +97,14 @@ $(document).ready(function () {
         }, 150);
     });
 
+    // for refreshing at the start
     $(".full-price").each(function () {
         var el = $(this);
         console.log(el);
         changeVal(el)
     });
 
+    // updates items in session cart
     function ajaxUpdateCart(id, amount) {
         $.ajax({
             type: "GET",
@@ -118,15 +122,36 @@ $(document).ready(function () {
         })
         ;
     }
+    function ajaxRemoveFromCart(id) {
+        $.ajax({
+            type: "GET",
+            url: "/cart/remove/" + id,
+
+            success: function () {
+                console.log("item removed")
+            }
+            ,
+            error: function (e) {
+                console.log("error")
+
+            }
+
+        })
+        ;
+    }
 
     console.log("loaded");
 
+
+    // checkout
+    $(".btn").click(function () {
+        console.log("checkout");
+        check = true;
+        //$(".remove").click(); // clicks all the remove buttons
+        $(this).hide();//.parent().parent().hide();
+        //document.getElementById()
+
+
+    });
 });
 
-
-$(".btn").click(function () {
-    check = true;
-    //$(".remove").click();
-    $(this).hide();
-
-});

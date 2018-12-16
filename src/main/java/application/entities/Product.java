@@ -136,13 +136,21 @@ public class Product {
 
     @Override
     public String toString() {
+        // to reduce console pollution
+        String imgString;
+        if (this.image == null) {
+            imgString = "0";
+        } else {
+            imgString = "1";
+        }
+
         return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", categoryId=" + categoryId +
                 ", tag='" + tag + '\'' +
                 ", description='" + description + '\'' +
-                ", image='" + image + '\'' +
+                ", image='" + imgString + '\'' +
                 ", price=" + price +
                 ", amount=" + amount +
                 '}';

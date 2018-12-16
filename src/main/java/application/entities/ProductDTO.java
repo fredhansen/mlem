@@ -112,12 +112,20 @@ public class ProductDTO {
 
     @Override
     public String toString() {
+        // to reduce console pollution
+        String imgString;
+        if (this.image == null) {
+            imgString = "0";
+        } else {
+            imgString = "1";
+        }
+
         return "ProductDTO{" +
                 "name='" + name + '\'' +
                 ", categoryId=" + categoryId +
                 ", tag='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", image='" + image + '\'' +
+                ", image='" + imgString + '\'' +
                 ", price=" + price +
                 ", amount=" + amount +
                 '}';
