@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/checkout.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/scrollbar.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+    <script type="text/javascript" th:src="@{/js/checkout.js}"></script>
+
 
 </head>
 <body>
@@ -62,6 +64,7 @@
             <div class="container">
                 <h4 th:text="#{cart_page}"><span class="price"><i
                         class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+
                 <div th:each="productInstance : ${session.cart}">
                     <a th:href="'/products/detail/' + ${productInstance.getKey().getId()}"><p
                             th:text="${productInstance.getKey().getName()}">
@@ -69,6 +72,7 @@
                     </p></a>
                     <hr>
                 </div>
+
                 <p th:text="#{cart.total}"><span class="price"><b>??€</b></span></p>
             </div>
         </div>
