@@ -6,7 +6,9 @@ body {
 }
 
 .cart-container {
-    margin-bottom: 7vw;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    margin: 0 auto 7vw;
+    width: 76.5vw;
 }
 
 .clearfix {
@@ -29,11 +31,6 @@ a:hover {
     color: #064c8b;
 }
 
-.cart-container {
-    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
-    margin: 0 auto 7vw;
-    width: 980px;
-}
 
 #cart {
     width: 100%;
@@ -59,15 +56,15 @@ a:hover {
 }
 
 .product.removed {
-    margin-left: 980px !important;
+    margin-left: 77vw !important;
     opacity: 0;
 }
 
 .product {
     border: 1px solid #eee;
-    margin: 20px 0;
+    margin: 1.5vw 0;
     width: 100%;
-    height: 195px;
+    height: 15vw;
     position: relative;
 
     -webkit-transition: margin .2s linear, opacity .2s linear;
@@ -80,6 +77,7 @@ a:hover {
 .product img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .product header, .product .cart-item {
@@ -91,12 +89,12 @@ a:hover {
 
 .product header {
     background: #000;
-    margin: 0 1% 20px 0;
+    margin: 0 1% 1.5vw 0;
     overflow: hidden;
     padding: 0;
     position: relative;
     width: 24%;
-    height: 195px;
+    height: 15vw;
 }
 
 .product header:hover img {
@@ -104,19 +102,19 @@ a:hover {
 }
 
 .product header:hover h3 {
-    bottom: 73px;
+    bottom: 5.7vw;
 }
 
 .product header h3 {
     background: #064c8b;
     color: #fff;
-    font-size: 22px;
+    font-size: 1.53vw;
     font-weight: 300;
-    line-height: 49px;
+    line-height: 3.8vw;
     margin: 0;
-    padding: 0 30px;
+    padding: 0 2.3vw;
     position: absolute;
-    bottom: -50px;
+    bottom: -3.9vw;
     right: 0;
     left: 0;
 
@@ -134,21 +132,21 @@ a:hover {
 .product .cart-item {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    height: 140px;
-    padding: 0 20px;
+    height: 11vw;
+    padding: 0 1.5vw;
     width: 75%;
 }
 
 .product h1 {
     color: #064c8b;
-    font-size: 25px;
+    font-size: 1.74vw;
     font-weight: 300;
-    margin: 17px 0 20px 0;
+    margin: 1.3vw 0 1.5vw 0;
 }
 
 .product footer.cart-item {
-    height: 50px;
-    margin: 6px 0 0 0;
+    height: 3.9vw;
+    margin: 0.5vw 0 0 0;
     padding: 0;
 }
 
@@ -156,22 +154,22 @@ a:hover {
     background: #fcfcfc;
     color: #000;
     float: right;
-    font-size: 15px;
+    font-size: 1.04vw;
     font-weight: 300;
-    line-height: 49px;
+    line-height: 3.8vw;
     margin: 0;
-    padding: 0 30px;
+    padding: 0 2.3vw;
 }
 
 .product footer .full-price {
     background: #064c8b;
     color: #fff;
     float: right;
-    font-size: 22px;
+    font-size: 1.53vw;
     font-weight: 300;
-    line-height: 49px;
+    line-height: 3.85vw;
     margin: 0;
-    padding: 0 30px;
+    padding: 0 2.3vw;
 
     -webkit-transition: margin .15s linear;
     -moz-transition: margin .15s linear;
@@ -186,19 +184,19 @@ a:hover {
 }
 
 .qt {
-    font-size: 19px;
-    line-height: 50px;
-    width: 70px;
+    font-size: 1.32vw;
+    line-height: 3.9vw;
+    width: 5.5vw;
     text-align: center;
 }
 
 .qt-plus, .qt-minus {
     background: #fcfcfc;
     border: none;
-    font-size: 30px;
+    font-size: 2.08vw;
     font-weight: 300;
     height: 100%;
-    padding: 0 20px;
+    padding: 0 1.5vw;
     -webkit-transition: background .2s linear;
     -moz-transition: background .2s linear;
     -ms-transition: background .2s linear;
@@ -213,11 +211,11 @@ a:hover {
 }
 
 .qt-plus {
-    line-height: 50px;
+    line-height: 3.9vw;
 }
 
 .qt-minus {
-    line-height: 47px;
+    line-height: 3.7vw;
 }
 
 #pr-id {
@@ -225,34 +223,34 @@ a:hover {
 }
 
 #cart-footer {
-    margin: 30px 0 0 0;
+    margin: 2.3vw 0 0 0;
 }
 
 #cart-footer {
-    padding: 40px;
+    padding: 3.1vw;
 }
 
-#cart-footerh1 {
+#cart-footer h1 {
     background: #fcfcfc;
     border: 1px solid #ccc;
     border-style: none none solid none;
-    font-size: 24px;
+    font-size: 1.67vw;
     font-weight: 300;
-    margin: 0 0 7px 0;
-    padding: 14px 40px;
+    margin: 0 0 0.5vw 0;
+    padding: 1vw 3.1vw;
     text-align: center;
 }
 
 #cart-footer h2 {
-    font-size: 24px;
+    font-size: 1.67vw;
     font-weight: 300;
-    margin: 10px 0 0 0;
+    margin: 0.8vw 0 0 0;
 }
 
 #cart-footer h3 {
-    font-size: 19px;
+    font-size: 1.32vw;
     font-weight: 300;
-    margin: 15px 0;
+    margin: 1.1vw 0;
 }
 
 .left {
@@ -265,16 +263,17 @@ a:hover {
 
 .btn {
     background: #064c8b;
-    border: 1px solid #999;
-    border-style: none none solid none;
+    border: 1px none #999;
+    border-bottom-style: solid;
     cursor: pointer;
     display: block;
     color: #fff;
-    font-size: 20px;
+    font-size: 1.39vw;
     font-weight: 300;
-    padding: 16px 0;
-    width: 290px;
+    padding: 2vw 0;
+    width: 10vw;
     text-align: center;
+    object-fit: contain;
 
     -webkit-transition: all .2s linear;
     -moz-transition: all .2s linear;
@@ -290,26 +289,27 @@ a:hover {
 
 .type {
     background: #fcfcfc;
-    font-size: 13px;
-    padding: 10px 16px;
+    font-size: 0.9vw;
+    padding: 0.8vw 1.25vw;
     left: 100%;
 }
 
 .type, .color {
-    border: 1px solid #ccc;
-    border-style: none none solid none;
+    border: 1px none #ccc;
+    border-bottom-style: solid;
     position: absolute;
 }
 
 .color {
-    width: 40px;
-    height: 40px;
-    right: -40px;
+    width: 3.1vw;
+    height: 3.1vw;
+    right: -3.1vw;
 }
+
 .top-right {
     position: absolute;
-    top: 8px;
-    right: 16px;
+    top: 0.8vw;
+    right: 1.25vw;
     color: #a20010;
     cursor: pointer;
 }
