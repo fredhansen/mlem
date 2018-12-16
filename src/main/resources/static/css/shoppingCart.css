@@ -40,6 +40,11 @@ a:hover {
     font-weight: 300;
 }
 
+#cart p {
+    font-weight: 300;
+    font-size: 1.2vw;
+}
+
 #cart a {
     color: #064c8b;
     text-decoration: none;
@@ -82,8 +87,8 @@ a:hover {
 
 .product header, .product .cart-item {
     background-color: #fff;
-    border: 1px solid #ccc;
-    border-style: none none solid none;
+    border: 1px none #ccc;
+    border-bottom-style: solid;
     float: left;
 }
 
@@ -232,8 +237,8 @@ a:hover {
 
 #cart-footer h1 {
     background: #fcfcfc;
-    border: 1px solid #ccc;
-    border-style: none none solid none;
+    border: 1px none #ccc;
+    border-bottom-style: solid;
     font-size: 1.67vw;
     font-weight: 300;
     margin: 0 0 0.5vw 0;
@@ -270,8 +275,10 @@ a:hover {
     color: #fff;
     font-size: 1.39vw;
     font-weight: 300;
-    padding: 2vw 0;
-    width: 10vw;
+    padding-top: 1vw;
+    padding-right: 3vw;
+    padding-left: 3vw;
+    padding-bottom: 1vw;
     text-align: center;
     object-fit: contain;
 
