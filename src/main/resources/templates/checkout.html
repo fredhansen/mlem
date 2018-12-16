@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
 <head>
     <title th:text="#{checkout}"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/checkout.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/scrollbar.css}">
@@ -9,13 +11,65 @@
 
 </head>
 <body>
-<div th:replace="fragments/header :: header">
+<div th:replace="fragments/nologohead :: nologohead">
 </div>
+<div class="checkout-container">
 
-<div th:text="#{checkout}"></div>
+    <div class="row">
+        <div class="col-75">
+            <div class="container">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-50">
+                            <h3 th:text="#{shippingaddress}"></h3>
 
-<div th:insert="fragments/footer" class="footer">
+                            <label for="fname" th:text="#{fullname}"><i class="fa fa-user"></i></label>
+                            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+
+                            <label for="email"><i class="fa fa-envelope"></i> E-mail</label>
+                            <input type="text" id="email" name="email" placeholder="name@example.com">
+
+                            <label for="adr" th:text="#{address}"><i class="fa fa-address-card-o"></i></label>
+                            <input type="text" id="adr" name="address" placeholder="Vitamiini 6">
+
+                            <label for="city" th:text="#{city}"><i class="fa fa-institution"></i></label>
+                            <input type="text" id="city" name="city" placeholder="Tartu">
+
+                            <div class="row">
+                                <div class="col-50">
+                                    <label for="state" th:text="#{state}"></label>
+                                    <input type="text" id="state" name="state" placeholder="Tartumaa">
+                                </div>
+                                <div class="col-50">
+                                    <label for="zip" th:text="#{zip}"></label>
+                                    <input type="text" id="zip" name="zip" placeholder="51005">
+                                </div>
+                            </div>
+                            <!--   <label>
+                                   <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+                               </label>-->
+                            <button th:text="#{submit}"><input type="submit" class="btn"></button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-25">
+            <div class="container">
+                <h4 th:text="#{cart_page}"><span class="price"><i
+                        class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+                <div th:each="productInstance : ${session.cart}">
+                    <p th:text="${productInstance.getKey().getName()}"><a href="#"></a>
+                        <span class="price" th:text="${productInstance.getKey().getPrice()}"> €</span>
+                    </p>
+                    <hr>
+                </div>
+                <p th:text="#{cart.total}"><span class="price"><b>??€</b></span></p>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
+<div th:insert="fragments/footer" class="footer"></div>
 </body>
 </html>

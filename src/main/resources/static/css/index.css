@@ -42,7 +42,7 @@ h3 {
 
 .new-product img {
     object-fit: cover;
-    border: 1px solid black;
+    border: 1px solid #e6e6e6;
     margin: 0.5vw;
     width: 14vw;
     height: 14vw;
