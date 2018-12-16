@@ -275,10 +275,7 @@ a:hover {
     color: #fff;
     font-size: 1.39vw;
     font-weight: 300;
-    padding-top: 1vw;
-    padding-right: 3vw;
-    padding-left: 3vw;
-    padding-bottom: 1vw;
+    padding: 1vw 3vw;
     text-align: center;
     object-fit: contain;
 
