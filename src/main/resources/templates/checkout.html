@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
+<head>
+    <title th:text="#{checkout}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/checkout.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/scrollbar.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+
+</head>
+<body>
+<div th:replace="fragments/header :: header">
+</div>
+
+<div th:text="#{checkout}"></div>
+
+<div th:insert="fragments/footer" class="footer">
+</div>
+</div>
+</body>
+</html>

@@ -41,18 +41,22 @@ $(document).ready(function () {
 
         ajaxRemoveFromCart(id);
 
-        el.parent().parent().addClass("removed");
-        window.setTimeout(
-            function () {
-                el.parent().parent().slideUp('fast', function () {
-                    el.parent().parent().remove();
-                    if ($(".product").length === 0) {
-                            $("#cart").html("<h1>Empty</h1>");
-                    }
-                    changeTotal();
-                });
-            }, 200);
+        hideFromCart(el);
     });
+
+    function hideFromCart(el) {
+         el.parent().parent().addClass("removed");
+         window.setTimeout(
+             function () {
+                 el.parent().parent().slideUp('fast', function () {
+                     el.parent().parent().remove();
+                     if ($(".product").length === 0) {
+                         $("#cart").html("<h1>Empty</h1>");
+                     }
+                     changeTotal();
+                 });
+             }, 200);
+    }
 
     $(".qt-plus").click(function () {
         $(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) + 1);
@@ -122,6 +126,7 @@ $(document).ready(function () {
         })
         ;
     }
+
     function ajaxRemoveFromCart(id) {
         $.ajax({
             type: "GET",
@@ -143,15 +148,23 @@ $(document).ready(function () {
     console.log("loaded");
 
 
-    // checkout
+    /*// checkout
     $(".btn").click(function () {
         console.log("checkout");
         check = true;
+
+        $(".remove").each(function () {
+            console.log("hide");
+
+            hideFromCart($(this));
+        });
+
+
         //$(".remove").click(); // clicks all the remove buttons
         $(this).hide();//.parent().parent().hide();
         //document.getElementById()
 
 
-    });
+    });*/
 });
 
