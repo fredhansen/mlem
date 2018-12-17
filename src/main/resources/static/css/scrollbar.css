@@ -35,7 +35,3 @@
     background: grey;
     border-radius: 2vw;
 }
-
-::-webkit-scrollbar-thumb:hover:horizontal {
-    background: #5b5b5b;
-}
