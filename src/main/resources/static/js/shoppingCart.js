@@ -44,6 +44,8 @@ $(document).ready(function () {
         ajaxRemoveFromCart(id);
 
         hideFromCart(el);
+
+        ifEmpty();
     });
 
     function hideFromCart(el) {
@@ -148,6 +150,12 @@ $(document).ready(function () {
     }
 
     console.log("loaded");
+
+    function ifEmpty() {
+
+
+
+    }
 
 
     /*// checkout

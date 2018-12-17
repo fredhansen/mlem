@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
@@ -65,10 +66,26 @@ public class ShoppingCartController {
     }
 
     @GetMapping(value = "/cart/checkout/")
-    public String checkout() {
+    public String checkout(HttpSession session, Model model) {
+        Map<Product, Integer> cart = (HashMap<Product, Integer>) session.getAttribute("cart");
 
+        double total = 0;
+        for (Map.Entry<Product, Integer> entry : cart.entrySet()) {
 
+            double price = entry.getKey().getPrice();
+            int amount = entry.getValue();
+
+            total = total + price * amount;
+        }
+
+        model.addAttribute("total", total);
         return "checkout";
+    }
+
+    @PostMapping("cart/checkout/confirm")
+    public String confirmCart() {
+        // todo create sale/order entity
+        return "";
     }
 
 }
