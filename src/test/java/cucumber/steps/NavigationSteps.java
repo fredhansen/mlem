@@ -1,13 +1,12 @@
 package cucumber.steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,11 +23,11 @@ public class NavigationSteps {
     private final static String url = "http://localhost:8080/";
 
     @Before
-    public void setUp(){
+    public void setUp() {
         System.setProperty("webdriver.chrome.driver",
-                System.getProperty("user.dir")+
-                        File.separator +"src"+
-                        File.separator + "main"+
+                System.getProperty("user.dir") +
+                        File.separator + "src" +
+                        File.separator + "main" +
                         File.separator + "resources" +
                         File.separator + "selenium" +
                         File.separator + "chromedriver.exe");
@@ -36,14 +35,19 @@ public class NavigationSteps {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
-    private void goToPage(String page){
-        driver.get(url +page);
+    @After
+    public void quit() {
+        driver.quit();
+    }
+
+
+    private void goToPage(String page) {
+        driver.get(url + page);
     }
 
 
     @Given("^I opened homepage$")
     public void iOpenedHomepage() {
-        setUp();
         driver.get(url);
         String homePageText = driver.findElementById("homePageText").getText();
         Assert.assertFalse(homePageText.isEmpty());
@@ -55,13 +59,8 @@ public class NavigationSteps {
     }
 
     @Then("^I should see correct div's on screen \"([^\"]*)\"$")
-    public void iShouldSeeCorrectDivSOnScreen(String divContent){
+    public void iShouldSeeCorrectDivSOnScreen(String divContent) {
         assert driver.findElementById(divContent).isDisplayed();
-    }
-
-    @After
-    public void quit(){
-        driver.quit();
     }
 
 
@@ -76,9 +75,9 @@ public class NavigationSteps {
     }
 
 
-    public static void login_With_Google(ChromeDriver driver){
+    public static void login_With_Google(ChromeDriver driver) {
         driver.get(url);
-        WebDriverWait wait = new WebDriverWait(driver,25);
+        WebDriverWait wait = new WebDriverWait(driver, 25);
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElementById("loginPageGoogle")));
         driver.findElementById("loginPageGoogle").click();
         WebElement email = driver.findElement(By.xpath("//input[@id='identifierId']"));
