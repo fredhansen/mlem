@@ -47,23 +47,23 @@ public class CategoryRESTController {
 
     @PostMapping("category/change/{id}/update")
     public String postChangeCategory(@PathVariable("id") String id,
-                                          @RequestBody CategoryDTO categoryDTO){
-        if (categoryDTO.getName().equals("")){
+                                     @RequestBody CategoryDTO categoryDTO) {
+        if (categoryDTO.getName().equals("")) {
             return "None";
         }
-        categoryRepository.changeCategory(categoryDTO.getName(),id);
+        categoryRepository.changeCategory(categoryDTO.getName(), id);
         return "Done";
     }
 
     @PostMapping("category/delete/{id}")
-    public String deleteCategory(@PathVariable("id") String id){
+    public String deleteCategory(@PathVariable("id") String id) {
         Category checkProduct = categoryRepository.getById(id);
-        if (checkProduct == null){
+        if (checkProduct == null) {
             return "None";
         }
         categoryRepository.deleteCategoryById(id);
         checkProduct = categoryRepository.getById(id);
-        if (checkProduct == null){
+        if (checkProduct == null) {
             return "Success";
         }
         return "None";
