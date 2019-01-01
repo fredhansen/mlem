@@ -1,9 +1,5 @@
 package application.entities;
 
-import eu.bitwalker.useragentutils.Browser;
-import eu.bitwalker.useragentutils.DeviceType;
-import eu.bitwalker.useragentutils.OperatingSystem;
-
 import javax.persistence.*;
 
 @Entity

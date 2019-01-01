@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#categorySelect").dblclick(function (event) {
+    $("#categorySelect").click(function (event) {
         event.preventDefault();
         ajaxGetCategory()
     });

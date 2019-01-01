@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
+<head>
+    <title th:text="#{title.faq}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="wrapper">
+    <div th:replace="fragments/header :: header">
+    </div>
+
+    <div id="faq">
+        <div class="question_view" th:each="faq : ${faqs}">
+            <div class="faq">
+
+                <div class="question" th:if="#{language-code} == 'en'" th:text="${faq.getEngQuestion()}"></div>
+                <div class="question" th:if="#{language-code} == 'et'" th:text="${faq.getEstQuestion()}"></div>
+                <div class="answer" th:if="#{language-code} == 'en'" th:text="${faq.getEngAnswer()}"></div>
+                <div class="answer" th:if="#{language-code} == 'et'" th:text="${faq.getEstAnswer()}"></div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer">
+    </div>
+</div>
+</body>
+</html>
