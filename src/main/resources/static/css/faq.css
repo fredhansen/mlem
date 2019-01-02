@@ -1,40 +1,40 @@
-body {
-    font-family: "helvetica neue", helvetica, sans-serif;
-    background-color: #ffffff !important;
-    overflow-y: hidden;
+* {
+    text-decoration: none;
 }
 
-.faq_section {
-    margin: 40px auto;
+.faq section {
+    margin: 3.125vw auto;
 }
 
 .faq_each {
-    padding-bottom: 10px;
+    padding-bottom: 0.78vw;
 }
 
 .box {
-    /*background: rgba(246, 246, 246, 1);*/
-    color: #666666;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 20px;
-    font-size: 13px;
+    background: white;
+    padding-top: 1.17vw;
+    padding-bottom: 1.17vw;
+    padding-left: 1.17vw;
+    font-size: 1vw;
     text-transform: none;
     cursor: pointer;
-    border: 1px solid #d9d9d9;
+    border: 0.07vw solid #d9d9d9;
 }
 
 .answer {
     display: none;
     background: #ffffff;
-    padding: 20px;
-    border-bottom: 1px solid #d9d9d9;
-    border-left: 1px solid #d9d9d9;
-    border-right: 1px solid #d9d9d9;
+    border-bottom: 0.07vw solid #d9d9d9;
+    border-left: 0.07vw solid #d9d9d9;
+    border-right: 0.07vw solid #d9d9d9;
     color: #000000;
-    padding-left: 30px;
+    padding: 1.5vw 1.5vw 1.5vw 2.3vw;
 }
 
 #other {
     display: none;
+}
+
+#faq {
+    margin: 3vw 3vw 7vw 2vw;
 }
