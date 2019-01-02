@@ -2,8 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org" th:lang="#{language-code}">
 <head>
     <title th:text="#{title.faq}"></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/faq.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+    <script type="text/javascript" th:src="@{/js/faq.js}"></script>
     <meta charset="UTF-8">
 </head>
 <body>
@@ -12,18 +17,47 @@
     </div>
 
     <div id="faq">
-        <div class="question_view" th:each="faq : ${faqs}">
-            <div class="faq">
+        <div class="question_view">
+            <div class="faq_each">
 
-                <div class="question" th:if="#{language-code} == 'en'" th:text="${faq.getEngQuestion()}"></div>
-                <div class="question" th:if="#{language-code} == 'et'" th:text="${faq.getEstQuestion()}"></div>
-                <div class="answer" th:if="#{language-code} == 'en'" th:text="${faq.getEngAnswer()}"></div>
-                <div class="answer" th:if="#{language-code} == 'et'" th:text="${faq.getEstAnswer()}"></div>
+                <section class="box">
+		  	<span>
+		  		<i class="fa fa-plus" aria-hidden="true"></i>
+		  		<i class="fa fa-minus" id="other" aria-hidden="true"></i>
+		  	</span>&nbsp;&nbsp;
 
+                    <span class="question">Question?</span>
+                </section>
+
+                <section class="answer">Answer.</section>
 
             </div>
         </div>
     </div>
+    <!--
+        <div id="faq">
+            <div class="question_view" th:each="faq : ${faqs}">
+                <div class="faq_each">
+
+                    <section class="box">
+                  <span>
+                      <i class="fa fa-plus" aria-hidden="true"></i>
+                      <i class="fa fa-minus" id="other" aria-hidden="true"></i>
+                  </span>&nbsp;&nbsp;
+                        <span class="question" th:if="#{language-code} == 'en'"
+                              th:text="${faq.getEngQuestion()}"></span>
+                        <span class="question" th:if="#{language-code} == 'et'"
+                              th:text="${faq.getEstQuestion()}"></span>
+                        <span class="question">Question?</span>
+                    </section>
+
+                    <section class="answer" th:if="#{language-code} == 'en'" th:text="${faq.getEngAnswer()}"></section>
+                    <section class="answer" th:if="#{language-code} == 'et'" th:text="${faq.getEstAnswer()}"></section>
+                    <section class="answer">Answer.</section>
+
+                </div>
+            </div>
+        </div>-->
 
     <div th:replace="fragments/footer :: footer">
     </div>
