@@ -11,7 +11,6 @@ public class FAQ {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long faqId;
 
-    @NotNull
     private String engQuestion;
     private String estQuestion;
     private String engAnswer;

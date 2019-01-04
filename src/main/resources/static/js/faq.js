@@ -13,10 +13,10 @@ $(document).ready(function () {
 
 function ajaxPostFAQ() {
     var formData = {
-        faqEng: $("#faq_eng").val(),
-        faqEst: $("#faq_est").val(),
-        faaEng: $("#faa_eng").val(),
-        faaEst: $("#faa_est").val()
+        engQuestion: $("#faq_eng").val(),
+        estQuestion: $("#faq_est").val(),
+        engAnswer: $("#faa_eng").val(),
+        estAnswer: $("#faa_est").val()
     };
     console.log(formData);
     $.ajax({
