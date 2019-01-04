@@ -9,6 +9,17 @@ $(document).ready(function () {
         ajaxPostFAQ()
     });
 
+    $(".remove").click(function () {
+        var el = $(this);
+
+        var id = el.parent().children(".fqid").html();
+        console.log(id);
+
+        //ajaxRemoveFAQ(id);
+
+
+    });
+
 });
 
 function ajaxPostFAQ() {
@@ -34,5 +45,23 @@ function ajaxPostFAQ() {
     });
 
 
+}
+
+function ajaxRemoveFAQ(id) {
+    $.ajax({
+        type: "GET",
+        url: "/faq/remove" + id,
+
+        success: function () {
+            console.log("FAQ removed")
+        }
+        ,
+        error: function (e) {
+            console.log("error")
+
+        }
+
+    })
+    ;
 }
 

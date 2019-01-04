@@ -6,7 +6,6 @@ import application.repo.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.PostRemove;
 import java.util.List;
 import java.util.Random;
 
