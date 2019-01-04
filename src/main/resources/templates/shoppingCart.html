@@ -24,11 +24,13 @@
 
 <div class="cart-container">
 
-    <ul id="breadcrumbs">
-        <li><a href="" class="current">Lorem ipsum</a></li>
-        <li><a href="">Vivamus nisi eros</a></li>
-        <li><a href="">Nulla sed lorem risus</a></li>
-    </ul>
+    <div id="breadcrumbs-center">
+        <ul id="breadcrumbs">
+            <li><a href="">Lorem ipsum</a></li>
+            <li><a href="" class="current">Vivamus nisi eros</a></li>
+            <li><a href="">Nulla sed lorem risus</a></li>
+        </ul>
+    </div>
 
     <section id="cart">
         <div class="product" th:each="productInstance : ${session.cart}">
@@ -64,7 +66,6 @@
             </footer>
         </div>
     </section>
-
 
 
     <div class="cart-container clearfix">
