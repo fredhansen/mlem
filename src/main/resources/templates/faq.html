@@ -23,7 +23,6 @@
                       <span>
                           <i class="fa fa-plus" aria-hidden="true"></i>
                           <i class="fa fa-minus" id="other" aria-hidden="true"></i>
-                          <i th:if="${user}" class="fa fa-close remove"></i>
                       </span>&nbsp;&nbsp;
                     <span class="question" th:if="#{language-code} == 'en'"
                           th:text="${faq.getEngQuestion()}"></span>
@@ -35,7 +34,7 @@
 
                 <section class="answer" th:if="#{language-code} == 'en'" th:text="${faq.getEngAnswer()}"></section>
                 <section class="answer" th:if="#{language-code} == 'et'" th:text="${faq.getEstAnswer()}"></section>
-
+                <i th:if="${user}" class="fa fa-close remove"></i>
             </div>
         </div>
     </div>

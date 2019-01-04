@@ -80,7 +80,7 @@
 
                 <div th:each="productInstance : ${session.cart}">
                     <p>
-                        <a th:text="${productInstance.getKey().getName()}"
+                        <a class="product-name" th:text="${productInstance.getKey().getName()}"
                            th:href="'/products/detail/' + ${productInstance.getKey().getId()}"></a>
                         <span class="price" th:text="${productInstance.getValue()} + ' x ' +
                         ${productInstance.getKey().getPrice()} + ' €'"></span>

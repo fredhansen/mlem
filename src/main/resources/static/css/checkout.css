@@ -39,6 +39,11 @@ button {
     margin: 2vw 3vw 7vw 2vw;
 }
 
+.product-name {
+    color: black;
+    font-weight: bold;
+}
+
 .price {
     color: black;
 }
