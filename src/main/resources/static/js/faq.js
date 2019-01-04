@@ -12,10 +12,10 @@ $(document).ready(function () {
     $(".remove").click(function () {
         var el = $(this);
 
-        var id = el.parent().children(".fqid").html();
+        var id = el.parent().children(".box").children("#fqid").html();
         console.log(id);
 
-        //ajaxRemoveFAQ(id);
+        ajaxRemoveFAQ(id);
 
 
     });
@@ -49,8 +49,8 @@ function ajaxPostFAQ() {
 
 function ajaxRemoveFAQ(id) {
     $.ajax({
-        type: "GET",
-        url: "/faq/remove" + id,
+        type: "POST",
+        url: "/faq/delete/" + id,
 
         success: function () {
             console.log("FAQ removed")
@@ -64,4 +64,17 @@ function ajaxRemoveFAQ(id) {
     })
     ;
 }
+
+/*function hideFAQ(el) { todo hide removed faq
+    el.parent().parent().addClass("removed");
+    window.setTimeout(
+        function () {
+            el.parent().parent().slideUp('fast', function () {
+                el.parent().parent().remove();
+                if ($(".product").length === 0) {
+                    $("#cart").html("<h1>Empty</h1>");
+                }
+            });
+        }, 200);
+}*/
 

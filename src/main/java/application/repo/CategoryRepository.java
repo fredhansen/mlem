@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface CategoryRepository extends CrudRepository<Category, Long> {
 
-    @Modifying
+/*    @Modifying
     @Transactional
     @Query(value = "INSERT INTO category (id, name, description) VALUES(?,?,?)", nativeQuery = true)
     void addCategory(@Param("id") Long id, @Param("name") String name, @Param("description") String description);
@@ -21,7 +21,7 @@ public interface CategoryRepository extends CrudRepository<Category, Long> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO category (id, name) VALUES(?,?)", nativeQuery = true)
-    void addCategory(@Param("id") Long id, @Param("name") String name);
+    void addCategory(@Param("id") Long id, @Param("name") String name);*/
 
     @Query(value = "SELECT id, name FROM category", nativeQuery = true)
     List<Category> getAll();
