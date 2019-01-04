@@ -21,6 +21,9 @@ public class ShoppingCartController {
     @Autowired
     private ProductRepository productRepository;
 
+/*    @Autowired
+    private OrderRepository orderRepository;*/
+
     @RequestMapping("/cart")
     public String cart(Model model) {
 
@@ -78,14 +81,33 @@ public class ShoppingCartController {
             total = total + price * amount;
         }
 
+        session.setAttribute("totalPrice", total);
         model.addAttribute("total", total);
         return "checkout";
     }
 
     @PostMapping("cart/checkout/confirm")
-    public String confirmCart() {
+    public String confirmCart(HttpSession session, Model model) {
+        Map<Product, Integer> cart = (HashMap<Product, Integer>) session.getAttribute("cart");
+        // todo cart sent to database and to admin for order
+
+        double toBePayed = (Double) session.getAttribute("total");
+        // todo amount to be sent to bank
+
         // todo create sale/order entity
         return "";
     }
+//
+//    @GetMapping(value = "/cart/checkout/")
+//    public String confirmed(HttpSession session, Model model) {
+//        Map<Product, Integer> cart = (HashMap<Product, Integer>) session.getAttribute("cart");
+//        // todo cart sent to database and to admin for order
+//
+//        double toBePayed = (Double) session.getAttribute("total");
+//        // todo amount to be sent to bank
+//
+//        // todo create sale/order entity
+//        return "";
+//    }
 
 }
