@@ -1,7 +1,6 @@
 package application.RESTController;
 
 import application.entities.Category;
-import application.entities.CategoryDTO;
 import application.repo.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,21 +19,21 @@ public class CategoryRESTController {
     }
 
     @PostMapping("products/add/category/save")
-    public CategoryDTO postAddCategory(@RequestBody CategoryDTO categoryDTO) {
-        System.out.println(categoryDTO);
+    public String postAddCategory(@RequestBody Category category) {
+        System.out.println(category);
 
-        if (categoryDTO.getName() == null) {
+        if (category.getName() == null) {
             return null;
         }
-        //categoryRepository.addCategory(randomLong(), categoryDTO.getName(),categoryDTO.getDescription());
+        //categoryRepository.addCategory(randomLong(), category.getName(),category.getDescription());
         Category cat = new Category();
         cat.setId(randomLong());
-        cat.setName(categoryDTO.getName());
+        cat.setName(category.getName());
         categoryRepository.save(cat);
 
-        categoryDTO.setId(cat.getId());
-        System.out.println(categoryDTO.getId());
-        return categoryDTO;
+        category.setId(cat.getId());
+        System.out.println(category.getId());
+        return category.toJson();
     }
 
     @GetMapping("products/add/category/show")
@@ -46,11 +45,11 @@ public class CategoryRESTController {
 
     @PostMapping("category/change/{id}/update")
     public String postChangeCategory(@PathVariable("id") String id,
-                                     @RequestBody CategoryDTO categoryDTO) {
-        if (categoryDTO.getName().equals("")) {
+                                     @RequestBody Category category) {
+        if (category.getName().equals("")) {
             return "None";
         }
-        categoryRepository.changeCategory(categoryDTO.getName(), id);
+        categoryRepository.changeCategory(category.getName(), id);
         return "Done";
     }
 

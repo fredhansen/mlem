@@ -19,7 +19,7 @@ public class Product {
     private String name;
 
     private Long categoryId;
-    @NotNull
+
     private String tag;
 
     private String description;

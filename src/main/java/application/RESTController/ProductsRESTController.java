@@ -1,17 +1,13 @@
 package application.RESTController;
 
 import application.entities.Product;
-import application.entities.ProductDTO;
 import application.entities.UploadForm;
-import application.repo.CategoryRepository;
 import application.repo.ProductRepository;
 import org.apache.commons.codec.binary.StringUtils;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.ws.rs.Path;
-import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
@@ -30,22 +26,22 @@ public class ProductsRESTController {
 
 
     @PostMapping("products/add/save")
-    public ProductDTO postProduct(@RequestBody ProductDTO productDTO) {
+    public Product postProduct(@RequestBody Product product) {
 
-        System.out.println(productDTO.getImage());
-        if (productDTO.getImage().equals("None")) {
-            productDTO.setImage(NO_IMAGE);
+        System.out.println(product.getImage());
+        if (product.getImage().equals("None")) {
+            product.setImage(NO_IMAGE);
         } else {
-            System.out.println(productDTO.getImage());
-            productDTO.setImage(productDTO.getImage());
+            System.out.println(product.getImage());
+            product.setImage(product.getImage());
         }
-        System.out.println(productDTO);
-        productDTO.setId(randomLong());
-        productRepository.addProduct(productDTO.getId(), productDTO.getName(), productDTO.getCategoryId(), productDTO.getTag(),
-                productDTO.getDescription(), productDTO.getImage(), productDTO.getPrice(),
-                productDTO.getAmount());
+        System.out.println(product);
+        product.setId(randomLong());
+        productRepository.addProduct(product.getId(), product.getName(), product.getCategoryId(), product.getTag(),
+                product.getDescription(), product.getImage(), product.getPrice(),
+                product.getAmount());
 
-        return productDTO;
+        return product;
     }
 
 
@@ -67,16 +63,16 @@ public class ProductsRESTController {
     }
 
     @PostMapping("products/change/{id}/update")
-    public String changeProductPost(@PathVariable("id") String id, @RequestBody ProductDTO productDTO){
+    public String changeProductPost(@PathVariable("id") String id, @RequestBody Product product){
         Product checkProduct = productRepository.getById(id);
         // Getting updated fields
-        String name = productDTO.getName();
-        Long categoryId = productDTO.getCategoryId();
-        String tag = productDTO.getTag();
-        String description = productDTO.getDescription();
-        String image = productDTO.getImage();
-        double price = productDTO.getPrice();
-        int amount = productDTO.getAmount();
+        String name = product.getName();
+        Long categoryId = product.getCategoryId();
+        String tag = product.getTag();
+        String description = product.getDescription();
+        String image = product.getImage();
+        double price = product.getPrice();
+        int amount = product.getAmount();
 
         //Checking if some of them are empty.
         //If yes, we will use existing info about product in DB
@@ -88,7 +84,7 @@ public class ProductsRESTController {
         price = price == 0.0 ? checkProduct.getPrice() : price;
         amount = amount == 0 ? checkProduct.getAmount() : amount;
 
-        // Changing data in database using productDTO
+        // Changing data in database using product
         productRepository.changeProduct(name, categoryId,tag, description,image,price,amount,id);
         return "Product changed";
     }
