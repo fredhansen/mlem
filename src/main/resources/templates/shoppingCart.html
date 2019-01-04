@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/breadcrumbs.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/shoppingCart.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/scrollbar.css}">
@@ -22,6 +23,12 @@
 
 
 <div class="cart-container">
+
+    <ul id="breadcrumbs">
+        <li><a href="" class="current">Lorem ipsum</a></li>
+        <li><a href="">Vivamus nisi eros</a></li>
+        <li><a href="">Nulla sed lorem risus</a></li>
+    </ul>
 
     <section id="cart">
         <div class="product" th:each="productInstance : ${session.cart}">

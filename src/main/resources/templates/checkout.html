@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/breadcrumbs.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/checkout.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/scrollbar.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
@@ -15,7 +16,16 @@
 <body>
 <div th:replace="fragments/nologohead :: nologohead">
 </div>
+
 <div class="checkout-container">
+
+    <div id="breadcrumbs-center">
+        <ul id="breadcrumbs">
+            <li><a href="">Lorem ipsum</a></li>
+            <li><a href="" class="current">Vivamus nisi eros</a></li>
+            <li><a href="">Nulla sed lorem risus</a></li>
+        </ul>
+    </div>
 
     <div class="row">
         <div class="col-75">
@@ -54,9 +64,9 @@
                                    <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
                                </label>-->
 
-<!--
-                            <button th:text="#{submit}"></button> todo make functional
--->
+                            <!--
+                                                        <button th:text="#{submit}"></button> todo make functional
+                            -->
                         </div>
 
                     </div>
@@ -70,7 +80,8 @@
 
                 <div th:each="productInstance : ${session.cart}">
                     <p>
-                        <a th:text="${productInstance.getKey().getName()}" th:href="'/products/detail/' + ${productInstance.getKey().getId()}"></a>
+                        <a th:text="${productInstance.getKey().getName()}"
+                           th:href="'/products/detail/' + ${productInstance.getKey().getId()}"></a>
                         <span class="price" th:text="${productInstance.getValue()} + ' x ' +
                         ${productInstance.getKey().getPrice()} + ' €'"></span>
                     </p>
