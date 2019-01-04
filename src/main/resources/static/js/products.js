@@ -78,6 +78,7 @@ function ajaxPostProduct(imageName) {
         dataType: 'html',
         success: function (data) {
             $("#getAddingStatus").text(data.trim());
+            alertAddedToCart();
             console.log(data)
         },
         error: function (e) {
@@ -111,6 +112,7 @@ function ajaxPostCategory() {
         dateType: 'html',
         success: function (data) {
             console.log(data);
+            alertCategorySubmitted();
             $("#getCategoryStatus").text(JSON.stringify(data))
         },
         error: function (e) {

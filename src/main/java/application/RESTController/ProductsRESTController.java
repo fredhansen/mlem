@@ -44,7 +44,6 @@ public class ProductsRESTController {
         return product;
     }
 
-
     @PostMapping("products/add/image/save")
     public String postImage(@ModelAttribute UploadForm form) throws IOException {
 
