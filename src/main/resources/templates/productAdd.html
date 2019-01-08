@@ -13,14 +13,15 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
 </head>
 <body>
-<div th:replace="fragments/nologohead :: nologohead" id="header"></div>
+<div th:replace="fragments/header :: header" id="header"></div>
 <div th:replace="fragments/sidebar :: sidebar" id="sidebar"></div>
 <div class="add-table">
     <table>
         <form id="uploadForm" method="POST" enctype="multipart/form-data">
             <tr>
                 <td th:text="#{add.image}"></td>
-                <td><input type="file" name="file" id="file" accept="image/*"/></td>
+                <td><input type="file" name="file" id="file" accept="image/*" multiple/></td>
+
             </tr>
             <tr>
                 <td><p id="getImageStatus"></p></td>
@@ -58,7 +59,7 @@
         </form>
         <tr>
             <td>
-                <button id="addButton" type="submit" th:text="#{add.button}" ></button>
+                <button id="addButton" type="submit" th:text="#{add.button}"></button>
             </td>
             <td>
 

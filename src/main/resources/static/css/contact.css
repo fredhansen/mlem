@@ -1,1 +1,32 @@
-#mapid{width:45vw;height:30vw;position:absolute;top:12vw;margin:.5vw 2vw 2vw;right:0}*{box-sizing:border-box}.row{margin-top:3vw;margin-left:5vw}.column{float:left;width:30%}.row:after{content:"";display:table;clear:both}
+body {
+    margin: 0;
+}
+
+#mapid {
+    width: 45vw;
+    height: 30vw;
+    position: absolute;
+    top: 7vw;
+    margin: .5vw 2vw 2vw;
+    right: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    margin-top: 3vw;
+    margin-left: 5vw;
+}
+
+.column {
+    float: left;
+    width: 30%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}

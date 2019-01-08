@@ -38,23 +38,23 @@ li a {
     left: 0;
     background-color: #efefef;
     background-color: rgba(6, 76, 139, .74);
-    z-index: 2
+    z-index: 2;
 }
 
-#footer a:hover, a:active {
-    text-decoration: underline
+#footer a:hover{
+    text-decoration: underline;
 }
 
 .search_button {
-    float: right
+    float: right;
 }
 
 .list_items:last-child {
-    margin-right: 3vw
+    margin-right: 3vw;
 }
 
 input {
-    outline: none
+    outline: none;
 }
 
 input[type=search] {

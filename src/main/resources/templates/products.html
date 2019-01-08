@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="products_container">
-    <div th:replace="fragments/nologohead :: nologohead" id="header"></div>
+    <div th:replace="fragments/header :: header" id="header"></div>
     <div th:replace="fragments/sidebar :: sidebar" id="sidebar"></div>
     <div id="products">
         <div class="products_view" th:each="product : ${products}">
