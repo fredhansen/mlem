@@ -73,7 +73,6 @@ dependencies {
 	compile group: 'info.cukes', name: 'cucumber-core', version: '1.2.5'
 	compile group: 'info.cukes', name: 'cucumber-html', version: '0.2.6'
 	testCompile group: 'info.cukes', name: 'cucumber-junit', version: '1.2.5'
-	provided group: 'info.cukes', name: 'cucumber-jvm-deps', version: '1.0.5'
 	testCompile group: 'info.cukes', name: 'cucumber-spring', version: '1.2.5'
 
 
