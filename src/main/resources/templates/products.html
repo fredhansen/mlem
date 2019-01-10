@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/products.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/scrollbar.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/snackbar.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <script th:src="@{/js/products.js}" src="/js/products.js" defer></script>
@@ -27,7 +28,9 @@
                 </a>
                 <div>
                     <p class="product-id" th:text="${product.getId()}"></p>
-                    <button class="addToCartButton" th:text="#{cart.additem}"></button>
+                    <button class="addToCartButton" th:text="#{cart.additem}" onclick="confirmAddToCart()"></button>
+                    <div id="snackbar" th:text="#{cart.addeditem}"></div>
+
                 </div>
             </div>
         </div>
@@ -45,7 +48,8 @@
                 </a>
                 <div>
                     <p class="product-id" th:text="${product.getId()}"></p>
-                    <button class="addToCartButton" th:text="#{cart.additem}"></button>
+                    <button class="addToCartButton" th:text="#{cart.additem}" onclick="confirmAddToCart()"></button>
+                    <div id="snackbar" th:text="#{cart.addeditem}"></div>
                 </div>
             </div>
         </div>

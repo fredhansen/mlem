@@ -9,6 +9,7 @@
     display: flex;
     flex-wrap: wrap;
 }
+
 .product-id {
     display: none;
 }
@@ -49,7 +50,7 @@
     margin-bottom: 0.5vw;
 }
 
-.product button:active{
+.product button:active {
     background: #295e8b;
 }
 

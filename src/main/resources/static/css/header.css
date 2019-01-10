@@ -2,6 +2,10 @@
     text-decoration: none;
 }
 
+body {
+    margin-bottom: 7vw;
+}
+
 #header body {
     padding-bottom: 7vw;
     margin: 0;
