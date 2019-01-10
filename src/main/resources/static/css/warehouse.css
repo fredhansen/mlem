@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 #searchInputBox {
     display: inline-block;
     margin-left: 7vw;

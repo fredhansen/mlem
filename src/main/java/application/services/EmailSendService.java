@@ -19,15 +19,23 @@ import java.util.*;
 @Service
 public class EmailSendService {
 
-    @Autowired
-    private UserGoogleRepository userGoogleRepository;
+    private final UserGoogleRepository userGoogleRepository;
 
-    public Long randomLong() {
+    @Autowired
+    public EmailSendService(UserGoogleRepository userGoogleRepository) {
+        this.userGoogleRepository = userGoogleRepository;
+    }
+
+    private Long randomLong() {
 
         return Math.abs(new Random().nextLong());
     }
 
-    private void sendMail(String email) throws MessagingException, IOException {
+    private String composeMessage(){
+        return null;
+    }
+
+    private void sendMail(String email, String subject, String message) throws MessagingException, IOException {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -35,21 +43,24 @@ public class EmailSendService {
         props.put("mail.smtp.port", "587");
 
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-        @Override
-        protected PasswordAuthentication getPasswordAuthentication() {
-            return new PasswordAuthentication(System.getenv("G_USERNAME"), System.getenv("G_PASSWORD")); }});
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(System.getenv("G_USERNAME"), System.getenv("G_PASSWORD"));
+            }
+        });
         Message msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress("sergei.student1@gmail.com", false));
 
         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-        msg.setSubject("Hello from Welding Group!");
-        msg.setContent("Hello !", "text/html");
+        msg.setSubject(subject);
+        msg.setContent(message, "text/html");
         msg.setSentDate(new Date());
         Transport.send(msg);
     }
 
+
     public void userDetails(Principal user) throws IOException, MessagingException {
-        if (user != null){
+        if (user != null) {
             OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) user;
             Authentication authentication = oAuth2Authentication.getUserAuthentication();
             Map<String, String> details = (Map<String, String>) authentication.getDetails();
@@ -58,9 +69,9 @@ public class EmailSendService {
             System.out.println(map.get("email"));
             // If user loggs for the first time we add him to DB
             List<Object> userGoogle = userGoogleRepository.getUserByEmail(map.get("email"));
-            if (userGoogle.isEmpty()){
+            if (userGoogle.isEmpty()) {
                 userGoogleRepository.addUser(randomLong(), map.get("email"));
-                sendMail(map.get("email"));
+                sendMail(map.get("email"), "Hello from Welding Group!", "Hello!");
             }
 
         }
