@@ -6,26 +6,27 @@ body {
     box-sizing: border-box
 }
 
-li a {
+.list_items a {
     display: block;
     float: left;
-    padding: .6% .6%
+    padding: .6% .6%;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: white;
 }
 
 .wrapper {
     min-height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-template-columns: 100%
+    grid-template-columns: 100%;
 }
 
-.list_items {
+.list_items li {
     text-align: center;
     margin-top: .1vw;
     bottom: 0;
-    font-family: "Segoe UI", sans-serif;
-    color: white;
-    list-style-type: none
+    list-style-type: none;
 }
 
 #footer {
@@ -41,7 +42,7 @@ li a {
     z-index: 2;
 }
 
-#footer a:hover{
+#footer a:hover {
     text-decoration: underline;
 }
 
