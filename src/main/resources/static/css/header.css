@@ -6,6 +6,11 @@ body {
     margin-bottom: 7vw;
 }
 
+p {
+    font-size: 16px;
+    font-size: 1.25vw;
+}
+
 
 .header a:active, .header a:hover {
     text-decoration: underline;
@@ -34,7 +39,9 @@ body {
     text-align: center;
     text-decoration: none;
     font-size: 18px;
+    font-size: 1.4vw;
     line-height: 25px;
+    line-height: 1.95vw;
     margin-right: 1vw;
     margin-bottom: -0.25vw;
 }

@@ -15,9 +15,10 @@
     display: block;
     color: #fff;
     font-size: 20px;
+    font-size: 1.56vw;
     font-weight: 300;
-    padding: 16px 0;
-    width: 290px;
+    padding: 1.25vw 0;
+    width: 22.65vw;
     text-align: center;
 
     float: right;
@@ -86,6 +87,7 @@
 .qt-plus, .qt-minus {
     border: none;
     font-size: 30px;
+    font-size: 2.3vw;
     font-weight: 300;
     height: 100%;
     padding: 0 0.5vw;

@@ -1,8 +1,7 @@
 body {
     display: flex;
-    min-height: 100vh;
     flex-direction: column;
-    margin: 0 0 7vw;
+    margin: 0;
 }
 
 #homePageText {
@@ -22,6 +21,7 @@ h3 {
 .new-products-container {
     margin-right: 5vw;
     margin-left: 5vw;
+
 }
 
 .left {
@@ -37,7 +37,11 @@ h3 {
     display: inline-flex;
     flex-direction: row;
     width: 49%;
+    height: 15vw;
     background: white;
+    margin-bottom: 7vw;
+    border: lightsteelblue solid 1px;
+
 }
 
 .new-product img {
@@ -46,6 +50,8 @@ h3 {
     margin: 0.5vw;
     width: 14vw;
     height: 14vw;
+    min-width: 14vw;
+    min-height: 14vw;
 }
 
 .new-product p {
@@ -73,29 +79,31 @@ h3 {
     position: absolute;
     top: 40%;
     width: auto;
-    padding: 16px;
+    padding: 1.25vw;
     color: white;
     font-weight: 700;
     font-size: 18px;
+    font-size: 1.4vw;
     transition: 0.6s ease;
-    border-radius: 0 3px 3px 0
+    border-radius: 0 0.2vw 0.2vw 0;
 }
 
 .next {
     right: 0;
-    border-radius: 3px 0 0 3px
+    border-radius: 0.2vw 0 0 0.2vw;
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, .8)
+    background-color: rgba(0, 0, 0, .8);
 }
 
 .text {
     color: #f2f2f2;
     font-size: 15px;
-    padding: 8px 12px;
+    font-size: 1.17vw;
+    padding: 0.625vw 0.9vw;
     position: absolute;
-    bottom: 8px;
+    bottom: 0.625vw;
     width: 100%;
     text-align: center
 }
@@ -103,27 +111,29 @@ h3 {
 .numbertext {
     color: #f2f2f2;
     font-size: 12px;
-    padding: 8px 12px;
+    font-size: 0.9vw;
+
+    padding: 0.625vw 0.9vw;
     position: absolute;
-    top: 0
+    top: 0;
 }
 
 .dots {
-    text-align: center
+    text-align: center;
 }
 
 .dot {
     cursor: pointer;
-    height: 15px;
-    width: 15px;
+    height: 1.17vw;
+    width: 1.17vw;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.6s ease
+    transition: background-color 0.6s ease;
 }
 
 .active, .dot:hover {
-    background-color: #717171
+    background-color: #717171;
 }
 
 .fade {
