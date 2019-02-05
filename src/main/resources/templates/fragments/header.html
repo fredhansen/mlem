@@ -21,15 +21,17 @@ wrapper,slitting,printing,rewinding,material,PPE,nylon"/>
     <header>
         <div class="header">
             <a href="/"><img id="logo" th:src="@{/img/Welding_logo1.png}" alt="logo"></a>
+
             <div class="header-right">
                 <a href="/" class="current" th:text="#{home_page}" id="homePage"></a>
                 <a href="/products" th:text="#{products_page}" id="productsPage"></a>
                 <a href="/contact" th:text="#{contact_page}"></a>
                 <a href="/cart" th:text="#{cart_page}"></a>
-                <a href="/login" class="googleplus" id="loginPageGoogle"> Google+</a>
                 <a href="/logout" th:if="${user}" th:text="#{logout}" id="logout"></a>
-                <a id="est" href="/?lang=et" th:text="#{lang.et}"></a>
-                <a id="eng" href="/?lang=en" th:text="#{lang.en}"></a>
+                <a href="/login" th:unless="${user}" id="loginPageGoogle"><img class="googleplus" th:src="@{/img/gplus-32.png}"
+                                                           alt="Google+"></a>
+                <a id="est" href="/?lang=et"><img id="lang" th:src="@{/img/estonia.svg}" alt="Eesti keel"></a>
+                <a id="eng" href="/?lang=en"><img id="lang" th:src="@{/img/united-kingdom.svg}" alt="English"></a>
 
 
                 <!--<li><a href="/services" th:text="#{services_page}"></a></li>
@@ -45,7 +47,6 @@ wrapper,slitting,printing,rewinding,material,PPE,nylon"/>
                     <button type="submit" th:text="#{search_button}"></button>
                 </form>
                 -->
-
             </div>
 
         </div>
