@@ -19,69 +19,75 @@
 
 </head>
 <body>
+
 <div th:replace="fragments/header :: header"></div>
 
 
 <div class="cart-container">
 
-    <div id="breadcrumbs-center">
-        <ul id="breadcrumbs">
-            <li><a href="" class="current">Lorem ipsum</a></li>
-            <li><a href="">Vivamus nisi eros</a></li>
-            <li><a href="">Nulla sed lorem risus</a></li>
-        </ul>
-    </div>
+    <!--<div class="empty center"><i class="fa fa-shopping-cart fa-lg"></i>
+        <h3>Siin pole midagi blablabla</h3></div> -->
 
-    <section id="cart">
-        <div class="product" th:each="productInstance : ${session.cart}">
-            <header>
-                <a class="remove">
-                    <img th:src="@{${productInstance.getKey().getImage()}}" th:alt="#{product.alt}">
-                    <h3 th:text="#{cart.removeitem}"></h3>
-                </a>
-            </header>
+    <div id="full">
 
-            <div class="cart-item">
+        <div id="breadcrumbs-center">
+            <ul id="breadcrumbs">
+                <li><a href="" class="current">Lorem ipsum</a></li>
+                <li><a href="">Vivamus nisi eros</a></li>
+                <li><a href="">Nulla sed lorem risus</a></li>
+            </ul>
+        </div>
 
-                <i class="fa fa-close top-right remove"></i>
+        <section id="cart">
+            <div class="product" th:each="productInstance : ${session.cart}">
+                <header>
+                    <a class="remove">
+                        <img th:src="@{${productInstance.getKey().getImage()}}" th:alt="#{product.alt}">
+                        <h3 th:text="#{cart.removeitem}"></h3>
+                    </a>
+                </header>
 
-                <h1 th:text="${productInstance.getKey().getName()}"></h1>
+                <div class="cart-item">
 
-                <p th:text="${productInstance.getKey().getDescription()}"></p>
+                    <i class="fa fa-close top-right remove"></i>
 
+                    <h1 th:text="${productInstance.getKey().getName()}"></h1>
+
+                    <p th:text="${productInstance.getKey().getDescription()}"></p>
+
+                </div>
+
+                <footer class="cart-item forID">
+                    <span class="qt-minus">-</span>
+                    <span class="qt" id="cart-qt" th:text="${productInstance.getValue()}"></span>
+                    <span class="qt-plus">+</span>
+
+                    <p id="pr-id" th:text="${productInstance.getKey().getId()}"></p>
+
+                    <h2 class="full-price" th:text="${productInstance.getKey().getPrice()}">€
+                    </h2>
+
+                    <h2 class="unit-price" th:text="${productInstance.getKey().getPrice()}">€
+                    </h2>
+                </footer>
+            </div>
+        </section>
+
+
+        <div class="cart-container clearfix">
+
+            <div class="left">
+                <h2 class="subtotal"><a th:text="#{cart.subtotal}"></a> <span></span>€</h2>
+                <h3 class="shipping"><a th:text="#{cart.shipping}"></a> <span></span>€</h3>
             </div>
 
-            <footer class="cart-item forID">
-                <span class="qt-minus">-</span>
-                <span class="qt" id="cart-qt" th:text="${productInstance.getValue()}"></span>
-                <span class="qt-plus">+</span>
+            <div class="right">
+                <h1 class="total"><a th:text="#{cart.total}"></a> <span></span>€</h1>
+                <a class="btn" th:text="#{cart.checkout}" href="/cart/checkout/"></a><!---->
+            </div>
 
-                <p id="pr-id" th:text="${productInstance.getKey().getId()}"></p>
-
-                <h2 class="full-price" th:text="${productInstance.getKey().getPrice()}">€
-                </h2>
-
-                <h2 class="unit-price" th:text="${productInstance.getKey().getPrice()}">€
-                </h2>
-            </footer>
         </div>
-    </section>
-
-
-    <div class="cart-container clearfix">
-
-        <div class="left">
-            <h2 class="subtotal"><a th:text="#{cart.subtotal}"></a> <span></span>€</h2>
-            <h3 class="shipping"><a th:text="#{cart.shipping}"></a> <span></span>€</h3>
-        </div>
-
-        <div class="right">
-            <h1 class="total"><a th:text="#{cart.total}"></a> <span></span>€</h1>
-            <a class="btn" th:text="#{cart.checkout}" href="/cart/checkout/"></a><!---->
-        </div>
-
     </div>
-
 </div>
 <div th:replace="fragments/footer :: footer"></div>
 
